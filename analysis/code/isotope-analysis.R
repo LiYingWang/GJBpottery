@@ -1,6 +1,6 @@
 library(tidyverse)
 isotope_data <-
-  readxl::read_excel(here::here("Data", "12_21_potshard_13C.xlsx"),
+  readxl::read_excel(here::here("analysis","data", "raw_data","12_21_potshard_13C.xlsx"),
                      sheet = "Summary", col_names =  FALSE)
 
 # filter the blank corrected data
@@ -32,7 +32,7 @@ delta_meth_cor <-
   dplyr::mutate(across(starts_with("13C"), as.numeric))
 
 # import a SVG for later ggplot overlaying with ellipses
-tem <- rsvg::rsvg(here::here("carbon-isotope-ellipses-template.svg"))
+tem <- rsvg::rsvg(here::here("analysis", "figures","carbon-isotope-ellipses-template.svg"))
 png::writePNG(tem, "tem.png", dpi =300)
 browseURL("tem.png") # take a look
 
