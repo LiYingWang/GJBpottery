@@ -8,7 +8,7 @@
    version="1.1"
    id="svg5"
    inkscape:version="1.1.2 (b8e25be8, 2022-02-05)"
-   sodipodi:docname="C13.svg"
+   sodipodi:docname="C16-18-ellipse.svg"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -146,31 +146,31 @@
            inkscape:connector-curvature="0" />
         <text
            xml:space="preserve"
-           style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-           x="548.87671"
-           y="-134.24394"
+           style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#333333;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+           x="561.37628"
+           y="-132.6786"
            id="text3337"><tspan
              sodipodi:role="line"
              id="tspan3339"
-             x="548.87671"
-             y="-134.24394"
-             style="font-size:25px;line-height:1.25">C4 plant oil</tspan><tspan
+             x="561.37628"
+             y="-132.6786"
+             style="font-size:25px;line-height:1.25;fill:#333333">C4 plant oil</tspan><tspan
              sodipodi:role="line"
-             x="548.87671"
-             y="-102.99394"
-             style="font-size:25px;line-height:1.25"
+             x="561.37628"
+             y="-101.4286"
+             style="font-size:25px;line-height:1.25;fill:#333333"
              id="tspan14205">Marine </tspan></text>
         <ellipse
-           style="fill:none;fill-opacity:1;stroke:#ff00ff;stroke-width:2.0048;stroke-miterlimit:4;stroke-dasharray:none"
+           style="fill:none;fill-opacity:1;stroke:#ff00ff;stroke-width:2.00423;stroke-miterlimit:4;stroke-dasharray:none"
            id="path3335-4"
-           transform="matrix(0.57624136,-0.81727957,0.7570711,0.65333249,0,0)"
-           ry="25.95792"
-           rx="90.423874"
-           cy="417.47586"
-           cx="342.55014" />
+           transform="matrix(0.51282189,-0.85849502,0.8078253,0.589422,0,0)"
+           ry="25.719965"
+           rx="91.208534"
+           cy="437.6546"
+           cx="311.80804" />
         <text
            xml:space="preserve"
-           style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+           style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#333333;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
            x="387.72446"
            y="-21.99597"
            id="text3337-2"><tspan
@@ -178,7 +178,7 @@
              id="tspan3339-5"
              x="387.72446"
              y="-21.99597"
-             style="font-size:25px;line-height:1.25">Porcine</tspan></text>
+             style="font-size:25px;line-height:1.25;fill:#333333">Porcine</tspan></text>
         <ellipse
            style="fill:none;fill-opacity:1;stroke:#ff6600;stroke-width:2.26166;stroke-miterlimit:4;stroke-dasharray:none"
            id="path3335-4-5"
@@ -189,15 +189,15 @@
            cx="-117.59451" />
         <text
            xml:space="preserve"
-           style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-           x="518.85004"
-           y="97.946106"
+           style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#333333;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+           x="514.38947"
+           y="123.08324"
            id="text3337-2-6"><tspan
              sodipodi:role="line"
              id="tspan3339-5-5"
-             x="518.85004"
-             y="97.946106"
-             style="font-size:25px;line-height:1.25">C3 plant oil</tspan></text>
+             x="514.38947"
+             y="123.08324"
+             style="font-size:25px;line-height:1.25;fill:#333333">C3 plant oil</tspan></text>
         <ellipse
            style="fill:none;fill-opacity:1;stroke:#00d400;stroke-width:2.4184;stroke-miterlimit:4;stroke-dasharray:none"
            id="path3335-4-5-6"
@@ -218,19 +218,19 @@
            cx="-36.202908" />
         <text
            xml:space="preserve"
-           style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-           x="250.03331"
+           style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#333333;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+           x="247.80301"
            y="204.86812"
            id="text3337-2-6-8"><tspan
              sodipodi:role="line"
              id="tspan3339-5-5-2"
-             x="250.03331"
+             x="247.80301"
              y="204.86812"
-             style="font-size:25px;line-height:1.25">Ruminant</tspan><tspan
+             style="font-size:25px;line-height:1.25;fill:#333333">Ruminant</tspan><tspan
              sodipodi:role="line"
-             x="250.03331"
+             x="247.80301"
              y="236.11812"
-             style="font-size:25px;line-height:1.25"
+             style="font-size:25px;line-height:1.25;fill:#333333"
              id="tspan4265">adipose</tspan></text>
         <ellipse
            style="fill:none;fill-opacity:1;stroke:#d3bc5f;stroke-width:2.43437;stroke-miterlimit:4;stroke-dasharray:none"
@@ -242,19 +242,19 @@
            cx="531.13904" />
         <text
            xml:space="preserve"
-           style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-           x="443.13766"
-           y="310.18777"
+           style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#333333;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+           x="445.36795"
+           y="320.24258"
            id="text3337-2-6-8-5"><tspan
              sodipodi:role="line"
              id="tspan3339-5-5-2-2"
-             x="443.13766"
-             y="310.18777"
-             style="font-size:25px;line-height:1.25">Ruminant</tspan><tspan
+             x="445.36795"
+             y="320.24258"
+             style="font-size:25px;line-height:1.25;fill:#333333">Ruminant</tspan><tspan
              sodipodi:role="line"
-             x="443.13766"
-             y="341.43777"
-             style="font-size:25px;line-height:1.25"
+             x="445.36795"
+             y="351.49258"
+             style="font-size:25px;line-height:1.25;fill:#333333"
              id="tspan4265-9">milk</tspan></text>
         <text
            xml:space="preserve"
@@ -379,7 +379,7 @@
            inkscape:connector-curvature="0" />
         <text
            xml:space="preserve"
-           style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+           style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#333333;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
            x="273.88541"
            y="94.092606"
            id="text3337-2-6-8-6"><tspan
@@ -387,15 +387,15 @@
              id="tspan3339-5-5-2-7"
              x="273.88541"
              y="94.092606"
-             style="font-size:25px;line-height:1.25">Equine</tspan><tspan
+             style="font-size:25px;line-height:1.25;fill:#333333">Equine</tspan><tspan
              sodipodi:role="line"
              x="273.88541"
              y="125.34261"
-             style="font-size:25px;line-height:1.25"
+             style="font-size:25px;line-height:1.25;fill:#333333"
              id="tspan4265-1">adipose</tspan></text>
         <path
-           style="fill:none;stroke:#000000;stroke-width:2.5818;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#Arrow2Mstart)"
-           d="m 656.56164,-99.436062 -41.54488,34.825278"
+           style="fill:#414141;stroke:#3d3d3d;stroke-width:2.5818;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#Arrow2Mstart);fill-opacity:1"
+           d="m 627.89932,-76.579118 -33.83471,44.17114"
            id="path290" />
       </g>
       <g
