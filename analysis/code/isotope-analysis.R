@@ -33,10 +33,11 @@ delta_meth_cor <-
 
 # import a SVG for later ggplot overlaying with ellipses
 tem <- rsvg::rsvg(here::here("analysis", "figures","carbon-isotope-ellipses-template.svg"))
-png::writePNG(tem, "tem.png", dpi =300)
-browseURL("tem.png") # take a look
+tem2 <- rsvg::rsvg(here::here("analysis", "figures","C16-18-ellipse.svg"))
+png::writePNG(tem2, "tem2.png", dpi =300)
+browseURL("tem2.png") # take a look
 
-# plot C16 and C18
+# plot Carbon isotopes of 16 and C18
 ggplot(delta_blank_cor, # delta_meth_cor or delta_blank_cor
        aes(`13C C16:0`,`13C C18:0`)) +
   geom_point(size = 1, alpha = 0.9) +
@@ -57,3 +58,17 @@ ggsave(here::here("delta_C16_C18.png"),
        dpi = 300,
        units = "in")
 
+# plot Carbon isotopes of 16 and C18 using a different reference figure
+ggplot(delta_blank_cor, # delta_meth_cor or delta_blank_cor
+       aes(`13C C16:0`,`13C C18:0`)) +
+  geom_point(size = 1, alpha = 0.9, color = "red") +
+  ggrepel::geom_text_repel(aes(label = C13)) +
+  theme_minimal(base_size = 14) +
+  labs(x = bquote(delta*{}^13*"C 16:0 \u2030"),
+       y = bquote(delta*{}^13*"C 18:0 \u2030")) +
+  xlim(-40,-20) +
+  ylim(-40,-20) +
+  coord_fixed(ratio=1) +
+  #scale_colour_viridis_d(direction = -1) +
+  annotation_raster(tem2, ymin = -45.1, ymax= -15.1 ,
+                    xmin = -45.55, xmax = -15.55)
