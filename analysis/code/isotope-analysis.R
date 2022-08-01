@@ -53,8 +53,9 @@ ggplot(delta_blank_cor, # delta_meth_cor or delta_blank_cor
                     xmin = -44.5 , xmax = -5.65)
 
 # plot Carbon isotopes of 16 and C18 using a different reference figure
-ggplot(delta_blank_cor, # delta_meth_cor or delta_blank_cor
-       aes(`13C C16:0`,`13C C18:0`)) +
+delta_blank_cor %>% # delta_meth_cor or delta_blank_cor
+  filter(!C13 == "Pot 6") %>% # remove pot from CDG
+  ggplot(aes(`13C C16:0`,`13C C18:0`)) +
   geom_point(size = 2, alpha = 0.9, color = "red") +
   ggrepel::geom_text_repel(aes(label = C13), size = 5) +
   theme_minimal(base_size = 14) +
@@ -67,7 +68,7 @@ ggplot(delta_blank_cor, # delta_meth_cor or delta_blank_cor
   annotation_raster(tem2, ymin = -45.1, ymax= -15.1 ,
                     xmin = -45.55, xmax = -15.55)
 
-ggsave(here::here("delta_C16_C18.png"),
+ggsave(here::here("delta_C16_C18_remove_pot6.png"),
        width = 8,
        height = 8,
        dpi = 300,
