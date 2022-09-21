@@ -37,7 +37,7 @@ tem2 <- rsvg::rsvg(here::here("analysis", "figures","C16-18-ellipse.svg"))
 png::writePNG(tem2, "tem2.png", dpi =300)
 browseURL("tem2.png") # take a look
 
-# plot Carbon isotopes of 16 and C18
+# plot carbon isotopes of 16 and C18
 ggplot(delta_blank_cor, # delta_meth_cor or delta_blank_cor
        aes(`13C C16:0`,`13C C18:0`)) +
   geom_point(size = 1, alpha = 0.9) +
@@ -52,7 +52,7 @@ ggplot(delta_blank_cor, # delta_meth_cor or delta_blank_cor
   annotation_raster(tem, ymin = -42.8, ymax= -8 ,
                     xmin = -44.5 , xmax = -5.65)
 
-# plot Carbon isotopes of 16 and C18 using a different reference figure
+# plot carbon isotopes of 16 and C18 using a different reference figure
 delta_blank_cor %>% # delta_meth_cor or delta_blank_cor
   filter(!C13 == "Pot 6") %>% # remove pot from CDG
   ggplot(aes(`13C C16:0`,`13C C18:0`)) +
@@ -73,3 +73,24 @@ ggsave(here::here("delta_C16_C18_remove_pot6.png"),
        height = 8,
        dpi = 300,
        units = "in")
+
+# plot carbon isotopes of 16 and C18 by following Salque et al. (2013)
+ggplot(delta_blank_cor, # delta_meth_cor or delta_blank_cor
+       aes(`13C C16:0`,`13C C18:0`)) +
+  geom_point(size = 1, alpha = 0.9) +
+  ggrepel::geom_text_repel(aes(label = C13)) +
+  theme_minimal(base_size = 14) +
+  labs(x = bquote(delta*{}^13*"C 16:0 \u2030"),
+       y = bquote(delta*{}^13*"C 18:0 \u2030")) +
+  xlim(-35,-20) +
+  ylim(-35,-20) +
+  coord_fixed(ratio = 1) +
+  geom_abline(intercept = -0.3, slope = 1, linetype = "dashed") +
+  geom_abline(intercept = -3.1, linetype = "dashed") +
+  annotate("text", x = -22, y = -22, angle = 45, vjust = 1.5,
+           label = bquote(Delta*{}^13*"C = -0.3 \u2030")) +
+  annotate("text", x = -22, y = -25, angle = 45, vjust = 1.5,
+           label = bquote(Delta*{}^13*"C = -3.1 \u2030"))
+
+
+
