@@ -15,7 +15,8 @@ names(delta_blank_cor) <- delta_blank_cor[1,]
 delta_blank_cor <-
   delta_blank_cor %>%
   slice(2:7) %>%
-  dplyr::mutate(across(starts_with("13C"), as.numeric))
+  dplyr::mutate(across(starts_with("13C"), as.numeric)) %>%
+  dplyr::mutate(delta = `13C C18:0`-`13C C16:0`)
 
 # filter the Meth corrected data
 delta_meth_cor <-
@@ -29,7 +30,8 @@ names(delta_meth_cor) <- delta_meth_cor[1,]
 delta_meth_cor <-
   delta_meth_cor %>%
   slice(2:7) %>%
-  dplyr::mutate(across(starts_with("13C"), as.numeric))
+  dplyr::mutate(across(starts_with("13C"), as.numeric)) %>%
+  dplyr::mutate(delta = `13C C18:0`-`13C C16:0`)
 
 # import a SVG for later ggplot overlaying with ellipses
 tem <- rsvg::rsvg(here::here("analysis", "figures","carbon-isotope-ellipses-template.svg"))
@@ -74,8 +76,9 @@ ggsave(here::here("delta_C16_C18_remove_pot6.png"),
        dpi = 300,
        units = "in")
 
-# plot carbon isotopes of 16 and C18 by following Salque et al. (2013)
-ggplot(delta_blank_cor, # delta_meth_cor or delta_blank_cor
+# plot the carbon isotopes by following the method in Salque et al. (2013)
+isotope_C16_C18 <-
+  ggplot(delta_meth_cor, # delta_meth_cor or delta_blank_cor
        aes(`13C C16:0`,`13C C18:0`)) +
   geom_point(size = 1, alpha = 0.9) +
   ggrepel::geom_text_repel(aes(label = C13)) +
@@ -85,12 +88,23 @@ ggplot(delta_blank_cor, # delta_meth_cor or delta_blank_cor
   xlim(-35,-20) +
   ylim(-35,-20) +
   coord_fixed(ratio = 1) +
-  geom_abline(intercept = -0.3, slope = 1, linetype = "dashed") +
+  geom_abline(intercept = -0.3, linetype = "dashed") +
   geom_abline(intercept = -3.1, linetype = "dashed") +
   annotate("text", x = -22, y = -22, angle = 45, vjust = 1.5,
            label = bquote(Delta*{}^13*"C = -0.3 \u2030")) +
   annotate("text", x = -22, y = -25, angle = 45, vjust = 1.5,
            label = bquote(Delta*{}^13*"C = -3.1 \u2030"))
 
-
-
+big_delta_C16 <-
+  ggplot(delta_meth_cor, # delta_meth_cor or delta_blank_cor
+       aes(`13C C16:0`, delta)) +
+  geom_point(size = 1, alpha = 0.9) +
+  ggrepel::geom_text_repel(aes(label = C13)) +
+  theme_minimal() +
+  labs(x = bquote(delta*{}^13*"C 16:0 \u2030"),
+       y = bquote(Delta*{}^13*"C 18:0 \u2030")) +
+  xlim(-35,-20) +
+  ylim(-3, 3) +
+  geom_hline(yintercept = -0.3, linetype = "dashed") +
+  annotate("text", x = -22, y = -0.5,
+           label = bquote(Delta*{}^13*"C = -0.3 \u2030"))
