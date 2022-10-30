@@ -21,9 +21,9 @@ world_points <- cbind(world, st_coordinates(st_point_on_surface(world$geometry))
 
 # add site location
 site_location <-
-  data.frame(location = c("Guijuabao"),
-             lon = c(101.3617),
-             lat = c(27.2657))
+  data.frame(location = c("Guijuabao", "Chengdu"),
+             lon = c(101.3617, 104.0587),
+             lat = c(27.2657, 30.5899))
 
 China_SE_Asia <-
   ggplot(data = world) +
