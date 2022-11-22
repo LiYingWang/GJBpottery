@@ -58,8 +58,6 @@ highlight_IS <-
   mutate(retention = round(Path, 1)) %>%
   group_by(sample, retention) %>%
   arrange(desc(File)) %>%
-  #mutate(retention = ifelse(Sample %in% c("45 cm", "95 cm", "145 cm")& retention == 47.2,
-  #                         47.3, retention)) %>%
   distinct(retention, .keep_all = TRUE) %>%
   mutate(FA = case_when(
     retention == 33.9 ~ "IS",
@@ -67,73 +65,70 @@ highlight_IS <-
   filter(name %in% c("SYG-3", "SYG-TN13-E22-2#1", "SYG-TN13-E22-1", "SYG-TN13-E23-3"))
 
 # highlight the compounds in the potsherd with high concentration
-highlight_GJB_5 <-
+highlight_SYG2_2 <-
   meth_all %>%
   mutate(retention = round(Path, 1)) %>%
   group_by(sample, retention) %>%
   arrange(desc(File)) %>%
-  #mutate(retention = ifelse(Sample %in% c("45 cm", "95 cm", "145 cm")& retention == 47.2,
-  #                         47.3, retention)) %>%
   distinct(retention, .keep_all = TRUE) %>%
   mutate(FA = case_when(
     retention == 21.6 ~ "C14:0",
     retention == 25.5 ~ "C16:0",
     retention == 27.3 ~ "C17:0",
+    retention == 28.4 ~ "C18:1",
     retention == 29.1 ~ "C18:0",
     retention == 32.4 ~ "C20:0",
     retention == 35.4 ~ "C22:0",
     retention == 38.2 ~ "C24:0",
     retention == 33.9 ~ "IS",
     retention == 41.3 ~ "IS")) %>%
-  filter(name == "Pot 5")
+  filter(name == "SYG-TN13-E22-2#2")
 
 # plot the first four
 meth_all %>%
   filter(name %in% c("SYG-3", "SYG-TN13-E22-2#1", "SYG-TN13-E22-1", "SYG-TN13-E23-3")) %>%
-  mutate(File = ifelse(File > 600000, 600000, File)) %>%
+  mutate(File = ifelse(File > 550000, 550000, File)) %>%
   ggplot(aes(Path, File)) +
   geom_line(size = 0.3) +
   geom_text(data = highlight_GJB_four, #ggrepel::geom_text_repel
             aes(label = FA, angle = 90),
             size = 3,
-            nudge_y = 85000,
+            nudge_y = 87000,
             show.legend = FALSE) +
   geom_text(data = highlight_IS,
             aes(label = FA),
             size = 3,
             nudge_y = 40000,
             show.legend = FALSE) +
-  geom_segment(aes(x= 41.1, xend= 41.5, y= 600000, yend= 600000), size =0.3) +
-  geom_segment(aes(x= 41.1, xend= 41.5, y= 610000, yend= 610000), size =0.3) +
-  annotate("text", x = 41.3, y = 650000, label = "IS", size =3) +
+  geom_segment(aes(x= 41.1, xend= 41.5, y= 550000, yend= 550000), size =0.3) +
+  geom_segment(aes(x= 41.1, xend= 41.5, y= 560000, yend= 560000), size =0.3) +
+  annotate("text", x = 41.3, y = 600000, label = "IS", size =3) +
   facet_wrap(~name, ncol = 1) +
   scale_y_continuous(labels = scales::comma_format(),
-                     limits = c(0, 650000),
-                     breaks = seq(0, 650000, 200000)) +
+                     limits = c(0, 600000),
+                     breaks = seq(0, 600000, 200000)) +
   scale_x_continuous(limits = c(20, 45),
                      expand = c(0, 0.5)) + # don't log, many peaks and distort real counts
-  labs(x = "retention time", y = "intensity") +
+  labs(x = "retention time", y = "Relative Intensity") +
   theme_minimal()
 
-ggsave(here::here("analysis","figures", "GC_FID_meth_four.png"),
+ggsave(here::here("analysis","figures", "chromatograms_four.png"),
        width = 8,
        height = 8,
        dpi = 360,
        units = "in")
 
-# plot the last one
+# plot the one with more compounds
 meth_all %>%
-  filter(name == "Pot 5") %>%
-  filter(between(Path, 15, 50)) %>%
+  filter(name == "SYG-TN13-E22-2#2") %>%
   ggplot(aes(Path, File)) +
   geom_line(size = 0.3) +
-  geom_text(data = highlight_S5, #ggrepel::geom_text_repel
+  geom_text(data = highlight_SYG2_2, #ggrepel::geom_text_repel
             aes(label = FA),
             size = 3,
             nudge_x = 0,
             nudge_y = 250000,
             show.legend = FALSE) +
-  facet_wrap(~name, ncol = 1) +
   scale_y_continuous(labels = scales::comma_format(),
                      limits = c(0, 7500000),
                      breaks = seq(0, 7500000, 1000000)) +
@@ -141,9 +136,9 @@ meth_all %>%
                      expand = c(0, 0.5)) + # don't log, many peaks and distort real counts
   theme_minimal()
 
-ggsave(here::here("analysis","figures", "GC_FID_meth_all.png"),
-       width = 12,
-       height = 8,
+ggsave(here::here("analysis","figures", "chromatograms_specific.png"),
+       width = 8,
+       height = 6,
        dpi = 360,
        units = "in")
 
