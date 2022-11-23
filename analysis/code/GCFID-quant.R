@@ -77,11 +77,14 @@ highlight_SYG2_2 <-
     retention == 27.3 ~ "C17:0",
     retention == 28.4 ~ "C18:1",
     retention == 29.1 ~ "C18:0",
+    retention == 31.0 ~ "C19:0",
     retention == 32.4 ~ "C20:0",
     retention == 35.4 ~ "C22:0",
     retention == 38.2 ~ "C24:0",
+    retention == 40.9 ~ "C26:0",
     retention == 33.9 ~ "IS",
-    retention == 41.3 ~ "IS")) %>%
+    retention == 41.3 ~ "IS",
+    retention == 47.8 ~ "C:32",)) %>%
   filter(name == "SYG-TN13-E22-2#2")
 
 # plot the first four
