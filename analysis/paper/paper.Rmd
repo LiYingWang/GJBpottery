@@ -50,6 +50,8 @@ knitr::opts_chunk$set(
   comment = "#>",
   fig.path = "../figures/",
   dpi = 300)
+
+image_width_1_col_inch = 90/25.4 # image Single column	w = 90 mm 
 ```
 
 # Introduction
@@ -82,7 +84,7 @@ The remaining 95% aliquot was fractioned by solid phase extraction (Aminopropyl,
 
 # Results
 
-```{r tidy data}
+```{r tidy-data}
 library(tidyverse)
 
 # load the GC data
@@ -116,6 +118,105 @@ meth_all <-
                                         "SYG-TN13-E23-3",
                                         "SYG-3",
                                         "CDG-062")))
+```
+
+```{r highlight-compounds}
+# highlight target compounds
+highlight_GJB_four <-
+  meth_all %>%
+  mutate(retention = round(Path, 1)) %>%
+  group_by(sample, retention) %>%
+  arrange(desc(File)) %>%
+  distinct(retention, .keep_all = TRUE) %>%
+  mutate(FA = case_when(
+    retention == 21.6 ~ "C14:0",
+    retention == 23.6 ~ "C15:0",
+    retention == 25.5 ~ "C16:0",
+    retention == 27.3 ~ "C17:0",
+    retention == 28.4 ~ "C18:1",
+    retention == 29.1 ~ "C18:0",
+    retention == 32.4 ~ "C20:0",
+    retention == 35.4 ~ "C22:0")) %>%
+  filter(name %in% c("SYG-3", "SYG-TN13-E22-2#1", "SYG-TN13-E22-1", "SYG-TN13-E23-3")) %>%
+  filter(File > 100000)
+
+highlight_IS <-
+  meth_all %>%
+  mutate(retention = round(Path, 1)) %>%
+  group_by(sample, retention) %>%
+  arrange(desc(File)) %>%
+  distinct(retention, .keep_all = TRUE) %>%
+  mutate(FA = case_when(
+    retention == 33.9 ~ "IS",
+    retention == 41.3 ~ "IS")) %>%
+  filter(name %in% c("SYG-3", "SYG-TN13-E22-2#1", "SYG-TN13-E22-1", "SYG-TN13-E23-3"))
+
+# highlight the compounds in the potsherd with high concentration
+highlight_SYG2_2 <-
+  meth_all %>%
+  mutate(retention = round(Path, 1)) %>%
+  group_by(sample, retention) %>%
+  arrange(desc(File)) %>%
+  distinct(retention, .keep_all = TRUE) %>%
+  mutate(FA = case_when(
+    retention == 21.6 ~ "C14:0",
+    retention == 25.5 ~ "C16:0",
+    retention == 27.3 ~ "C17:0",
+    retention == 28.4 ~ "C18:1",
+    retention == 29.1 ~ "C18:0",
+    retention == 31.0 ~ "C19:0",
+    retention == 32.4 ~ "C20:0",
+    retention == 35.4 ~ "C22:0",
+    retention == 36.8 ~ "C23:0",
+    retention == 38.2 ~ "C24:0",
+    retention == 40.9 ~ "C26:0",
+    retention == 33.9 ~ "IS",
+    retention == 41.3 ~ "IS",
+    retention == 45.6 ~ "C:30",
+    retention == 47.8 ~ "C:32")) %>%
+  filter(name == "SYG-TN13-E22-2#2")
+```
+
+```{r chromatogram-four}
+# plot the first four
+chroma_four <-
+  meth_all %>%
+  filter(name %in% c("SYG-3", "SYG-TN13-E22-2#1", "SYG-TN13-E22-1", "SYG-TN13-E23-3")) %>%
+  mutate(File = ifelse(File > 550000, 550000, File)) %>%
+  ggplot(aes(Path, File)) +
+  geom_line(size = 0.3) +
+  geom_text(data = highlight_GJB_four, #ggrepel::geom_text_repel
+            aes(label = FA, angle = 90),
+            size = 3,
+            nudge_y = 87000,
+            show.legend = FALSE) +
+  geom_text(data = highlight_IS,
+            aes(label = FA),
+            size = 3,
+            nudge_y = 40000,
+            show.legend = FALSE) +
+  geom_segment(aes(x= 41.1, xend= 41.5, y= 550000, yend= 550000), size =0.3) +
+  geom_segment(aes(x= 41.1, xend= 41.5, y= 560000, yend= 560000), size =0.3) +
+  annotate("text", x = 41.3, y = 600000, label = "IS", size =3) +
+  facet_wrap(~name, ncol = 1) +
+  scale_y_continuous(labels = scales::comma_format(),
+                     limits = c(0, 600000),
+                     breaks = seq(0, 600000, 200000)) +
+  scale_x_continuous(limits = c(20, 45),
+                     expand = c(0, 0.5)) + # don't log, many peaks and distort real counts
+  labs(x = "retention time", y = "Relative Intensity") +
+  theme_minimal()
+
+ggsave(plot = chroma_four,
+       here::here("analysis","figures", "chromatograms_four.png"),
+       width = 8,
+       height = 8,
+       dpi = 300,
+       units = "in")
+```
+
+```{r chromatograms-plots-four, echo=FALSE, fig.cap= "chromatograms"}
+knitr::include_graphics(here::here("analysis/figures/chromatograms_four.png"))
 ```
 
 Lipid residues from our samples show that the saturated fatty acids with even number of carbons (C14:0, C16:0, and C18:0), particularly palmitic (C16:0) and stearic(C18:0), are the dominant compounds. Because palmitic and stearic fatty acids are normally degraded from animal fat or plant wax, the domination pattern with little concentration of other fatty acids suggests the organic compounds in our samples were highly degraded during post depositional processes. However, there is one sample contains rich compounds that include long-chain fatty acids, C20, C22, and C24, which were absent in other samples. This might indicate 
