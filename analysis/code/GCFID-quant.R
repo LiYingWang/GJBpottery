@@ -1,9 +1,9 @@
 library(tidyverse)
 
-# GC-FID results after methyl
+# load the GC data
 meth <- read_csv(here::here("analysis/data/raw_data/LY_21_08_20_pot_chrom.CSV"))
 
-# tidy meth
+# tidy data
 ixd <- which(str_detect(meth$Path, "C"))
 meths <- split(meth, cumsum(1:nrow(meth) %in% ixd))
 meth_data <- meths[c(FALSE, TRUE)]
@@ -13,7 +13,7 @@ names(meth_name) <-map(meth_name, ~.x$Sample[1])
 meths <- map_df(meth_data, ~.x[-1, ] %>%
                    mutate_all(as.numeric), .id = 'sample')
 
-# join two datasets and get sample number
+# assign sample name
 meth_all <-
   meths %>%
   mutate(sample = paste0(parse_number(sample),
@@ -80,11 +80,13 @@ highlight_SYG2_2 <-
     retention == 31.0 ~ "C19:0",
     retention == 32.4 ~ "C20:0",
     retention == 35.4 ~ "C22:0",
+    retention == 36.8 ~ "C23:0",
     retention == 38.2 ~ "C24:0",
     retention == 40.9 ~ "C26:0",
     retention == 33.9 ~ "IS",
     retention == 41.3 ~ "IS",
-    retention == 47.8 ~ "C:32",)) %>%
+    retention == 45.6 ~ "C:30",
+    retention == 47.8 ~ "C:32")) %>%
   filter(name == "SYG-TN13-E22-2#2")
 
 # plot the first four
@@ -129,14 +131,14 @@ meth_all %>%
   geom_text(data = highlight_SYG2_2, #ggrepel::geom_text_repel
             aes(label = FA),
             size = 3,
-            nudge_x = 0,
             nudge_y = 250000,
             show.legend = FALSE) +
   scale_y_continuous(labels = scales::comma_format(),
                      limits = c(0, 7500000),
                      breaks = seq(0, 7500000, 1000000)) +
-  scale_x_continuous(limits = c(15, 50),
+  scale_x_continuous(limits = c(20, 50),
                      expand = c(0, 0.5)) + # don't log, many peaks and distort real counts
+  labs(x = "retention time", y = "Relative Intensity") +
   theme_minimal()
 
 ggsave(here::here("analysis","figures", "chromatograms_specific.png"),
