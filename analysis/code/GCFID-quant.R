@@ -112,20 +112,24 @@ meth_all %>%
   scale_y_continuous(labels = scales::comma_format(),
                      limits = c(0, 600000),
                      breaks = seq(0, 600000, 200000)) +
-  scale_x_continuous(limits = c(20, 45),
+  scale_x_continuous(limits = c(20, 50),
+                     breaks = seq(20, 50, 5),
                      expand = c(0, 0.5)) + # don't log, many peaks and distort real counts
-  labs(x = "retention time", y = "Relative Intensity") +
-  theme_minimal()
+  labs(x = "retention time", y = "relative intensity") +
+  theme_minimal() +
+  theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
+        panel.background = element_blank(), axis.line = element_line(colour = "black"))
 
 ggsave(here::here("analysis","figures", "chromatograms_four.png"),
-       width = 8,
+       width = 7,
        height = 8,
-       dpi = 360,
+       dpi = 300,
        units = "in")
 
 # plot the one with more compounds
 meth_all %>%
   filter(name == "SYG-TN13-E22-2#2") %>%
+  filter(File > 55000) %>%
   ggplot(aes(Path, File)) +
   geom_line(size = 0.3) +
   geom_text(data = highlight_SYG2_2, #ggrepel::geom_text_repel
@@ -137,13 +141,17 @@ meth_all %>%
                      limits = c(0, 7500000),
                      breaks = seq(0, 7500000, 1000000)) +
   scale_x_continuous(limits = c(20, 50),
+                     breaks = seq(20, 50, 5),
                      expand = c(0, 0.5)) + # don't log, many peaks and distort real counts
-  labs(x = "retention time", y = "Relative Intensity") +
-  theme_minimal()
+  labs(title = "SYG-TN13-E22-2#2", x = "retention time", y = "relative Intensity") +
+  theme_minimal() +
+  theme(plot.title = element_text(hjust = 0.5),
+        panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
+        panel.background = element_blank(), axis.line = element_line(colour = "black"))
 
 ggsave(here::here("analysis","figures", "chromatograms_specific.png"),
        width = 8,
-       height = 6,
+       height = 5,
        dpi = 360,
        units = "in")
 
