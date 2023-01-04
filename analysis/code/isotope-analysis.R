@@ -12,11 +12,24 @@ delta_blank_cor <-
 
 names(delta_blank_cor) <- delta_blank_cor[1,]
 
-delta_blank_cor <-
+delta_data <-
   delta_blank_cor %>%
   slice(2:7) %>%
   dplyr::mutate(across(starts_with("13C"), as.numeric)) %>%
-  dplyr::mutate(delta = `13C C18:0`-`13C C16:0`)
+  dplyr::mutate(delta = `13C C18:0`-`13C C16:0`) %>%
+  mutate(name = case_when(
+    C13 %in% c("Pot 1") ~ "CDG-062",
+    C13 %in% c("Pot 2") ~ "SYG-3",
+    C13 %in% c("Pot 3") ~ "SYG-TN13-E22-2#1",
+    C13 %in% c("Pot 4") ~ "SYG-TN13-E22-1",
+    C13 %in% c("Pot 5") ~ "SYG-TN13-E22-2#2",
+    C13 %in% c("Pot 6") ~ "SYG-TN13-E23-3")) %>%
+  mutate(name = factor(name, levels = c("SYG-TN13-E22-1",
+                                        "SYG-TN13-E22-2#1",
+                                        "SYG-TN13-E22-2#2",
+                                        "SYG-TN13-E23-3",
+                                        "SYG-3",
+                                        "CDG-062")))
 
 # filter the Meth corrected data
 delta_meth_cor <-
@@ -31,7 +44,20 @@ delta_meth_cor <-
   delta_meth_cor %>%
   slice(2:7) %>%
   dplyr::mutate(across(starts_with("13C"), as.numeric)) %>%
-  dplyr::mutate(delta = `13C C18:0`-`13C C16:0`)
+  dplyr::mutate(delta = `13C C18:0`-`13C C16:0`) %>%
+  mutate(sample = case_when(
+    C13 %in% c("Pot 1") ~ "CDG-062",
+    C13 %in% c("Pot 2") ~ "SYG-3",
+    C13 %in% c("Pot 3") ~ "SYG-TN13-E22-2#1",
+    C13 %in% c("Pot 4") ~ "SYG-TN13-E22-1",
+    C13 %in% c("Pot 5") ~ "SYG-TN13-E22-2#2",
+    C13 %in% c("Pot 6") ~ "SYG-TN13-E23-3")) %>%
+  mutate(sample = factor(sample, levels = c("SYG-TN13-E22-1",
+                                            "SYG-TN13-E22-2#1",
+                                            "SYG-TN13-E22-2#2",
+                                            "SYG-TN13-E23-3",
+                                            "SYG-3",
+                                            "CDG-062")))
 
 # import a SVG for later ggplot overlaying with ellipses
 tem <- rsvg::rsvg(here::here("analysis", "figures","carbon-isotope-ellipses-template.svg"))
@@ -78,10 +104,10 @@ ggsave(here::here("delta_C16_C18_remove_pot6.png"),
 
 # plot the carbon isotopes by following the method in Salque et al. (2013)
 isotope_C16_C18 <-
-  ggplot(delta_meth_cor, # delta_meth_cor or delta_blank_cor
+  ggplot(delta_meth_cor, # delta_meth_cor/delta_blank_cor
        aes(`13C C16:0`,`13C C18:0`)) +
-  geom_point(size = 1, alpha = 0.9) +
-  ggrepel::geom_text_repel(aes(label = C13)) +
+  geom_point(size = 1, alpha = 0.9, aes(shape = sample)) +
+  #ggrepel::geom_text_repel(aes(label = C13)) +
   theme_minimal(base_size = 14) +
   labs(x = bquote(delta*{}^13*"C 16:0 \u2030"),
        y = bquote(delta*{}^13*"C 18:0 \u2030")) +
@@ -93,13 +119,14 @@ isotope_C16_C18 <-
   annotate("text", x = -22, y = -22, angle = 45, vjust = 1.5,
            label = bquote(Delta*{}^13*"C = -0.3 \u2030")) +
   annotate("text", x = -22, y = -25, angle = 45, vjust = 1.5,
-           label = bquote(Delta*{}^13*"C = -3.1 \u2030"))
+           label = bquote(Delta*{}^13*"C = -3.1 \u2030")) +
+  #theme(legend.position="none")
 
 big_delta_C16 <-
   ggplot(delta_meth_cor, # delta_meth_cor or delta_blank_cor
        aes(`13C C16:0`, delta)) +
-  geom_point(size = 1, alpha = 0.9) +
-  ggrepel::geom_text_repel(aes(label = C13)) +
+  geom_point(size = 1, alpha = 0.9, aes(shape = sample)) +
+  #ggrepel::geom_text_repel(aes(label = C13)) +
   theme_minimal() +
   labs(x = bquote(delta*{}^13*"C 16:0 \u2030"),
        y = bquote(Delta*{}^13*"C 18:0 \u2030")) +
@@ -108,3 +135,10 @@ big_delta_C16 <-
   geom_hline(yintercept = -0.3, linetype = "dashed") +
   annotate("text", x = -22, y = -0.5,
            label = bquote(Delta*{}^13*"C = -0.3 \u2030"))
+
+library(cowplot)
+plot_grid(isotope_C16_C18,
+          big_delta_C16,
+          labels = c('A', 'B'),
+          label_size = 12)
+
