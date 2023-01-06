@@ -106,39 +106,45 @@ ggsave(here::here("delta_C16_C18_remove_pot6.png"),
 isotope_C16_C18 <-
   ggplot(delta_meth_cor, # delta_meth_cor/delta_blank_cor
        aes(`13C C16:0`,`13C C18:0`)) +
-  geom_point(size = 1, alpha = 0.9, aes(shape = sample)) +
+  geom_point(size = 2, alpha = 0.9, aes(shape = sample)) +
   #ggrepel::geom_text_repel(aes(label = C13)) +
-  theme_minimal(base_size = 14) +
+  theme_minimal() +
   labs(x = bquote(delta*{}^13*"C 16:0 \u2030"),
        y = bquote(delta*{}^13*"C 18:0 \u2030")) +
-  xlim(-35,-20) +
-  ylim(-35,-20) +
-  coord_fixed(ratio = 1) +
-  geom_abline(intercept = -0.3, linetype = "dashed") +
+  xlim(-33,-20) +
+  ylim(-33,-20) +
+  #coord_fixed(ratio = 1) +
+  geom_abline(intercept = -0.7, linetype = "dashed") + #Suryanarayan et al.2021
   geom_abline(intercept = -3.1, linetype = "dashed") +
-  annotate("text", x = -22, y = -22, angle = 45, vjust = 1.5,
-           label = bquote(Delta*{}^13*"C = -0.3 \u2030")) +
-  annotate("text", x = -22, y = -25, angle = 45, vjust = 1.5,
-           label = bquote(Delta*{}^13*"C = -3.1 \u2030")) +
-  #theme(legend.position="none")
+  annotate("text", x = -21.5, y = -22, angle = 45, vjust = 1.5,
+           label = bquote(Delta*{}^13*"C = -0.7 \u2030")) +
+  annotate("text", x = -21.5, y = -24.5, angle = 45, vjust = 1.5,
+           label = bquote(Delta*{}^13*"C = -3.1 \u2030"))
 
 big_delta_C16 <-
   ggplot(delta_meth_cor, # delta_meth_cor or delta_blank_cor
        aes(`13C C16:0`, delta)) +
-  geom_point(size = 1, alpha = 0.9, aes(shape = sample)) +
-  #ggrepel::geom_text_repel(aes(label = C13)) +
+  geom_point(size = 2, alpha = 0.9, aes(shape = sample)) +
   theme_minimal() +
   labs(x = bquote(delta*{}^13*"C 16:0 \u2030"),
        y = bquote(Delta*{}^13*"C 18:0 \u2030")) +
-  xlim(-35,-20) +
-  ylim(-3, 3) +
-  geom_hline(yintercept = -0.3, linetype = "dashed") +
+  xlim(-33,-20) +
+  ylim(-2.5, 2) +
+  geom_hline(yintercept = -0.7, linetype = "dashed") +
   annotate("text", x = -22, y = -0.5,
-           label = bquote(Delta*{}^13*"C = -0.3 \u2030"))
+           label = bquote(Delta*{}^13*"C = -0.7 \u2030"))
 
 library(cowplot)
-plot_grid(isotope_C16_C18,
+combined_isotopic_plots <-
+  plot_grid(isotope_C16_C18,
           big_delta_C16,
           labels = c('A', 'B'),
+          ncol =1,
+          align = 'v',
           label_size = 12)
 
+ggsave(here::here("analysis","figures","isotopic_plots.png"),
+       width = 6,
+       height = 8,
+       dpi = 300,
+       units = "in")
