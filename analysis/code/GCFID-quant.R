@@ -129,7 +129,7 @@ ggsave(here::here("analysis","figures", "chromatograms_four.png"),
 # plot the one with more compounds
 meth_all %>%
   filter(name == "SYG-TN13-E22-2#2") %>%
-  filter(File > 55000) %>%
+  #filter(File > 55000) %>%
   ggplot(aes(Path, File)) +
   geom_line(size = 0.3) +
   geom_text(data = highlight_SYG2_2, #ggrepel::geom_text_repel
@@ -140,8 +140,8 @@ meth_all %>%
   scale_y_continuous(labels = scales::comma_format(),
                      limits = c(0, 7500000),
                      breaks = seq(0, 7500000, 1000000)) +
-  scale_x_continuous(limits = c(20, 50),
-                     breaks = seq(20, 50, 5),
+  scale_x_continuous(limits = c(15, 50),
+                     breaks = seq(15, 50, 5),
                      expand = c(0, 0.5)) + # don't log, many peaks and distort real counts
   labs(title = "SYG-TN13-E22-2#2", x = "retention time", y = "relative Intensity") +
   theme_minimal() +
