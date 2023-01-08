@@ -61,7 +61,7 @@ Movements of people between geographically distinct areas usually accompany the 
 <!-- sites and research questions-->
 As an early Neolithic site, Guijiabao (ca. 4800-4300 BP) is crucial to understanding cultural interactions and the spread of crops into the Yanyuan Basin due to its location at the intersection of the middle Hengduan Mountain ranges, the Sichuan Plateau, and the Yunnan-Guizhou Plateau. The recent evidence at Guijiabao reveals millet as the main crop with little rice according to the results of flotation [@citation], different from the abundant rice grains found at other Neolithic sites in that area. Although the plant remains suggest the possible domestication of millet in the early Neolithic, we still lack direct evidence of culinary practices during the Neolithic transition. To explore the extent of acceptance of new crops and species in the Yanyuan Basin, we ask the questions: What was the culinary practices during the Neolithic transition? Could we identify the evidence of new crops or species incorporated into the local dietary systems in the Early Neolithic period? We answer those questions by examining potsherds collected from Guijiabao using organic residue analysis, which could offer a better understanding of food sources during the Neolithic transition in the Yanyuan Basin. 
 
-This study aims to detect and identify organic residues, particularly lipid residues, that could have been preserved in the ceramic fabric to explore the vessel usage at Guijiabao. Lipid analysis have proven useful in archaeology since lipid molecules can be well preserved over thousand years in the porous fabric of pottery with the protection of clay matrices from microbiological degradation and water leaching [@Evershed1993; @Evershed2008; @Roffet2017]. Lipid residues are the most direct evidence to investigate culinary practices and dietary patterns since specific lipid compounds can be associated with different types of foodstuffs cooked or stored in pottery vessels [@Copley2005]. It is especially informative for human subsistence in the situation where archaeological sites lack organic remains due to acidic sediments [@Kwak2020]. The growing application of organic residue analysis demonstrate it offers a better understanding of culinary practices during the transitional period to agricultural societies [@Craig2011], dietary patterns in
+This study aims to detect and identify organic residues, particularly lipid residues, that could have been preserved in the ceramic fabric to explore the vessel usage at Guijiabao. Lipid analysis is useful in archaeology since lipid molecules can be well preserved over thousand years in the porous fabric of pottery with the protection of clay matrices from microbiological degradation and water leaching [@Evershed1993; @Evershed2008; @Roffet2017]. Lipid residues are the most direct evidence to investigate culinary practices and dietary patterns since specific lipid compounds can be associated with different types of foodstuffs cooked or stored in pottery vessels [@Copley2005]. It is especially informative for human subsistence in the situation where archaeological sites lack organic remains due to acidic sediments [@Kwak2020]. The growing application of organic residue analysis demonstrate it offers a better understanding of culinary practices during the transitional period to agricultural societies [@Craig2011], dietary patterns in
 
 # Geographical and Cultural Background of Guijiabao in Yanyuan Basin
 <!--Info about Yanyuan area-->
@@ -82,9 +82,11 @@ We cleaned the surface of each potsherd to prevent external contamination from e
 
 The remaining 95% aliquot was fractioned by solid phase extraction (Aminopropyl, NH2, column with 0.5 g sorbent) with 8 mL dichloromethane:Isopropyl alcohol (3:1), 8 mL 4% acetic acid in ethyl ether, and 6 mL methanol respectively. The second fraction was methylated to produce fatty acid methyl esters (FAMEs) using 1 mL dry hexane and 2 mL 10% (v/v) acetyl chloride in dry methanol, and heated at 70 degree C overnight. The FAME derivatives were extracted with hexane ($3\times10$ mL) and blown down with nitrogen stream. About 5% aliquot dissolved in toluene was analyzed by GC-FID and the remaining sample was analyzed by GC-C-IRMS. 
 
+To further distinguish the source of fatty acids, we conducted stable carbon isotope analysis for those samples. 
+
 # Results
 
-```{r tidy-data}
+```{r tidy-data, cache=TRUE, cache.extra=tools::md5sum(here::here("analysis/data/raw_data/LY_21_08_20_pot_chrom.CSV"))}
 library(tidyverse)
 
 # load the GC data
@@ -120,7 +122,7 @@ meth_all <-
                                         "CDG-062")))
 ```
 
-```{r highlight-compounds}
+```{r highlight-compounds, cache=TRUE}
 # highlight target compounds
 highlight_GJB_four <-
   meth_all %>%
@@ -177,7 +179,7 @@ highlight_SYG2_2 <-
   filter(name == "SYG-TN13-E22-2#2")
 ```
 
-```{r chromatogram-four}
+```{r chromatogram-four, cache=TRUE}
 # plot the first four
 chroma_four <-
   meth_all %>%
@@ -202,32 +204,171 @@ chroma_four <-
   scale_y_continuous(labels = scales::comma_format(),
                      limits = c(0, 600000),
                      breaks = seq(0, 600000, 200000)) +
-  scale_x_continuous(limits = c(20, 45),
+  scale_x_continuous(limits = c(20, 50),
+                     breaks = seq(20, 50, 5),
                      expand = c(0, 0.5)) + # don't log, many peaks and distort real counts
-  labs(x = "retention time", y = "Relative Intensity") +
-  theme_minimal()
+  labs(x = "retention time", y = "relative intensity") +
+  theme_minimal() +
+  theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
+        panel.background = element_blank(), axis.line = element_line(colour = "black"))
 
 ggsave(plot = chroma_four,
        here::here("analysis","figures", "chromatograms_four.png"),
-       width = 8,
+       width = 7,
        height = 8,
        dpi = 300,
        units = "in")
 ```
 
-```{r chromatograms-plots-four, echo=FALSE, fig.cap= "chromatograms"}
+The GC-MS analysis for organic residues extracted from Guijiabao potsherds revealed the presence of lipid compounds, but with low amounts in most of them. The lipid profiles show that the saturated fatty acids with an even number of carbons, particularly C16:0 (palmitic acid ) and C18:0 (stearic acid), and monounsaturated fatty acid  C18:1 (oleic acid), are the main compounds for most potsherds (Figure \@ref(fig:chromatograms-plots-four)). Those fatty acids commonly exist in most animal fat and plant oil. They are also generally degraded from other larger molecules such as triacylglycerols due to oxidation and microbial degradation after long-term burial processes [@Dudd1998; @Eerkens2007]. High concentrations of C16:0 and C18:0 fatty acids in our samples suggest that the original organic residues were highly degraded during post-depositional processes. In addition, most potsherds present higher contents of C18:1 compared to C18:0 and C16:0, such as SYG-TN13-E23-3. A larger content of C18:1 and C16:0 with smaller content of C18:0 could indicate an origin of plant oils [@Mayyas2018; @Copley2005]. Although oleic acid (C18:1) has the highest concentration in most of our potsherd samples, the generally low concentrations of all fatty acids with minor differences in their amounts may not fully support a plant origin. 
+
+```{r chromatograms-plots-four, echo=FALSE, fig.cap= "GC-MS chromatograms of fatty acids extracted from four potsherds from Guijiabao. Cn:x refers to fatty acid with n carbon atoms and x double bonds. IS indicates internal standard used for quantification, including FA C21:0 and n-alkane 34"}
 knitr::include_graphics(here::here("analysis/figures/chromatograms_four.png"))
 ```
 
-Lipid residues from our samples show that the saturated fatty acids with even number of carbons (C14:0, C16:0, and C18:0), particularly palmitic (C16:0) and stearic(C18:0), are the dominant compounds. Because palmitic and stearic fatty acids are normally degraded from animal fat or plant wax, the domination pattern with little concentration of other fatty acids suggests the organic compounds in our samples were highly degraded during post depositional processes. However, there is one sample contains rich compounds that include long-chain fatty acids, C20, C22, and C24, which were absent in other samples. This might indicate 
+```{r chromatogram-specific, cache=TRUE}
+# plot the specific one
+chroma_specific <-
+  meth_all %>%
+  filter(name == "SYG-TN13-E22-2#2") %>%
+  ggplot(aes(Path, File)) +
+  geom_line(size = 0.3) +
+  geom_text(data = highlight_SYG2_2, #ggrepel::geom_text_repel
+            aes(label = FA),
+            size = 3,
+            nudge_y = 250000,
+            show.legend = FALSE) +
+  scale_y_continuous(labels = scales::comma_format(),
+                     limits = c(0, 7500000),
+                     breaks = seq(0, 7500000, 1000000)) +
+  scale_x_continuous(limits = c(15, 50),
+                     breaks = seq(15, 50, 5),
+                     expand = c(0, 0.5)) + # don't log, many peaks and distort real counts
+  labs(title = "SYG-TN13-E22-2#2", x = "retention time", y = "relative Intensity") +
+  theme_minimal() +
+  theme(plot.title = element_text(hjust = 0.5),
+        panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
+        panel.background = element_blank(), axis.line = element_line(colour = "black"))
 
-To further distinguish the source of fatty acids, we conducted stable carbon isotope analysis for those samples. Here you can see the stable carbon isotope measurements of C16:0 and C18:0 fatty acids. The results suggest a dominance of C3 plant for most pots, and a few shows a mixture of animal fats and C3 plants. The sample 5 where more compounds were preserved shows a source of C4 plant or marine animals instead. We think this is very interesting finding since there was just a few rice grains found at this site compared to the evidence of millet. 
+ggsave(plot = chroma_specific,
+       here::here("analysis","figures", "chromatograms_specific.png"),
+       width = 8,
+       height = 5,
+       dpi = 300,
+       units = "in")
+```
+
+Long-chain fatty acids from C20:0 to C32:0 are present in only one pottery sample (SYG-TN13-E22-2#2) with an even-over-odd carbon chain length predominance, but in lower abundance than the medium-chain components (Figure \@ref(fig:chromatograms-specific)). The existence of long-chain fatty acids with a high abundance of C16:0 relative to C18:0 might be related to plant waxes [@Post1996; @Copley2005]. However, it could be also associated with an origin of degraded animal fat based on a strong predominance of medium-chain fatty acids [@Whelton2018; @Dudd1998]. Overall, the GC-MS results demonstrate evidence of degraded animal fats or plant oil. 
+
+```{r chromatograms-specific, echo=FALSE, fig.cap= "GC-MS chromatograms of the potshard with the presence of long-chain fatty acids. Cn:x refers to fatty acid with n carbon atoms and x double bonds. IS indicates internal standard used for quantification, including FA C21:0 and n-alkane 34"}
+knitr::include_graphics(here::here("analysis/figures/chromatograms_specific.png"))
+```
+
+```{r isotopic-analysis}
+library(tidyverse)
+isotope_data <-
+  readxl::read_excel(here::here("analysis","data", "raw_data","12_21_potshard_13C.xlsx"),
+                     sheet = "Summary", col_names =  FALSE)
+
+# filter the Meth corrected data
+delta_meth_cor <-
+  isotope_data %>%
+  select(1, 7, 9) %>%
+  slice(2:8) %>%
+  dplyr::mutate(...1 = ifelse(is.na(...1), paste0("C13"), ...1))
+
+names(delta_meth_cor) <- delta_meth_cor[1,]
+
+delta_meth_cor <-
+  delta_meth_cor %>%
+  slice(2:7) %>%
+  dplyr::mutate(across(starts_with("13C"), as.numeric)) %>%
+  dplyr::mutate(delta = `13C C18:0`-`13C C16:0`) %>%
+  mutate(sample = case_when(
+    C13 %in% c("Pot 1") ~ "CDG-062",
+    C13 %in% c("Pot 2") ~ "SYG-3",
+    C13 %in% c("Pot 3") ~ "SYG-TN13-E22-2#1",
+    C13 %in% c("Pot 4") ~ "SYG-TN13-E22-1",
+    C13 %in% c("Pot 5") ~ "SYG-TN13-E22-2#2",
+    C13 %in% c("Pot 6") ~ "SYG-TN13-E23-3")) %>%
+  mutate(sample = factor(sample, levels = c("SYG-TN13-E22-1",
+                                            "SYG-TN13-E22-2#1",
+                                            "SYG-TN13-E22-2#2",
+                                            "SYG-TN13-E23-3",
+                                            "SYG-3",
+                                            "CDG-062")))
+
+delta_min <- round(min(delta_meth_cor$delta), 2)
+delta_max <- round(max(delta_meth_cor$delta), 2)
+
+# plot the carbon isotopes 
+isotope_C16_C18 <-
+  ggplot(delta_meth_cor, #delta_meth_cor/delta_blank_cor
+       aes(`13C C16:0`,`13C C18:0`)) +
+  geom_point(size = 2, alpha = 0.9, aes(shape = sample)) +
+  #ggrepel::geom_text_repel(aes(label = C13)) +
+  theme_minimal() +
+  labs(x = bquote(delta*{}^13*"C 16:0 \u2030"),
+       y = bquote(delta*{}^13*"C 18:0 \u2030")) +
+  xlim(-33,-20) +
+  ylim(-33,-20) +
+  #coord_fixed(ratio = 1) +
+  geom_abline(intercept = -0.7, linetype = "dashed") + #Suryanarayan et al.2021
+  geom_abline(intercept = -3.1, linetype = "dashed") +
+  annotate("text", x = -21.5, y = -22, angle = 45, vjust = 1.5,
+           label = bquote(Delta*{}^13*"C = -0.7 \u2030")) +
+  annotate("text", x = -21.5, y = -24.5, angle = 45, vjust = 1.5,
+           label = bquote(Delta*{}^13*"C = -3.1 \u2030"))
+
+big_delta_C16 <-
+  ggplot(delta_meth_cor, # delta_meth_cor or delta_blank_cor
+       aes(`13C C16:0`, delta)) +
+  geom_point(size = 2, alpha = 0.9, aes(shape = sample)) +
+  theme_minimal() +
+  labs(x = bquote(delta*{}^13*"C 16:0 \u2030"),
+       y = bquote(Delta*{}^13*"C 18:0 \u2030")) +
+  scale_x_continuous(limits = c(-33, -20),
+                     breaks = seq(-33, -20, 2)) +
+  ylim(-2.5, 2) +
+  geom_hline(yintercept = -0.7, linetype = "dashed") +
+  annotate("text", x = -22, y = -0.5,
+           label = bquote(Delta*{}^13*"C = -0.7 \u2030")) +
+  annotate("text", x = -31, y = 1.8,
+           label = "C3-diet") +
+  annotate("segment", x = -29, y = 1.8, xend = -24, yend = 1.8,
+           arrow = arrow(type = "closed", length = unit(0.02, "npc"))) +
+  annotate("text", x = -22, y = 1.8,
+           label = "C4-diet")
+
+library(cowplot)
+combined_isotopic_plots <-
+  plot_grid(isotope_C16_C18,
+          big_delta_C16,
+          labels = c('A', 'B'),
+          ncol =1,
+          align = 'v',
+          label_size = 12)
+
+ggsave(here::here("analysis","figures","isotopic_plots.png"),
+       width = 6,
+       height = 8,
+       dpi = 300,
+       units = "in")
+```
+
+To identify the origins of degraded animal fats, we conducted isotope analysis to obtain the δ^13^C values of C16:0 and C18:0 using GC-C-IRMS. The δ^13^C values of C16:0 and C18:0 have proven useful to distinguish between ruminant adipose, non-ruminant adipose, and ruminant dairy fats based on different ways where dietary carbon sources are utilized by different fat types [@Dunne2012; @Copley2003; @Evershed2008]. To reduce the bias caused by differential δ^13^C values across geographical regions, we used the Δ^13^C(δ^13^C18:0 - δ^13^C16:0) values to determine the origins of degraded fats [@Evershed2008; @Salque2013]. The isotopic results show the Δ13C values in our samples range from `r delta_min` ‰ to `r delta_max` ‰ that were plotted according to the global reference database for the identification of their origins [@Suryanarayan2021; @Dunne2012; @Evershed2008]. 
+
+Most of the potsherd samples from Guijiabao contain fatty acids from ruminant adipose fats with one potsherd (SYG-TN13-E23-3) suggesting an origin of non-ruminant adipose fat (Figure \@ref(fig:isotopic-plots): A). The only potsherd from Gaushan (CDG-062) demonstrates ruminant adipose fats as well. There are two potsherds (SYG-TN13-E22-1 and SYG-3) from Guijiabao plotted between the reference line of ruminant adipose and non-ruminant, indicative of the mixing of those two sources [@Copley2003]. Moreover, the potsherd indicating non-ruminant adipose fats has a relatively depleted δ^13^C value (Figure \@ref(fig:isotopic-plots): B) that falls within the range of C3/terrestrial plants [@Shoda2018; @Kwak2020]. In general, most potsherd samples containing ruminant adipose fats have depleted δ^13^C values consistent with C3/terrestrial plants, suggesting the ruminant animals were likely fed on C3 plants. There is only one potsherd (SYG-TN13-E22-2#2) have a relatively enriched δ^13^C value, indicative of a C4 plant diet for the ruminant animal.
+
+```{r isotopic-plots, echo=FALSE, fig.cap= ""}
+knitr::include_graphics(here::here("analysis/figures/isotopic_plots.png"))
+```
 
 # Discussion
 The results show a mixture of C3 plants, such as rice, and terrestrial animals for most pots with one pot showing more C4 plant source or marine source. Our striking finding might suggest that consumption of rice could be part of the daily life at Guijiabao and the adoption of rice agriculture could be as important as millet cultivation which was thought the main crop previously. Our next steps is to increase sample size to include pots from different time periods and different types of pottery to identify any variation through time and also try different methods, such as phytolith analysis to further support our statement about rice cultivation. 
 
 # Conclusion
-Our results show a mixture of C3 plants and terrestrial animals for most pots with one pot showing more C4 plant sources. This case study not only indicates the possibility of rice agriculture that has not been identified previously at the site but also demonstrates the first use of lipid analysis for pottery to explore the diet of the late Neolithic period in this region. Our case study not only indicates the possibility of rice agriculture that has not been identified previously at the site but also demonstrates the first use of lipid analysis for pottery to explore the diet of the late Neolithic period in this region.
+Our investigation on the ceramics excavated from Southwest China suggests that a mixture of C3 plants and ruminant animals could be the food sources in this region during the Neolithic transition. This case study not only indicates the possibility of rice agriculture that has not been identified previously at the site but also demonstrates the first use of lipid analysis for pottery to explore the diet of the late Neolithic period in this region. Our case study not only indicates the possibility of rice agriculture that has not been identified previously at the site but also demonstrates the first use of lipid analysis for pottery to explore the diet of the late Neolithic period in this region.
 
 
 # Acknowledgements
