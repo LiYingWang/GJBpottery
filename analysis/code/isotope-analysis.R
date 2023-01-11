@@ -104,7 +104,7 @@ ggsave(here::here("delta_C16_C18_remove_pot6.png"),
 
 # plot the carbon isotopes by following the method in Salque et al. (2013)
 isotope_C16_C18 <-
-  ggplot(delta_meth_cor, # delta_meth_cor/delta_blank_cor
+  ggplot(delta_meth_cor, #delta_meth_cor/delta_blank_cor
        aes(`13C C16:0`,`13C C18:0`)) +
   geom_point(size = 2, alpha = 0.9, aes(shape = sample)) +
   #ggrepel::geom_text_repel(aes(label = C13)) +
@@ -128,11 +128,18 @@ big_delta_C16 <-
   theme_minimal() +
   labs(x = bquote(delta*{}^13*"C 16:0 \u2030"),
        y = bquote(Delta*{}^13*"C 18:0 \u2030")) +
-  xlim(-33,-20) +
+  scale_x_continuous(limits = c(-33, -20),
+                     breaks = seq(-33, -20, 2)) +
   ylim(-2.5, 2) +
   geom_hline(yintercept = -0.7, linetype = "dashed") +
   annotate("text", x = -22, y = -0.5,
-           label = bquote(Delta*{}^13*"C = -0.7 \u2030"))
+           label = bquote(Delta*{}^13*"C = -0.7 \u2030")) +
+  annotate("text", x = -31, y = 1.8,
+           label = "C3-diet") +
+  annotate("segment", x = -29, y = 1.8, xend = -24, yend = 1.8,
+           arrow = arrow(type = "closed", length = unit(0.02, "npc"))) +
+  annotate("text", x = -22, y = 1.8,
+           label = "C4-diet")
 
 library(cowplot)
 combined_isotopic_plots <-
