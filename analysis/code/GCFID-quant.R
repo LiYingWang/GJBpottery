@@ -24,13 +24,15 @@ meth_all <-
     sample %in% c("210729_003") ~ "SYG-TN13-E22-2#1",
     sample %in% c("210729_004") ~ "SYG-TN13-E22-1",
     sample %in% c("210729_005") ~ "SYG-TN13-E22-2#2",
-    sample %in% c("210729_006") ~ "SYG-TN13-E23-3")) %>%
+    sample %in% c("210729_006") ~ "SYG-TN13-E23-3",
+    sample %in% c("210729_008") ~ "blank"))%>%
   mutate(name = factor(name, levels = c("SYG-TN13-E22-1",
                                         "SYG-TN13-E22-2#1",
                                         "SYG-TN13-E22-2#2",
                                         "SYG-TN13-E23-3",
                                         "SYG-3",
-                                        "CDG-062")))
+                                        "CDG-062",
+                                        "blank")))
 
 # highlight the compounds
 highlight_GJB_four <-
@@ -50,7 +52,7 @@ highlight_GJB_four <-
     retention == 29.1 ~ "C18:0",
     retention == 32.4 ~ "C20:0",
     retention == 35.4 ~ "C22:0")) %>%
-  filter(name %in% c("SYG-3", "SYG-TN13-E22-2#1", "SYG-TN13-E22-1", "SYG-TN13-E23-3")) %>%
+  filter(name %in% c("SYG-3", "SYG-TN13-E22-2#1", "SYG-TN13-E22-1", "SYG-TN13-E23-3", "blank")) %>%
   filter(File > 100000)
 
 highlight_IS <-
@@ -91,7 +93,7 @@ highlight_SYG2_2 <-
 
 # plot the first four
 meth_all %>%
-  filter(name %in% c("SYG-3", "SYG-TN13-E22-2#1", "SYG-TN13-E22-1", "SYG-TN13-E23-3")) %>%
+  filter(name %in% c("SYG-3", "SYG-TN13-E22-2#1", "SYG-TN13-E22-1", "SYG-TN13-E23-3","blank")) %>%
   mutate(File = ifelse(File > 550000, 550000, File)) %>%
   ggplot(aes(Path, File)) +
   geom_line(size = 0.3) +
