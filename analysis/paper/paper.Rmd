@@ -124,7 +124,7 @@ meth_all <-
 
 ```{r highlight-compounds, cache=TRUE}
 # highlight target compounds
-highlight_GJB_four <-
+highlight_common <-
   meth_all %>%
   mutate(retention = round(Path, 1)) %>%
   group_by(sample, retention) %>%
@@ -137,9 +137,9 @@ highlight_GJB_four <-
     retention == 27.3 ~ "C17:0",
     retention == 28.4 ~ "C18:1",
     retention == 29.1 ~ "C18:0",
-    retention == 32.4 ~ "C20:0",
+    retention == 32.3 ~ "C20:0",
     retention == 35.4 ~ "C22:0")) %>%
-  filter(name %in% c("SYG-3", "SYG-TN13-E22-2#1", "SYG-TN13-E22-1", "SYG-TN13-E23-3")) %>%
+  filter(name %in% c("SYG-3", "SYG-TN13-E22-2#1", "SYG-TN13-E22-1", "SYG-TN13-E23-3", "CDG-062")) %>%
   filter(File > 100000)
 
 highlight_IS <-
@@ -151,7 +151,7 @@ highlight_IS <-
   mutate(FA = case_when(
     retention == 33.9 ~ "IS",
     retention == 41.3 ~ "IS")) %>%
-  filter(name %in% c("SYG-3", "SYG-TN13-E22-2#1", "SYG-TN13-E22-1", "SYG-TN13-E23-3"))
+  filter(name %in% c("SYG-3", "SYG-TN13-E22-2#1", "SYG-TN13-E22-1", "SYG-TN13-E23-3", "CDG-062"))
 
 # highlight the compounds in the potsherd with high concentration
 highlight_SYG2_2 <-
@@ -174,8 +174,8 @@ highlight_SYG2_2 <-
     retention == 40.9 ~ "C26:0",
     retention == 33.9 ~ "IS",
     retention == 41.3 ~ "IS",
-    retention == 45.6 ~ "C:30",
-    retention == 47.8 ~ "C:32")) %>%
+    retention == 45.6 ~ "C30:0",
+    retention == 47.8 ~ "C32:0")) %>%
   filter(name == "SYG-TN13-E22-2#2")
 ```
 
@@ -183,29 +183,29 @@ highlight_SYG2_2 <-
 # plot the first four
 chroma_four <-
   meth_all %>%
-  filter(name %in% c("SYG-3", "SYG-TN13-E22-2#1", "SYG-TN13-E22-1", "SYG-TN13-E23-3")) %>%
-  mutate(File = ifelse(File > 550000, 550000, File)) %>%
+  filter(name %in% c("SYG-3", "SYG-TN13-E22-2#1", "SYG-TN13-E22-1", "SYG-TN13-E23-3", "CDG-062")) %>%
+  mutate(File = ifelse(File > 1000000, 1000000, File)) %>%
   ggplot(aes(Path, File)) +
   geom_line(size = 0.3) +
-  geom_text(data = highlight_GJB_four, #ggrepel::geom_text_repel
-            aes(label = FA, angle = 90),
+  ggrepel::geom_text_repel(data = highlight_common, #ggrepel::geom_text_repel
+            aes(label = FA, angle = 0),
             size = 3,
-            nudge_y = 87000,
+            nudge_y = 120000,
             show.legend = FALSE) +
   geom_text(data = highlight_IS,
             aes(label = FA),
             size = 3,
-            nudge_y = 40000,
+            nudge_y = 100000,
             show.legend = FALSE) +
-  geom_segment(aes(x= 41.1, xend= 41.5, y= 550000, yend= 550000), size =0.3) +
-  geom_segment(aes(x= 41.1, xend= 41.5, y= 560000, yend= 560000), size =0.3) +
+  geom_segment(aes(x= 41.1, xend= 41.5, y= 1000000, yend= 1000000), size =0.3) +
+  geom_segment(aes(x= 41.1, xend= 41.5, y= 1030000, yend= 1030000), size =0.3) +
   annotate("text", x = 41.3, y = 600000, label = "IS", size =3) +
   facet_wrap(~name, ncol = 1) +
   scale_y_continuous(labels = scales::comma_format(),
-                     limits = c(0, 600000),
-                     breaks = seq(0, 600000, 200000)) +
-  scale_x_continuous(limits = c(20, 50),
-                     breaks = seq(20, 50, 5),
+                     limits = c(0, 1100000),
+                     breaks = seq(0, 1100000, 200000)) +
+  scale_x_continuous(limits = c(20, 45),
+                     breaks = seq(20, 45, 5),
                      expand = c(0, 0.5)) + # don't log, many peaks and distort real counts
   labs(x = "retention time", y = "relative intensity") +
   theme_minimal() +
@@ -214,13 +214,13 @@ chroma_four <-
 
 ggsave(plot = chroma_four,
        here::here("analysis","figures", "chromatograms_four.png"),
-       width = 7,
+       width = 6,
        height = 8,
        dpi = 300,
        units = "in")
 ```
 
-The GC-MS analysis for organic residues extracted from Guijiabao and Gaoshan potsherds revealed the presence of lipid compounds above interpretable concentrations (5 μg/g) [@Evershed2008experimental], but with low amounts in most of them (Table \@ref(tab:FA-composition-table)). The lipid profiles show that the saturated fatty acids with an even number of carbons, particularly C16:0 (palmitic acid) and C18:0 (stearic acid), and monounsaturated fatty acid C18:1 (oleic acid), are the main compounds for most potsherds (Figure \@ref(fig:chromatograms-plots-four)). Those fatty acids commonly exist in animal fat and plant oil. They are also generally degraded from other larger molecules such as triacylglycerols due to oxidation and microbial degradation after long-term burial processes [@Dudd1998; @Eerkens2007]. High concentrations of C16:0 and C18:0 fatty acids in our samples suggest that the original organic residues were highly degraded during post-depositional processes. In addition, some potsherds present higher contents of C18:1 compared to C18:0 and C16:0, such as SYG-TN13-E23-3. A larger content of C18:1 and C16:0 with smaller content of C18:0 might indicate an origin of plant oils [@Mayyas2018; @Copley2005]. Although oleic acid (C18:1) has the highest concentration in most of our potsherd samples, the generally low concentrations of all fatty acids with minor differences in their amounts may not fully support a plant origin. 
+The GC-MS analysis for organic residues extracted from Guijiabao and Gaoshan potsherds revealed the presence of lipid compounds above interpretable concentrations (5 μg/g) [@Evershed2008experimental], but with low amounts in most of them (Table \@ref(tab:FA-composition-table)). The lipid profiles show that the saturated fatty acids with an even number of carbons, particularly C16:0 (palmitic acid), C18:0 (stearic acid), and monounsaturated fatty acid C18:1 (oleic acid), are the main compounds in most potsherds (Figure \@ref(fig:chromatograms-plots-four)). Those fatty acids commonly exist in animal fat and plant oil. They are also generally degraded from other larger molecules such as triacylglycerols due to oxidation and microbial degradation after long-term burial processes [@Dudd1998; @Eerkens2007]. High concentrations of C16:0 and C18:0 fatty acids in our samples suggest that the original organic residues were highly degraded during post-depositional processes. In addition, some potsherds present higher contents of C18:1 compared to C18:0 and C16:0, such as SYG-TN13-E23-3. A larger content of C18:1 and C16:0 with smaller content of C18:0 might indicate an origin of plant oils [@Mayyas2018; @Copley2005]. Although oleic acid (C18:1) is the most abundant compound for most of our samples, the generally low concentrations of all fatty acids with minor differences in their amounts may not fully support a plant origin. 
 
 ```{r FA-composition-table, cache= TRUE}
 quant_FA <-
@@ -244,7 +244,7 @@ quant_FA_tidy <-
               values_from = weight) %>% 
   select("FA", "SYG-TN13-E22-1", "SYG-TN13-E22-2#1", "SYG-TN13-E22-2#2",
          "SYG-TN13-E23-3", "SYG-3", "CDG-062") %>% 
-  filter(!FA == "C34:0"&!FA == "C21:0")
+  filter(!FA == "C34:0" & !FA == "C21:0")
 
 knitr::kable(quant_FA_tidy,
              caption = "Quantitative data of fatty acid (FA) composition (ug) of potsherds from Guijiabao and Gaushan that are named starting with 'SYG' and 'CDG' respectively")
@@ -254,11 +254,11 @@ knitr::kable(quant_FA_tidy,
 knitr::include_graphics(here::here("analysis/figures/chromatograms_four.png"))
 ```
 
-```{r chromatogram-specific, cache=TRUE}
+```{r chromatogram-specific, cache= TRUE}
 # plot the specific one
 chroma_specific <-
   meth_all %>%
-  filter(name == "SYG-TN13-E22-2#2") %>%
+  filter(name %in% c("SYG-TN13-E22-2#2")) %>% 
   ggplot(aes(Path, File)) +
   geom_line(size = 0.3) +
   geom_text(data = highlight_SYG2_2, #ggrepel::geom_text_repel
@@ -292,7 +292,7 @@ Long-chain fatty acids from C20:0 to C32:0 are present in only one pottery sampl
 knitr::include_graphics(here::here("analysis/figures/chromatograms_specific.png"))
 ```
 
-```{r isotopic-analysis}
+```{r isotopic-analysis, cache= TRUE}
 library(tidyverse)
 isotope_data <-
   readxl::read_excel(here::here("analysis","data", "raw_data","12_21_potshard_13C.xlsx"),
