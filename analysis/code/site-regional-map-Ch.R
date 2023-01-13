@@ -21,9 +21,9 @@ world_points <- cbind(world, st_coordinates(st_point_on_surface(world$geometry))
 
 # add site location
 site_location <-
-  data.frame(location = c("Guijuabao", "Chengdu"),
-             lon = c(101.3617, 104.0587),
-             lat = c(27.2657, 30.5899))
+  data.frame(location = c("Guijuabao", "Gaoshan", "Chengdu"),
+             lon = c(101.3617, 103.3446, 104.0587),
+             lat = c(27.2657, 30.2709, 30.5899))
 
 China_SE_Asia <-
   ggplot(data = world) +
@@ -50,7 +50,7 @@ library(ggmap)
 # we don't want to download every time, so let's save the map locally
 # from https://stackoverflow.com/a/52710855/1036500
 GJB_map <- ggmap(get_stamenmap(rbind(as.numeric(c(100.5, 26.5,
-                                                  102.5, 28.5))), zoom = 10))
+                                                  104.5, 30.5))), zoom = 10))
 # saveRDS(tw_map, here("analysis", "data", "raw_data", "tw_map.rds"))
 # tw_map <- readRDS(here("analysis", "data", "raw_data", "tw_map.rds"))
 pg <- ggplot_build(GJB_map)
@@ -73,8 +73,8 @@ China_map_with_site <-
                   check.overlap = TRUE) +
   #annotate(geom = "text", x = 103.95, y = 13.0, label = "Tonle Sap\nLake",
            #fontface = "italic", color = "blue", size = 2) +
-  coord_sf(xlim = c(100.5, 102.5),
-           ylim = c(26.5, 28.5),
+  coord_sf(xlim = c(100.5, 104.5),
+           ylim = c(26.5, 30.5),
            expand = FALSE) +
   #scale_x_continuous(breaks = c(121.0, 121.5, 122.0),
   #limits = c(120.9, 122.7)) +
@@ -121,7 +121,7 @@ ggplot() +
   theme_void() +
   theme(plot.background = element_rect(color = "white", fill = "white"))
 
-ggsave(here::here("analysis","figures", "prasat-location-map.png"),
+ggsave(here::here("analysis","figures", "Chengdu-sites-map.png"),
        width = 6,
        height = 3,
        dpi = 300,
