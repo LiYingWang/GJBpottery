@@ -15,8 +15,10 @@ world <- ne_countries(scale = "medium", returnclass = "sf")
 # class(world)
 world_points <- sf::st_point_on_surface(world)
 world_points <- cbind(world, st_coordinates(st_point_on_surface(world$geometry))) %>%
-  filter(brk_name %in% c("Thailand", "China", "Myanmar", "Laos", "Vietnam", "Cambodia")) %>%
-  mutate(Y = Y+2, X = X-1)
+  filter(brk_name %in% c("Thailand", "China", "Myanmar", "Laos",
+                         "Vietnam", "Cambodia", "Bangladesh", "Bhutan")) %>%
+  mutate(Y = ifelse(brk_name %in% c("Bhutan", "Bangladesh"), Y+2, Y)) %>%
+  mutate(Y = ifelse(brk_name %in% c("Thailand", "Myanmar"), Y+3.5, Y))
 
 # add site location
 site_location <-
@@ -27,7 +29,7 @@ site_location <-
 China_SE_Asia <-
   ggplot(data = world) +
   geom_sf( fill= "antiquewhite") +
-  geom_rect(xmin = 100, xmax = 106, ymin = 26, ymax = 32,
+  geom_rect(xmin = 99.5, xmax = 105.5, ymin = 25.5, ymax = 31.5,
             fill = NA, colour = "red", size = 0.5) +
   geom_shadowtext(data= world_points,
                   aes(x = X, y = Y,
@@ -48,8 +50,8 @@ China_SE_Asia <-
 library(ggmap)
 # we don't want to download every time, so let's save the map locally
 # from https://stackoverflow.com/a/52710855/1036500
-GJB_map <- ggmap(get_stamenmap(rbind(as.numeric(c(100, 26,
-                                                  106, 32))), zoom = 10))
+#GJB_map <- ggmap(get_stamenmap(rbind(as.numeric(c(99, 25,
+                                                  #106, 32))), zoom = 10))
 # saveRDS(tw_map, here("analysis", "data", "raw_data", "tw_map.rds"))
 # tw_map <- readRDS(here("analysis", "data", "raw_data", "tw_map.rds"))
 pg <- ggplot_build(GJB_map)
@@ -67,15 +69,21 @@ China_map_with_site <-
                       label = location),
                   color='black',
                   bg.colour='white',
-                  size = 2.6,
+                  size = 2.8,
                   position = position_nudge(y = - 0.2),
                   check.overlap = TRUE) +
   annotate(geom = "text", x = 104, y = 30.7, label = "Chengdu\nPlain",
-           fontface = "italic", color = "grey10", size = 2) +
-  annotate(geom = "text", x = 105.2, y = 30, label = "Sichuan\nBasin",
-           fontface = "italic", color = "grey10", size = 2) +
-  coord_sf(xlim = c(100, 106),
-           ylim = c(26, 32),
+           fontface = "italic", color = "grey1", size = 2.3) +
+  annotate(geom = "text", x = 104.8, y = 30, label = "Sichuan\nBasin",
+           fontface = "italic", color = "grey1", size = 2.3) +
+  annotate(geom = "text", x = 102.6, y = 27.5, label = "Yanyuan\nBasin",
+           fontface = "italic", color = "grey1", size = 2.3) +
+  annotate(geom = "text", x = 101.5, y = 29.3, label = "Hengduan\nMountain",
+           fontface = "italic", color = "grey1", size = 2.3) +
+  annotate("segment", x = 102.2, xend = 101.8, y = 27.5, yend = 27.5,
+           color = "grey5", arrow = arrow(length = unit(.15,"cm"))) +
+  coord_sf(xlim = c(99.5, 105.5),
+           ylim = c(25.5, 31.5),
            expand = FALSE) +
   #scale_x_continuous(breaks = c(121.0, 121.5, 122.0),
   #limits = c(120.9, 122.7)) +
@@ -83,9 +91,9 @@ China_map_with_site <-
     # edit these numbers to select a suitable location
     # for the scale bar where it does not cover
     # important details on the map
-    lon = 104.6,
-    lat = 26.2,
-    legend_size = 1.6, # size of scale legend
+    lon = 104,
+    lat = 25.7,
+    legend_size = 1.7, # size of scale legend
     distance_lon = 50, # distance of one section of scale bar, in km
     distance_lat = 1.8, # height of the scale bar, in km
     distance_legend = 17, # distance between scale bar and units, in km
