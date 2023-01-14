@@ -15,8 +15,7 @@ world <- ne_countries(scale = "medium", returnclass = "sf")
 # class(world)
 world_points <- sf::st_point_on_surface(world)
 world_points <- cbind(world, st_coordinates(st_point_on_surface(world$geometry))) %>%
-  filter(brk_name %in% c("Thailand", "China", "Myanmar",
-                         "Laos", "Vietnam", "Cambodia")) %>%
+  filter(brk_name %in% c("Thailand", "China", "Myanmar", "Laos", "Vietnam", "Cambodia")) %>%
   mutate(Y = Y+2, X = X-1)
 
 # add site location
@@ -72,7 +71,9 @@ China_map_with_site <-
                   position = position_nudge(y = - 0.2),
                   check.overlap = TRUE) +
   annotate(geom = "text", x = 104, y = 30.7, label = "Chengdu\nPlain",
-           fontface = "italic", color = "grey15", size = 2) +
+           fontface = "italic", color = "grey10", size = 2) +
+  annotate(geom = "text", x = 105.2, y = 30, label = "Sichuan\nBasin",
+           fontface = "italic", color = "grey10", size = 2) +
   coord_sf(xlim = c(100, 106),
            ylim = c(26, 32),
            expand = FALSE) +
