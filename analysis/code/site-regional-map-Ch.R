@@ -50,11 +50,11 @@ China_SE_Asia <-
 library(ggmap)
 # we don't want to download every time, so let's save the map locally
 # from https://stackoverflow.com/a/52710855/1036500
-#GJB_map <- ggmap(get_stamenmap(rbind(as.numeric(c(99, 25,
-                                                  #106, 32))), zoom = 10))
-# saveRDS(tw_map, here("analysis", "data", "raw_data", "tw_map.rds"))
-# tw_map <- readRDS(here("analysis", "data", "raw_data", "tw_map.rds"))
-pg <- ggplot_build(GJB_map)
+GJB_map <- ggmap(get_stamenmap(rbind(as.numeric(c(99, 25,
+                                                  106, 32))), zoom = 10))
+#saveRDS(GJB_map, here("analysis", "data", "raw_data", "SW_china_map.rds"))
+#SW_china_map <- readRDS(here("analysis", "data", "raw_data", "SW_china_map.rds"))
+pg <- ggplot_build(SW_china_map)
 
 China_map_with_site <-
  GJB_map +
