@@ -111,8 +111,10 @@ isotope_C16_C18 <-
   theme_minimal() +
   labs(x = bquote(delta*{}^13*"C 16:0 \u2030"),
        y = bquote(delta*{}^13*"C 18:0 \u2030")) +
-  xlim(-33,-20) +
-  ylim(-33,-20) +
+  scale_x_continuous(limits = c(-33, -20),
+                     breaks = seq(-33, -20, 2)) +
+  scale_y_continuous(limits = c(-33, -20),
+                     breaks = seq(-33, -20, 2)) +
   #coord_fixed(ratio = 1) +
   geom_abline(intercept = -0.7, linetype = "dashed") + #Suryanarayan et al.2021
   geom_abline(intercept = -3.1, linetype = "dashed") +
@@ -139,7 +141,11 @@ big_delta_C16 <-
   annotate("segment", x = -29, y = 1.8, xend = -24, yend = 1.8,
            arrow = arrow(type = "closed", length = unit(0.02, "npc"))) +
   annotate("text", x = -22, y = 1.8,
-           label = "C4-diet")
+           label = "C4-diet") +
+  annotate("text", x = -31.5, y = -1.2,
+           label = "Ruminant") +
+  annotate("text", x = -31, y = -0.3,
+           label = "Non-ruminant")
 
 library(cowplot)
 combined_isotopic_plots <-
