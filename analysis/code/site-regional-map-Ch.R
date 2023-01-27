@@ -20,6 +20,10 @@ world_points <- cbind(world, st_coordinates(st_point_on_surface(world$geometry))
   mutate(Y = ifelse(brk_name %in% c("Bhutan", "Bangladesh"), Y+2, Y)) %>%
   mutate(Y = ifelse(brk_name %in% c("Thailand", "Myanmar"), Y+3.5, Y))
 
+# shapefile
+ch_adm <- st_read(here::here("analysis/data/raw_data/Ch_adm/CHN_adm1.shp"))
+plot(st_geometry(ch_adm))
+
 # add site location
 site_location <-
   data.frame(location = c("Guijuabao", "Gaoshan"), # Chengdu(104.0587, 30.5899)
@@ -28,7 +32,7 @@ site_location <-
 
 China_SE_Asia <-
   ggplot(data = world) +
-  geom_sf( fill= "antiquewhite") +
+  geom_sf(fill= "antiquewhite") +
   geom_rect(xmin = 99.5, xmax = 105.5, ymin = 25.5, ymax = 31.5,
             fill = NA, colour = "red", size = 0.5) +
   geom_shadowtext(data= world_points,
@@ -40,24 +44,27 @@ China_SE_Asia <-
                   position = position_nudge(y = - 1.7, x = 0.5)) +
   #annotate(geom = "text", x = 102.3, y = 9.4, label = "Gulf of\nTailand",
            #fontface = "italic", color = "grey22", size = 2) +
-  coord_sf(xlim = c(80, 123), ylim = c(9, 45), expand = FALSE) + #add datum = NA to remove
+  coord_sf(xlim = c(85, 120), ylim = c(18, 45), expand = FALSE) + #add datum = NA to remove
   scale_x_continuous(breaks = seq(80, 125, by = 10)) +
   scale_y_continuous(breaks = seq(5, 45, by = 10)) +
   theme(axis.title.x = element_blank(),
         axis.title.y = element_blank())
 
+China_SE_Asia +
+  geom_sf(data = ch_adm)
+
 # Topographic map
 library(ggmap)
 # we don't want to download every time, so let's save the map locally
 # from https://stackoverflow.com/a/52710855/1036500
-GJB_map <- ggmap(get_stamenmap(rbind(as.numeric(c(99, 25,
-                                                  106, 32))), zoom = 10))
-#saveRDS(GJB_map, here("analysis", "data", "raw_data", "SW_china_map.rds"))
-#SW_china_map <- readRDS(here("analysis", "data", "raw_data", "SW_china_map.rds"))
+#GJB_map <- ggmap(get_stamenmap(rbind(as.numeric(c(99, 25,
+                                                  #106, 32))), zoom = 10))
+# saveRDS(GJB_map, here("analysis", "data", "raw_data", "SW_china_map.rds"))
+SW_china_map <- readRDS(here::here("analysis", "data", "raw_data", "SW_china_map.rds"))
 pg <- ggplot_build(SW_china_map)
 
 China_map_with_site <-
- GJB_map +
+  SW_china_map +
   geom_point(data = site_location,
              aes(x = lon,
                  y = lat),
