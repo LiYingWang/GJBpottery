@@ -132,19 +132,19 @@ big_delta_C16 <-
        y = bquote(Delta*{}^13*"C 18:0 \u2030")) +
   scale_x_continuous(limits = c(-33, -20),
                      breaks = seq(-33, -20, 2)) +
-  ylim(-2.5, 2) +
+  ylim(-2.5, 1.5) +
   geom_hline(yintercept = -0.7, linetype = "dashed") +
-  annotate("text", x = -22, y = -0.5,
+  annotate("text", x = -31.5, y = -0.9,
            label = bquote(Delta*{}^13*"C = -0.7 \u2030")) +
-  annotate("text", x = -31, y = 1.8,
+  annotate("text", x = -32, y = 1.3,
            label = "C3-diet") +
-  annotate("segment", x = -29, y = 1.8, xend = -24, yend = 1.8,
+  annotate("segment", x = -29, y = 1.3, xend = -24, yend = 1.3,
            arrow = arrow(type = "closed", length = unit(0.02, "npc"))) +
-  annotate("text", x = -22, y = 1.8,
+  annotate("text", x = -21, y = 1.3,
            label = "C4-diet") +
-  annotate("text", x = -31.5, y = -1.2,
+  annotate("text", x = -22, y = -1.1,
            label = "Ruminant") +
-  annotate("text", x = -31, y = -0.3,
+  annotate("text", x = -21.5, y = -0.3,
            label = "Non-ruminant")
 
 library(cowplot)

@@ -90,7 +90,7 @@ Despite of a long-standing debate between waves of rice/millet dispersal from no
 We selected five ceramic fragments from Guijiabao and one ceramic fragment from Gaoshan for organic residue analysis (Table XX). Four ceramic fragments from Guijiabao were recovered from trench 13 excavated in the 2017 field season and another sample was from the 2016 season. To understand the content and use of pottery vessels in Yanyuan in an earlier period, we analyzed potsherds from the stratigraphic layer which dates to the early Neolithic period (5000-4500 BP.) with potsherds from a later period (1000 BP.) for comparison. The common vessel forms unearthed at Guijiabao include jars, urns, bowls, and basins. For the pottery types, cord-marked grey pottery vessels with fine inclusions and cord-marked sand-tempered vessels in reddish-brown color with coarse inclusions are the two dominant types [@Hao2022]. Our samples are jar fragments from those two common types that are supposed to be used for food serving or storage due to the archaeological context of settlement [@Hao2022; @Guijiabao2017a]. 
 
 ## Methods
-For organic residue analysis, we detected and identified lipid compounds by gas chromatography mass spectrometry (GC-MS), and quantify lipids by gas chromatography with flame-ionization detection (GC-FID). To distinguish the source of the common fatty acids, palmitic (C16:0) and stearic (C18:0), found in most animals and plants, we determined their stable carbon isotope characteristics by gas chromatography combustion isotope ratio mass spectrometry (GC-C-IRMS). The stable carbon isotope ratio for individual lipid compounds is powerful indicator of the origins of organic residues since different food categories, such as terrestrial or marine animals and plants, have specific ranges of δ^13^C values [@Evershed1994]. 
+For organic residue analysis, we detected and identified lipid compounds by gas chromatography mass spectrometry (GC-MS), and quantify lipids by gas chromatography with flame-ionization detection (GC-FID). To distinguish the source of the common fatty acids, palmitic (C16:0) and stearic (C18:0), found in most animals and plants, we determined their stable carbon isotope characteristics by gas chromatography combustion isotope ratio mass spectrometry (GC-C-IRMS). The stable carbon isotope ratio for individual lipid compounds is powerful indicator of the origins of organic residues since different food categories, such as terrestrial animal, marine animals and plants, have specific ranges of δ^13^C values [@Craig2004; @Evershed1994]. 
 
 We cleaned the surface of each potsherd to prevent external contamination from environmental factors and handling during excavation or post-excavation analysis. Approximately 3.5 grams powdered samples were extracted with a mixture of dichloromethane/methanol solution (9:1 v/v) using accelerated solvent extraction (ASE Dionex 350; at 100 degrees C). We conducted saponification by adding 10 mL 1M KOH in methanol and 1 mL water into the extracts and heated them in an oven at 70 degrees C overnight. Saponified extracts were acidified with 6M hydrochloric acid (HCl), and the acid fraction was extracted using hexane ($3\times10$ mL). A 5% aliquot of each sample was derivatized using 20 uL N,O-bis(trimethylsilyl)trifluoroacetamide (BSTFA) with 1% v/v trimethylchlorosilane (TMCS), and heated at 70 degrees C for one hour. After drying under a stream of nitrogen, the derivitized sample was dissolved in toluene (20 uL) prior to GC-MS. Internal standards were added before and after the total lipid extraction. 
 
@@ -356,8 +356,10 @@ isotope_C16_C18 <-
   theme_minimal() +
   labs(x = bquote(delta*{}^13*"C 16:0 \u2030"),
        y = bquote(delta*{}^13*"C 18:0 \u2030")) +
-  xlim(-33,-20) +
-  ylim(-33,-20) +
+  scale_x_continuous(limits = c(-33, -20),
+                     breaks = seq(-33, -20, 2)) +
+  scale_y_continuous(limits = c(-33, -20),
+                     breaks = seq(-33, -20, 2)) +
   #coord_fixed(ratio = 1) +
   geom_abline(intercept = -0.7, linetype = "dashed") + #Suryanarayan et al.2021
   geom_abline(intercept = -3.1, linetype = "dashed") +
@@ -375,16 +377,20 @@ big_delta_C16 <-
        y = bquote(Delta*{}^13*"C 18:0 \u2030")) +
   scale_x_continuous(limits = c(-33, -20),
                      breaks = seq(-33, -20, 2)) +
-  ylim(-2.5, 2) +
+  ylim(-2.5, 1.5) +
   geom_hline(yintercept = -0.7, linetype = "dashed") +
-  annotate("text", x = -22, y = -0.5,
+  annotate("text", x = -31.5, y = -0.9,
            label = bquote(Delta*{}^13*"C = -0.7 \u2030")) +
-  annotate("text", x = -31, y = 1.8,
+  annotate("text", x = -32, y = 1.3,
            label = "C3-diet") +
-  annotate("segment", x = -29, y = 1.8, xend = -24, yend = 1.8,
+  annotate("segment", x = -29, y = 1.3, xend = -24, yend = 1.3,
            arrow = arrow(type = "closed", length = unit(0.02, "npc"))) +
-  annotate("text", x = -22, y = 1.8,
-           label = "C4-diet")
+  annotate("text", x = -21, y = 1.3,
+           label = "C4-diet") +
+  annotate("text", x = -22, y = -1.1,
+           label = "Ruminant") +
+  annotate("text", x = -21.5, y = -0.3,
+           label = "Non-ruminant")
 
 library(cowplot)
 combined_isotopic_plots <-
@@ -404,7 +410,7 @@ ggsave(here::here("analysis","figures","isotopic_plots.png"),
 
 To identify the origins of degraded animal fats, we conducted isotope analysis to obtain the stable carbon isotope compositions δ^13^C values of C16:0 and C18:0 using GC-C-IRMS. The δ^13^C values of C16:0 and C18:0 have proven useful to distinguish between ruminant adipose, non-ruminant adipose, and ruminant dairy fats based on different ways where dietary carbon sources are utilized by different fat types [@Dunne2012; @Copley2003; @Evershed2008]. To reduce the bias caused by differential δ^13^C values across geographical regions, we used the Δ^13^C(δ^13^C18:0 - δ^13^C16:0) values to determine the sources of degraded fats [@Evershed2008; @Salque2013]. The carbon isotope values for C16:0 and C18:0 distribute between `r min_carbon_isotope` and `r max_carbon_isotope`, and their Δ13C values range from `r delta_min` ‰ to `r delta_max` ‰. The Δ13C values were plotted according to the global reference database for the identification of their origins [@Suryanarayan2021; @Dunne2012; @Evershed2008]. 
 
-The results show that most potsherd samples from Guijiabao contain fatty acids from ruminant adipose fats with one potsherd (SYG-TN13-E23-3) suggesting an origin of non-ruminant adipose fat (Figure \@ref(fig:isotopic-plots): A). The only potsherd from Gaushan (CDG-062) demonstrates ruminant adipose fats as well. It should be noted that there are two potsherds (SYG-TN13-E22-1 and SYG-3) from Guijiabao plotted between the reference line of ruminant adipose and non-ruminant, indicative of the mixing of those two sources [@Copley2003]. Moreover, the potsherd indicating non-ruminant adipose fats has a relatively depleted δ^13^C value (Figure \@ref(fig:isotopic-plots): B) falling within the range of C3/terrestrial plants [@Shoda2018; @Kwak2020]. In general, most potsherd samples containing ruminant adipose fats have depleted δ^13^C values consistent with the δ^13^C values of C3/terrestrial plants, suggesting the ruminant animals were likely fed on C3 plants. There is only one potsherd (SYG-TN13-E22-2#2) have a relatively enriched δ^13^C value, indicative of a C4 plant diet for the ruminant animal.
+The results show that most potsherd samples from Guijiabao contain fatty acids from ruminant adipose fats with one potsherd (SYG-TN13-E23-3) suggesting an origin of non-ruminant adipose fat (Figure \@ref(fig:isotopic-plots): A). The only potsherd from Gaushan (CDG-062) demonstrates ruminant adipose fats as well. It should be noted that there are two potsherds (SYG-TN13-E22-1 and SYG-3) from Guijiabao dating to a later period plotted between the reference line of ruminant adipose and non-ruminant, indicative of the mixing of those two sources [@Copley2003]. Moreover, the potsherd indicating non-ruminant adipose fats has a relatively depleted δ^13^C value (Figure \@ref(fig:isotopic-plots): B) falling within the range of C3/terrestrial plants [@Shoda2018; @Kwak2020]. In general, most potsherd samples containing ruminant adipose fats have depleted δ^13^C values consistent with the δ^13^C values of C3/terrestrial plants, suggesting the ruminant animals were likely fed on C3 plants. There is only one potsherd (SYG-TN13-E22-2#2) have a relatively enriched δ^13^C value, indicative of a C4 plant diet for the ruminant animal.
 
 ```{r isotopic-plots, echo=FALSE, fig.cap= "A: The distribution of stable carbon isotopes for C16:0 and C18:0. B: The Δ13C (δ13C18:0-16:0) values plotted against δ13C16:0 values"}
 knitr::include_graphics(here::here("analysis/figures/isotopic_plots.png"))
@@ -414,9 +420,9 @@ knitr::include_graphics(here::here("analysis/figures/isotopic_plots.png"))
 <!--A brief summary of interesting results-->
 Our results show that food categories indicated by lipid residues extracted from Guijiabao and Gaoshan potsherds were mainly dominated by terrestrial animals, particularly ruminant fats or mixtures of terrestrial animals and plants. Moreover, it is striking to identify a non-ruminant source from a Guijiabao potshard that might be C3 plants. Although the lipid yields in most of our samples are generally low, interpretative amounts of yields for all potsherds support that those ceramics were used as cooking or storage pots. One potshard dating to around 4500 years ago demonstrates a rich composition of long-chain fatty acids, suggesting a better condition for preserving lipid molecules. We also recognize the limitation for interpreting food choices over time or differences across regions because of our small sample sizes from both Guijiabao and Gaoshan. However, the general pattern of the isotopic values of lipid molecules could provide informative clues for a better understanding of the local subsistence of Guijiabao.
 
-Ruminant fats in the Neolithic potsherds around ca. 4500 BP. from Guijiabao and Gaoshan could be derived from deer or horse according to the finding of faunal remains, accompanied with stone artifacts for hunting, such as stone balls and arrow-heads [@Hao2022; @Guijiabao2020a]. However, whether horses were part of local food choices in an earlier period is questionable. First, the Pleistocene and Neolithic sites with wild horse bones mostly concentrated in northern China [@Yuan2006]. Second, domesticated horses first found in southwest China were much later from the Dian culture (4th century BC to 1st century AD) in eastern Yunnan [@Lei2009; @Chiou2004]. Although wild Asian water buffalo could be another food source due to their presence since the Pleistocene [@Zhang2016], no cattle bones were found at Guijiabao or Gaoshan. Therefore, it is more likely that deer could be the main resource of ruminant fats. The analysis of faunal remains from Guijiabao is still in progress which could allow us to evaluate our findings in the future.
+Ruminant fats in the Neolithic potsherds around ca. 4500 BP. from Guijiabao and Gaoshan could be derived from deer or horse according to the finding of faunal remains from the sites, accompanied with stone artifacts for hunting, such as stone balls and arrow-heads [@Hao2022; @Guijiabao2020a]. However, whether horses were part of local food choices in an earlier period is questionable. First, the Pleistocene and Neolithic sites with wild horse bones mostly concentrated in northern China [@Yuan2006]. Second, domesticated horses first found in southwest China were much later from the Dian culture (4th century BC to 1st century AD) in eastern Yunnan [@Lei2009; @Chiou2004]. Although wild Asian water buffalo could be another food source due to their presence since the Pleistocene [@Zhang2016], no cattle bones were found at Guijiabao or Gaoshan in an early period. Therefore, it is more likely that deer could be the resource of ruminant fats. The analysis of faunal remains from Guijiabao is still in progress which could allow us to evaluate our findings.
 
-check isotopic results for horse, deer and cattle
+check isotopic results for horse, deer 
 
 Medium-chain fatty acids (C16:0 and C18:0) with an even-over-old carbon chain length predominance indicate that the organic residues in our potsherds were highly degraded over the past 4500 years.
 
