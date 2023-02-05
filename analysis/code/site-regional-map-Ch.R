@@ -59,8 +59,8 @@ library(ggmap)
 # from https://stackoverflow.com/a/52710855/1036500
 #GJB_map <- ggmap(get_stamenmap(rbind(as.numeric(c(99, 25,
                                                   #106, 32))), zoom = 10))
-# saveRDS(GJB_map, here("analysis", "data", "raw_data", "SW_china_map.rds"))
-SW_china_map <- readRDS(here::here("analysis", "data", "raw_data", "SW_china_map.rds"))
+# saveRDS(GJB_map, here("analysis", "data", "derived_data", "SW_china_map.rds"))
+SW_china_map <- readRDS(here::here("analysis", "data", "derived_data", "SW_china_map.rds"))
 pg <- ggplot_build(SW_china_map)
 
 China_map_with_site <-
