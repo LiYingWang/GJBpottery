@@ -7,7 +7,7 @@ author:
       correspondence: true
   - Kuei-Chen Lin:
       email: kueichenlin@asihp.net
-      institute: [UofA]
+      institute: [UofO]
       correspondence: true
 institute:
   - UofO: Institute of History and Philology, Academia Sinica 
@@ -103,7 +103,7 @@ The remaining 95% aliquot was fractioned by solid phase extraction (Aminopropyl,
 
 The GC-MS analysis was performed using an Agilent 7683 B series gas chromatograph attached to an Agilent 5975 inert mass selective detector. Samples were injected in splitless mode at 320 °C, and compounds were separated with a VF-17ms column (60 m length, 0.25 mm i.d., 0.25 μm film thickness). Helium carrier is at a constant flow rate of 1.3 ml/min. The temperature of the oven was started from 90 °C for 1 minute and increased at a rate of 5 °C/min to 320 °C, where it was held for 23 minutes. The GC-FID analysis for the FAME samples was carried out using Agilent 6890N gas chromatograph equipped with a PTV inlet in splitless mode. The carrier gas was helium at 1.6 ml/min. The GC system was an Agilent 6890N equipped with a programmed temperature vaporization (PTV) inlet in splitless mode. The GC oven was held at 90°C for 1.3 minute, and then raised to 320°C at a rate of 5°C/min. The final temperature was held for 22 minutes. The GC-C-IRMS analyses of FAMEs of individual fatty acids were conducted using a Thermo Delta V Plus mass spectrometer linked to a GC Trace 1310 through an Isolink Interface. The sample injection volume was 1 ul in toluene and was injected in splitless mode. Separation was carried out using the same model of column for GC-MS and the GC oven temperature was set at 90 °C for 1.5 minutes and then raised at a rate of 5 °C/min to 320 °C, with an 18-minute hold. Helium was used as a gas carrier in constant flow mode at 1.24 ml/minute.
 
-The raw data and R code used for visualizations contained in this paper and R Markdown documents are available online at XXX to enable research reproducibility and transparency. 
+The raw data and R code used for visualizations contained in this paper and R Markdown documents are available online at XXX to enable research reproducibility and transparency [@Marwick2017]. 
 
 # Results
 
@@ -242,7 +242,7 @@ ggsave(plot = chroma_four,
        units = "in")
 ```
 
-The GC-MS analysis for organic residues extracted from Guijiabao and Gaoshan potsherds revealed the presence of lipid compounds above interpretable concentrations (5 g/g) [@Evershed2008experimental], but in relatively small amounts in the majority of them (Table \@ref(tab:FA-composition-table)]. The lipid profiles show that the main compounds in most potsherds are saturated fatty acids with an even number of carbons, particularly C16:0 (palmitic acid), C18:0 (stearic acid), and monounsaturated fatty acid C18:1 (oleic acid) (Figure \@ref(fig:chromatograms-plots-four)). Those fatty acids commonly exist in animal fat and plant oil. They are also generally degraded from larger molecules, such as triacylglycerols, after long-term burial processes due to oxidation and microbial degradation [@Dudd1998; @Eerkens2007]. High concentrations of medium-chain fatty acids (C16:0 and C18:0) with an even-over-old carbon chain length predominance indicate that the organic residues in our potsherds were highly degraded during post-depositional processes. In addition, a number of potsherds present higher contents of C18:1 compared to C18:0 and C16:0, such as SYG-TN13-E23-3. Although a higher content of C18:1 and C16:0 with a lower content of C18:0 might indicate the origin of plant oils [@Mayyas2018; @Copley2005], it is hard to directly relate the pattern we observed to a plant origin based on GC-MS results alone.
+The GC-MS analysis for organic residues extracted from Guijiabao and Gaoshan potsherds revealed the presence of lipid compounds above interpretable concentrations (5 μg/g) [@Evershed2008experimental], but in relatively small amounts in the majority of them (Table \@ref(tab:FA-composition-table)]. The lipid profiles show that the main compounds in most potsherds are saturated fatty acids with an even number of carbons, particularly C16:0 (palmitic acid), C18:0 (stearic acid), and monounsaturated fatty acid C18:1 (oleic acid) (Figure \@ref(fig:chromatograms-plots-four)). Those fatty acids commonly exist in animal fat and plant oil. They are also generally degraded from larger molecules, such as triacylglycerols, after long-term burial processes due to oxidation and microbial degradation [@Dudd1998; @Eerkens2007]. High concentrations of medium-chain fatty acids (C16:0 and C18:0) with an even-over-old carbon chain length predominance indicate that the organic residues in our potsherds were highly degraded during post-depositional processes. In addition, a number of potsherds present higher contents of C18:1 compared to C18:0 and C16:0, such as SYG-TN13-E23-3. Although a higher content of C18:1 and C16:0 with a lower content of C18:0 might indicate the origin of plant oils [@Mayyas2018; @Copley2005], it is hard to directly relate the pattern we observed to a plant origin based on GC-MS results alone.
 
 ```{r FA-composition-table, cache= TRUE, cache.extra=tools::md5sum(here::here("analysis/data/raw_data/210824_FAMES_pot_LW_publication.xlsx"))}
 quant_FA <-
