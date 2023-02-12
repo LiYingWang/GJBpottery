@@ -29,7 +29,9 @@ delta_data <-
                                         "SYG-TN13-E22-2#2",
                                         "SYG-TN13-E23-3",
                                         "SYG-3",
-                                        "CDG-062")))
+                                        "CDG-062"))) %>%
+  mutate(period = ifelse(sample %in% c("SYG-TN13-E22-1", "SYG-3" ),
+                         "Historical", "Neolithic"))
 
 # filter the Meth corrected data
 delta_meth_cor <-
@@ -57,7 +59,9 @@ delta_meth_cor <-
                                             "SYG-TN13-E22-2#2",
                                             "SYG-TN13-E23-3",
                                             "SYG-3",
-                                            "CDG-062")))
+                                            "CDG-062"))) %>%
+  mutate(period = ifelse(sample %in% c("SYG-TN13-E22-1", "SYG-3" ),
+                         "Historical", "Neolithic"))
 
 # import a SVG for later ggplot overlaying with ellipses
 tem <- rsvg::rsvg(here::here("analysis", "figures","carbon-isotope-ellipses-template.svg"))
@@ -106,7 +110,7 @@ ggsave(here::here("delta_C16_C18_remove_pot6.png"),
 isotope_C16_C18 <-
   ggplot(delta_meth_cor, #delta_meth_cor/delta_blank_cor
        aes(`13C C16:0`,`13C C18:0`)) +
-  geom_point(size = 2, alpha = 0.9, aes(shape = sample)) +
+  geom_point(size = 2, alpha = 0.9, aes(shape = sample, color = period)) +
   #ggrepel::geom_text_repel(aes(label = C13)) +
   theme_minimal() +
   labs(x = bquote(delta*{}^13*"C 16:0 \u2030"),
@@ -126,7 +130,7 @@ isotope_C16_C18 <-
 big_delta_C16 <-
   ggplot(delta_meth_cor, # delta_meth_cor or delta_blank_cor
        aes(`13C C16:0`, delta)) +
-  geom_point(size = 2, alpha = 0.9, aes(shape = sample)) +
+  geom_point(size = 2, alpha = 0.9, aes(shape = sample, color = period)) +
   theme_minimal() +
   labs(x = bquote(delta*{}^13*"C 16:0 \u2030"),
        y = bquote(Delta*{}^13*"C 18:0 \u2030")) +
