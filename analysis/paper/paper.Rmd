@@ -11,7 +11,6 @@ author:
       correspondence: true
 institute:
   - UofO: Institute of History and Philology, Academia Sinica 
-  - UofA: Institute of History and Philology, Academia Sinica 
 date: "`r format(Sys.time(), '%d %B, %Y')`"
 output: 
     bookdown::word_document2:
