@@ -286,7 +286,7 @@ knitr::kable(quant_FA_tidy,
              caption = "Quantitative data of fatty acid (FA) composition (μg) for each pottery sample based on GC-FID analysis")
 ```
 
-```{r chromatograms-plots-four, echo=FALSE, fig.cap= "GC-MS chromatograms of fatty acids extracted from four potsherds from Guijiabao abd Gaoshan. Cn:x refers to fatty acid with n carbon atoms and x double bonds. IS indicates internal standard used for quantification, including FA C21:0 and n-alkane 34"}
+```{r chromatograms-plots-four, echo=FALSE, fig.cap= "GC-MS chromatograms of fatty acids extracted from four potsherds from Guijiabao abd Gaoshan. Cn:x refers to fatty acid with n carbon atoms and x double bonds. IS indicates internal standard used for quantification, including FA C21:0 and 5-α Cholestane"}
 knitr::include_graphics(here::here("analysis/figures/chromatograms_four.png"))
 ```
 
@@ -324,7 +324,7 @@ ggsave(plot = chroma_specific,
 
 One pottery sample (SYG-TN13-E22-2#2) has much higher lipid concentrations (about `r FA_max_sum` μg/g) than the rest of the sample, suggesting a better preservation of lipids that might relate to the type of ceramic or a different use. This sample also has a charred interior surface, indicative of a function associated with food processing. Long-chain fatty acids from C20:0 to C32:0 are present in that sample with an even-over-odd carbon chain length predominance, but in lower abundance than medium-chain components (Figure \@ref(fig:chromatograms-specific)). The existence of long-chain fatty acids with a high abundance of C16:0 relative to C18:0 might be related to plant waxes [@Post1996; @Copley2005]. However, it could also be associated with degraded animal fat based on a strong predominance of medium-chain fatty acids [@Whelton2018; @Dudd1998]. Overall, the GC-MS results demonstrate strong evidence of degraded animal fats. 
 
-```{r chromatograms-specific, echo=FALSE, fig.cap= "The MS chromatogram of the Guijiabao potsherd shows the presence of long-chain fatty acids. Cn:x refers to fatty acid with n carbon atoms and x double bonds. IS indicates internal standards used for quantification, including FA C21:0 and n-alkane 34"}
+```{r chromatograms-specific, echo=FALSE, fig.cap= "The MS chromatogram of the Guijiabao potsherd shows the presence of long-chain fatty acids. Cn:x refers to fatty acid with n carbon atoms and x double bonds. IS indicates internal standards used for quantification, including FA C21:0 and 5-α Cholestane"}
 knitr::include_graphics(here::here("analysis/figures/chromatograms_specific.png"))
 ```
 
