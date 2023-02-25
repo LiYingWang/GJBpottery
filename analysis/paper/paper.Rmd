@@ -253,13 +253,13 @@ names(quant_FA)[2] <- "sample"
 
 quant_FA_number <-
   quant_FA %>%
-  pivot_longer(!number&!sample,
+  pivot_longer(!number&!sample&!`g extracted`&!`%reco`,
                names_to = "FA", 
                values_to = "weight") %>% 
-  select(-number) %>% 
   filter(str_starts(FA, "ng") & !sample =="") %>% 
   mutate(FA = str_remove(FA, "ng "),
-         weight = round(weight/1000, 2)) %>% 
+         weight = round(weight/`%reco`/`g extracted`/1000, 2)) %>% 
+  select(-number, -`%reco`, -`g extracted`) %>% 
   pivot_wider(names_from = sample, 
               values_from = weight) 
 
@@ -268,14 +268,14 @@ FA_max_sum <-
 
 quant_FA_tidy <-
   quant_FA %>%
-  pivot_longer(!number&!sample,
+  pivot_longer(!number&!sample&!`g extracted`&!`%reco`,
                names_to = "FA", 
                values_to = "weight") %>% 
-  select(-number) %>% 
   filter(str_starts(FA, "ng") & !sample =="") %>% 
   mutate(FA = str_remove(FA, "ng "),
-         weight = as.character(round(weight/1000, 2))) %>% 
+         weight = round(weight/`%reco`/`g extracted`/1000, 2)) %>% 
   mutate(weight = ifelse(is.na(weight)|weight == "0", "-", weight)) %>% 
+  select(-number, -`%reco`, -`g extracted`) %>% 
   pivot_wider(names_from = sample, 
               values_from = weight) %>% 
   select("FA", "SYG-TN13-E22-1", "SYG-TN13-E22-2#1", "SYG-TN13-E22-2#2",
@@ -283,7 +283,7 @@ quant_FA_tidy <-
   filter(!FA == "C34:0" & !FA == "C21:0")
 
 knitr::kable(quant_FA_tidy,
-             caption = "Quantitative data of fatty acid (FA) composition (μg) for each pottery sample based on GC-FID analysis")
+             caption = "Quantitative data of fatty acid (FA) composition (μg/g) for each pottery sample based on GC-FID analysis")
 ```
 
 ```{r chromatograms-plots-four, echo=FALSE, fig.cap= "GC-MS chromatograms of fatty acids extracted from four potsherds from Guijiabao abd Gaoshan. Cn:x refers to fatty acid with n carbon atoms and x double bonds. IS indicates internal standard used for quantification, including FA C21:0 and 5-α Cholestane"}
