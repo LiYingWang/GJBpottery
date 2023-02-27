@@ -3,14 +3,19 @@ title: "Investigating Neolithic pottery use from Guijiabao in the Yanyuan Basin 
 author:
   - Li-Ying Wang:
       email: liyingw@asihp.net
-      institute: [UofO]
+      institute: [AcS]
       correspondence: true
   - Kuei-Chen Lin:
       email: kueichenlin@asihp.net
-      institute: [UofO]
-      correspondence: true
+      institute: [AcS]
+      correspondence: false
+  - Zhiqing Zhou:
+      email: zhouzhiQ2000@163.com
+      institute: [InsC]
+      correspondence: false
 institute:
-  - UofO: Institute of History and Philology, Academia Sinica 
+  - AcS: Institute of History and Philology, Academia Sinica 
+  - InsC: Chengdu Institute of Cultural Relics and Archaeology
 date: "`r format(Sys.time(), '%d %B, %Y')`"
 output: 
     bookdown::word_document2:
