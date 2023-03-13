@@ -134,9 +134,9 @@ meth_all %>%
   #filter(File > 55000) %>%
   ggplot(aes(Path, File)) +
   geom_line(size = 0.3) +
-  geom_text(data = highlight_SYG2_2, #ggrepel::geom_text_repel
+  ggrepel::geom_text_repel(data = highlight_SYG2_2, #ggrepel::geom_text_repel
             aes(label = FA),
-            size = 3,
+            size = 3.5,
             nudge_y = 250000,
             show.legend = FALSE) +
   scale_y_continuous(labels = scales::comma_format(),
