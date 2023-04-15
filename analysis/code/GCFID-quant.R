@@ -136,14 +136,14 @@ meth_all %>%
   geom_line(size = 0.3) +
   ggrepel::geom_text_repel(data = highlight_SYG2_2, #ggrepel::geom_text_repel
             aes(label = FA),
-            size = 3.5,
+            size = 3,
             nudge_y = 250000,
             show.legend = FALSE) +
   scale_y_continuous(labels = scales::comma_format(),
                      limits = c(0, 7500000),
                      breaks = seq(0, 7500000, 1000000)) +
-  scale_x_continuous(limits = c(15, 50),
-                     breaks = seq(15, 50, 5),
+  scale_x_continuous(limits = c(20, 50),
+                     breaks = seq(20, 50, 5),
                      expand = c(0, 0.5)) + # don't log, many peaks and distort real counts
   labs(title = "SYG-TN13-E22-2#2", x = "retention time", y = "relative Intensity") +
   theme_minimal() +
