@@ -20,10 +20,6 @@ world_points <- cbind(world, st_coordinates(st_point_on_surface(world$geometry))
   mutate(Y = ifelse(brk_name %in% c("Bhutan", "Bangladesh"), Y+2, Y)) %>%
   mutate(Y = ifelse(brk_name %in% c("Thailand", "Myanmar"), Y+3.5, Y))
 
-# shapefile
-ch_adm <- st_read(here::here("analysis/data/raw_data/Ch_adm/CHN_adm1.shp"))
-plot(st_geometry(ch_adm))
-
 # add site location
 site_location <-
   data.frame(location = c("Guijuabao", "Gaoshan"), # Chengdu(104.0587, 30.5899)
@@ -49,9 +45,6 @@ China_SE_Asia <-
   scale_y_continuous(breaks = seq(5, 45, by = 10)) +
   theme(axis.title.x = element_blank(),
         axis.title.y = element_blank())
-
-China_SE_Asia +
-  geom_sf(data = ch_adm)
 
 # Topographic map
 library(ggmap)
