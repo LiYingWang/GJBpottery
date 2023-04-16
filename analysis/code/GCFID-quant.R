@@ -123,6 +123,7 @@ meth_all %>%
         panel.background = element_blank(), axis.line = element_line(colour = "black"))
 
 ggsave(here::here("analysis","figures", "chromatograms_four.png"),
+       bg = "white",
        width = 7,
        height = 8,
        dpi = 300,
@@ -152,6 +153,7 @@ meth_all %>%
         panel.background = element_blank(), axis.line = element_line(colour = "black"))
 
 ggsave(here::here("analysis","figures", "chromatograms_specific.png"),
+       bg = "white",
        width = 8,
        height = 5,
        dpi = 360,

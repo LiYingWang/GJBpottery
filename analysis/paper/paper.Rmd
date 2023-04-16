@@ -240,6 +240,7 @@ chroma_four <-
 
 ggsave(plot = chroma_four,
        here::here("analysis","figures", "chromatograms_four.png"),
+       bg = "white",
        width = 6,
        height = 8,
        dpi = 300,
@@ -321,6 +322,7 @@ chroma_specific <-
 
 ggsave(plot = chroma_specific,
        here::here("analysis","figures", "chromatograms_specific.png"),
+       bg = "white",
        width = 8,
        height = 5,
        dpi = 300,
@@ -430,6 +432,7 @@ combined_isotopic_plots <-
           label_size = 12)
 
 ggsave(here::here("analysis","figures","isotopic_plots.png"),
+       bg = "white",
        width = 6,
        height = 8,
        dpi = 300,

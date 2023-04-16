@@ -161,6 +161,7 @@ combined_isotopic_plots <-
           label_size = 12)
 
 ggsave(here::here("analysis","figures","isotopic_plots.png"),
+       bg = "white",
        width = 6,
        height = 8,
        dpi = 300,
