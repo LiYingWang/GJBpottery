@@ -1,6 +1,6 @@
 library(tidyverse)
 isotope_data <-
-  readxl::read_excel(here::here("analysis","data", "raw_data","12_21_potshard_13C.xlsx"),
+  readxl::read_excel(here::here("analysis","data", "raw_data","12_21_potshard_13C_pub.xlsx"),
                      sheet = "Summary", col_names =  FALSE)
 
 # filter the blank corrected data

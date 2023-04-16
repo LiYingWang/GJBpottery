@@ -250,7 +250,7 @@ The GC-MS analysis for organic residues extracted from potsherds found at the Gu
 
 ```{r FA-composition-table, cache= TRUE, cache.extra=tools::md5sum(here::here("analysis/data/raw_data/210824_FAMES_pot_LW_publication.xlsx"))}
 quant_FA <-
-  readxl::read_excel(here::here("analysis", "data", "raw_data", "210824_FAMES_pot_LW_publication.xlsx"), 
+  readxl::read_excel(here::here("analysis", "data", "raw_data", "210824_FAMES_pot_LW_pub.xlsx"), 
                      skip = 2, col_names = TRUE) 
 
 names(quant_FA)[1] <- "number"
@@ -336,7 +336,7 @@ knitr::include_graphics(here::here("analysis/figures/chromatograms_specific.png"
 ```{r isotopic-analysis, cache= TRUE}
 library(tidyverse)
 isotope_data <-
-  readxl::read_excel(here::here("analysis","data", "raw_data","12_21_potshard_13C.xlsx"),
+  readxl::read_excel(here::here("analysis","data", "raw_data","12_21_potshard_13C_pub.xlsx"),
                      sheet = "Summary", col_names =  FALSE)
 
 # filter the Meth corrected data
