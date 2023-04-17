@@ -20,9 +20,8 @@ Our pre-print is online here:
 
 Please cite this compendium as:
 
-> Authors, (2022). *Compendium of R code and data for Title of your
-> paper goes here*. Accessed 09 Feb 2022. Online at
-> <https://doi.org/xxx/xxx>
+> Wang, L.-Y., Lin, K.-C., and Zhou, Z. (2023). *Compendium of R code and data for Investigating Neolithic pottery use from Guijiabao in the Yanyuan Basin in southwest China using organic residue analysis. Accessed 16 Apr 2023. Online at
+> <https://doi.org/10.17605/OSF.IO/46BPF>
 
 ## Contents
 
