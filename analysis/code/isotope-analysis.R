@@ -8,14 +8,12 @@ delta_blank_cor <-
   isotope_data %>%
   select(1, 15, 17) %>%
   slice(2:8) %>%
-  dplyr::mutate(...1 = ifelse(is.na(...1), paste0("C13"), ...1))
-
-names(delta_blank_cor) <- delta_blank_cor[1,]
+  dplyr::mutate(...1 = ifelse(is.na(...1), paste0("C13"), ...1)) %>%
+  janitor::row_to_names(1) %>%
+  dplyr::mutate(across(starts_with("13C"), as.numeric))
 
 delta_data <-
   delta_blank_cor %>%
-  slice(2:7) %>%
-  dplyr::mutate(across(starts_with("13C"), as.numeric)) %>%
   dplyr::mutate(delta = `13C C18:0`-`13C C16:0`) %>%
   mutate(name = case_when(
     C13 %in% c("Pot 1") ~ "CDG-062",
@@ -30,44 +28,40 @@ delta_data <-
                                         "SYG-TN13-E23-3",
                                         "SYG-3",
                                         "CDG-062"))) %>%
-  mutate(period = ifelse(sample %in% c("SYG-TN13-E22-1", "SYG-3" ),
-                         "Historical", "Neolithic"))
+  mutate(period = ifelse(name %in% c("SYG-TN13-E22-1", "SYG-3"), "Historical", "Neolithic"))
 
 # filter the Meth corrected data
 delta_meth_cor <-
   isotope_data %>%
   select(1, 7, 9) %>%
   slice(2:8) %>%
-  dplyr::mutate(...1 = ifelse(is.na(...1), paste0("C13"), ...1))
-
-names(delta_meth_cor) <- delta_meth_cor[1,]
+  dplyr::mutate(...1 = ifelse(is.na(...1), paste0("C13"), ...1)) %>%
+  janitor::row_to_names(1) %>%
+  dplyr::mutate(across(starts_with("13C"), as.numeric))
 
 delta_meth_cor <-
   delta_meth_cor %>%
-  slice(2:7) %>%
-  dplyr::mutate(across(starts_with("13C"), as.numeric)) %>%
   dplyr::mutate(delta = `13C C18:0`-`13C C16:0`) %>%
-  mutate(sample = case_when(
+  mutate(name = case_when(
     C13 %in% c("Pot 1") ~ "CDG-062",
     C13 %in% c("Pot 2") ~ "SYG-3",
     C13 %in% c("Pot 3") ~ "SYG-TN13-E22-2#1",
     C13 %in% c("Pot 4") ~ "SYG-TN13-E22-1",
     C13 %in% c("Pot 5") ~ "SYG-TN13-E22-2#2",
     C13 %in% c("Pot 6") ~ "SYG-TN13-E23-3")) %>%
-  mutate(sample = factor(sample, levels = c("SYG-TN13-E22-1",
+  mutate(name = factor(name, levels = c("SYG-TN13-E22-1",
                                             "SYG-TN13-E22-2#1",
                                             "SYG-TN13-E22-2#2",
                                             "SYG-TN13-E23-3",
                                             "SYG-3",
                                             "CDG-062"))) %>%
-  mutate(period = ifelse(sample %in% c("SYG-TN13-E22-1", "SYG-3" ),
-                         "Historical", "Neolithic"))
+  mutate(period = ifelse(name %in% c("SYG-TN13-E22-1", "SYG-3" ), "Historical", "Neolithic"))
 
-# import a SVG for later ggplot overlaying with ellipses
-tem <- rsvg::rsvg(here::here("analysis", "figures","carbon-isotope-ellipses-template.svg"))
-tem2 <- rsvg::rsvg(here::here("analysis", "figures","C16-18-ellipse.svg"))
-png::writePNG(tem2, "tem2.png", dpi =300)
-browseURL("tem2.png") # take a look
+# import isotopic ranges figures
+library(png)
+tem <- readPNG(here::here("analysis","figures", "tem.png"), native = FALSE, info = FALSE)
+tem2 <- readPNG(here::here("analysis","figures", "tem2.png"), native = FALSE, info = FALSE)
+tem3 <- readPNG(here::here("analysis","figures", "isotope_range.png"), native = FALSE, info = FALSE)
 
 # plot carbon isotopes of 16 and C18
 ggplot(delta_blank_cor, # delta_meth_cor or delta_blank_cor
@@ -85,7 +79,7 @@ ggplot(delta_blank_cor, # delta_meth_cor or delta_blank_cor
                     xmin = -44.5 , xmax = -5.65)
 
 # plot carbon isotopes of 16 and C18 using a different reference figure
-delta_blank_cor %>% # delta_meth_cor or delta_blank_cor
+delta_meth_cor %>% # delta_meth_cor or delta_blank_cor
   filter(!C13 == "Pot 6") %>% # remove pot from CDG
   ggplot(aes(`13C C16:0`,`13C C18:0`)) +
   geom_point(size = 2, alpha = 0.9, color = "red") +
@@ -97,20 +91,17 @@ delta_blank_cor %>% # delta_meth_cor or delta_blank_cor
   ylim(-40,-20) +
   coord_fixed(ratio=1) +
   #scale_colour_viridis_d(direction = -1) +
-  annotation_raster(tem2, ymin = -45.1, ymax= -15.1 ,
+  annotation_raster(tem3, ymin = -45.1, ymax= -15.1 ,
                     xmin = -45.55, xmax = -15.55)
 
 ggsave(here::here("delta_C16_C18_remove_pot6.png"),
-       width = 8,
-       height = 8,
-       dpi = 300,
-       units = "in")
+       width = 8, height = 8, dpi = 300, units = "in")
 
 # plot the carbon isotopes by following the method in Salque et al. (2013)
 isotope_C16_C18 <-
   ggplot(delta_meth_cor, #delta_meth_cor/delta_blank_cor
        aes(`13C C16:0`,`13C C18:0`)) +
-  geom_point(size = 2, alpha = 0.9, aes(shape = sample, color = period)) +
+  geom_point(size = 2, alpha = 0.9, aes(shape = name, color = period)) +
   #ggrepel::geom_text_repel(aes(label = C13)) +
   theme_minimal() +
   labs(x = bquote(delta*{}^13*"C 16:0 \u2030"),
@@ -125,12 +116,14 @@ isotope_C16_C18 <-
   annotate("text", x = -21.5, y = -22, angle = 45, vjust = 1.5,
            label = bquote(Delta*{}^13*"C = -0.7 \u2030")) +
   annotate("text", x = -21.5, y = -24.5, angle = 45, vjust = 1.5,
-           label = bquote(Delta*{}^13*"C = -3.1 \u2030"))
+           label = bquote(Delta*{}^13*"C = -3.1 \u2030")) +
+  annotation_raster(tem3, ymin = -38, ymax= -17.9 ,
+                    xmin = -36, xmax = -18.3)
 
 big_delta_C16 <-
-  ggplot(delta_meth_cor, # delta_meth_cor or delta_blank_cor
+  ggplot(delta_data, # delta_meth_cor or delta_blank_cor
        aes(`13C C16:0`, delta)) +
-  geom_point(size = 2, alpha = 0.9, aes(shape = sample, color = period)) +
+  geom_point(size = 2, alpha = 0.9, aes(shape = name, color = period)) +
   theme_minimal() +
   labs(x = bquote(delta*{}^13*"C 16:0 \u2030"),
        y = bquote(Delta*{}^13*"C 18:0 \u2030")) +
@@ -153,16 +146,8 @@ big_delta_C16 <-
 
 library(cowplot)
 combined_isotopic_plots <-
-  plot_grid(isotope_C16_C18,
-          big_delta_C16,
-          labels = c('A', 'B'),
-          ncol =1,
-          align = 'v',
-          label_size = 12)
+  plot_grid(isotope_C16_C18, big_delta_C16,
+            labels = c('A', 'B'), ncol =1, align = 'v', label_size = 12)
 
 ggsave(here::here("analysis","figures","isotopic_plots.png"),
-       bg = "white",
-       width = 6,
-       height = 8,
-       dpi = 300,
-       units = "in")
+       bg = "white", width = 6, height = 8, dpi = 300, units = "in")
