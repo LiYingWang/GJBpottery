@@ -28,10 +28,11 @@ output:
 bibliography: references.bib
 csl: "../templates/journal-of-archaeological-science.csl" # Insert path for the bib-style
 abstract: |
-    The spread of new crops or terrestrial animals across areas in southwestern China during the Neolithic period is one of the important archaeological issues to understand the process of adoption of new culinary practices in this region. It is widely accepted that rice was introduced into southwest China in 4700 BP at the latest and millets came even earlier. However, to what extent new crops were used by local peoples at that time remains unclear. The excavation of Guijiabao in the Yanyuan basin in southwestern China uncovered abundant materials with well-preserved stratigraphic records and has provided a unique opportunity to understand the local adoption of new crops. To further understand pottery use and food practices at Guijiabao, we investigated organic residues preserved in potsherds using lipid biomarker identification and compounds-specific stable isotope analysis. The results show signals of terrestrial animals in most potsherds and a C~3~ plant source in one potshard, during the Neolithic period. Our case study indicates that hunting might have been the primary means for obtaining subsistence, supplemented by rice/millet farming. This study also demonstrates an approach using organic residue analysis to explore the extent of the adoption of farming during the Neolithic period in southwestern China.
+
+     The emergence of mixed agriculture of millet and rice in Neolithic southwestern China has been a topic of extensive discussion. Despite the recovery of both millet and rice grains, the varying proportions observed across the area underscore the complexity of the process of agricutural dispersal. Further investigation is needed to understand how new crops were integrated into southwestern China, characterized by diverse environmental conditions and landscapes. This study contributes to this understanding by exploring subsistence strategies in southwestern Sichuan through a preliminary analysis of lipid residues in pottery from the Guijiabao site using organic geochemical analyses. Situated in the middle Hengduan mountain ranges, the Guijiabao site presents well-preserved stratigraphic records spanning from the Neolithic to the historical period, providing valuable insights into local subsistence practices in a highland environment. Results reveal the detection of ruminant adipose fats in the majority of potsherds, with a few showing plant inputs such as broomcorn millet. This suggests that animals played a substantial role in the local diet, alongside the consumption of millet. These culinary practices also indicate that hunting may have remained a significant subsistence activity in the high-altitude region of southwestern China, even after the introduction of crops.
  
 keywords: |
-  Southwestern China; Neolithic period; Lipid residue analysis; Stable isotope analysis; Ceramics; Culinary practices
+  Southwestern China; Neolithic period; Lipid residue analysis; Compound-specific carbon isotope analysis; Pottery; Culinary practices
 highlights: |
   These are the highlights. 
 ---
@@ -60,15 +61,18 @@ image_width_1_col_inch = 90/25.4 # image Single column	w = 90 mm
 ```
 
 # Introduction
+
 <!-- intro to the topic and research aim-->
+The movement of Neolithic populations has long been discussed in archaeology to understand the processes of agricultural diffusion, regional variations, and their consequences [@Bellwood2023; @Davison2006]. In southwest China, the emergence of farming practices was thought to be associated with the migrating population from central or northern China in the Neolithic period [@Deng2019]. Crop remains found in prehistoric southwest China, including foxtail millet, broomcorn millet, and rice, can be traced back to as early as 5000 BP in southwest Sichuan and around 4600 BP in western Yunnan [@Jiang2016; @Deng2019; @YunnanMuseum1981; @Zhang2010; @Dal2022]. Despite different views on the routes of agricultural dispersal [@Guedes2013; @Guedes2018; @Liu2022; @Huan2022], it is generally believed that mixed farming was the main agricultural practice in southwest China [@Deng2019]. However, more studies are still needed to understand how migrant communities interacted with new environments, especially in an area with a high diversity of landscapes, such as high mountains, plateaus, basins, and terraces. 
 
-The movement of Neolithic populations has long been discussed in archaeology to understand the processes of agricultural diffusion, regional variations, and their consequences [@bellwood2023; @Davison2006]. In southwest China, the emergence of farming practices was thought to be associated with the migrating population from central or northern China in the Neolithic period [@Deng2019]. Crop remains, including foxtail millet, broomcorn millet, and rice, found in prehistoric southwest China that can be traced back to as early as 4700 BP in Sichuan and around 4600 BP in western Yunnan [@Jiang2016; @Deng2019; @YunnanMuseum1981; @Zhang2010; @Dal2022]. Despite different views on the routes of agricultural dispersal [@Guedes2013; @Guedes2018; @Liu2022], it is generally believed that mixed farming was the main economy in southwest China after the introduction of agriculture [@Deng2019]. However, more studies still needed to understand how migrant communities interacted with new environments, especially in an area with high diversity of landscape, such as high mountain, plateau, basin, and terrace. 
+<!--Guijaibao as a research area-->
+This study focuses mainly on archaeological sites located in the Hengduan Mountain ranges, a region in southwest China connecting the Tibetan Plateau to the northwest, the Sichuan Basin to the east, and the Yunnan Plateau to the south. As a critical passage for population movement, the Hengduan Mountain ranges and valleys facilitate not only material exchange [@Tong1986; @Hein2014; @Hein2016; @Ma2021], but also the spread of agriculture even further to mainland Southeast Asia since the Neolithic period [@Liu2022; @Stevens2017]. The Guijiabao site in Yanyuan Basin, the middle Hengduan Mountain ranges, are a key site with the earliest Neolithic human occupation in this region dating to 5000 B.P., continuing to the historical period [@Guijiabao2017a; @Guijiabao2017b; @Huan2022; @Hao2022]. The complete stratigraphy at Guijiabao provides a unique opportunity to investigate questions relative to subsistence since the Neolithic period in a basin surrounded by high mountains. For example, what is the role of agriculture in local environments? What other resources were obtained in addition to crops? In this study, we present our preliminary analyses of archaeological potsherds from the Guijiabao site and the Gaoshan site in southwest China using organic residue analysis of lipids. 
 
-This study focuses mainly on archaeological sites located in the Hengduan Mountain ranges, a region in southwest China connecting the Tibetan Plateau to the northwest, the Sichuan Basin to the east, and the Yunnan Plateau to the south. As a critical passage for population movement, the Hengduan Mountain ranges and valleys facilitate not only material exchange [@Tong1986; @Hein2014; @Hein2016; @Ma2021], but also the spread of agriculture even further to mainland Southeast Asia since the Neolithic period [@Liu2022; @Stevens2017]. Recent excavations at the Guijiabao site in Yanyuan Basin, the middle Hengduan Mountain ranges, is a key site with the earliest Neolithic human occupation in this region dating to 5000 B.P., continuing to the historical period [@Guijiabao2017a; @Guijiabao2017b; @Huan2022; @Hao2022]. The complete stratigraphy at Guijiabao provides a unique opportunity to investigate questions relative to the subsistence since the Neolithic period in a basin surrounded by high mountains. For example, what is the role of agriculture in local environments? What other resources were obtained in addition to crops? In this study, we present our preliminary analyses on archaeological potsherds from the Guijiabao site and the Gaoshan site in southwest China using organic residue analysis of lipids. 
+<!--justifying organic residue analysis-->
+Although the remains of animal bones and plants offer evidence of subsistence, their preservation heavily depends on environmental conditions. Geographical regions with seasonal heavy precipitation and acidic sediments, such as Southwest Sichuan and the middle Hunduan Mountain [@Li1989], tend to lead to poor preservation of archaeological remains. In such cases, organic residue analysis is a powerful tool for studying ancient food practices by directly examining residues in pottery. Organic residues, specifically lipids, can be well preserved in the porous fabric of pottery for thousands of years due to the protection of clay matrices from microbiological degradation and water leaching [@Evershed1993; @Evershed2008; @Roffet2017; @Dudd1999; @Miller2020]. The growing application of organic residue analysis demonstrates its usefulness in understanding ancient pottery use [@Kimpe2004; @Mayyas2022], human subsistence strategies [@Kwak2020], and culinary practices across a region over time [@Craig2011; @Suryanarayan2021; @Zhang2022; @Junno2020]. 
 
-Although the remains of animal bones and plants offer evidence for subsistence, their preservation heavily depend on environmental conditions. Geographical regions with seasonal heavy precipitation and acidic sediments, such as Southwest Sichuan and the middle Hunduan Mountain [@Li1989], tend to lead to poor preservation of archaeological remains. In such case, organic residue analysis is a powerful tool for studying ancient food practices by directly examining residues in pottery. Organic residues, specifically lipids, can be well preserved in the porous fabric of pottery for over thousand years due to the protection of clay matrices from microbiological degradation and water leaching [@Evershed1993; @Evershed2008; @Roffet2017; @Dudd1999; @Miller2020]. The growing application of organic residue analysis demonstrates its usefulness in understanding ancient pottery use [@Kimpe2004; @Mayyas2022], human subsistence strategies [@Kwak2020], and culinary practices across a region over time [@Craig2011; @Suryanarayan2021; @Zhang2022; @Junno2020]. 
-
-Through identification of lipid biomarkers and compound-specific carbon isotope analysis based on geochemical techniques, archaeologists are able to distinguish food origins between plant oils, ruminant fats, diary products, and aquatic/marine resources [@Copley2005; @Craig2007; @Evershed1994]. Recent studies further successfully identified different types of plants processed in archaeological vessels, such as broomcorn millet [@Bossard2013; @Heron2016; @Ganzarolli2018], starchy plants [@Shoda2018], and cereals [@Hammann2018; @Colonese2017]. A growing case studies for ceramics in China present the robustness of organic residue analysis for understanding regional cooking practices [@Shoda2018; @Lyu2024; @Han2022; @Lyu2024], distinct subsistence strategies between low- and high altitude zones [@Zhang2022], and the impact of nomadic pastoralism on northwest China [@Sun2023]. In this study, we attempt to investigate pottery use and culinary practices in the middle Hengduan mountains to understand the local subsistence by focusing on the ceramics from the Guijiabao and Gaoshan sites.
+<!--regional application-->
+By identifying lipid compositions and conducting compound-specific carbon isotope analysis, archaeologists are able to distinguish between plant oils, ruminant fats, dairy products, and aquatic/marine resources [@Copley2005; @Craig2007; @Evershed1994]. Recent studies have successfully identified various plant types processed in archaeological vessels, including broomcorn millet [@Bossard2013; @Heron2016; @Ganzarolli2018], starchy plants [@Shoda2018], and cereals [@Hammann2018; @Colonese2017]. The increasing use of ceramics in China highlights the robustness of organic residue analysis for comprehending regional cooking practices [@Shoda2018; @Lyu2024; @Han2022], discerning distinct subsistence strategies between low- and high-altitude zones [@Zhang2022], and exploring the impact of nomadic pastoralism on northwest China [@Sun2023]. In this study, we aim to investigate pottery use and culinary practices in the middle Hengduan mountains, focusing on ceramics from the Guijiabao and Gaoshan sites to understand local subsistence.
 
 # Geographical and Cultural Background of Guijiabao in Yanyuan Basin
 
@@ -78,20 +82,21 @@ knitr::include_graphics(here("analysis", "figures", "Sichuan-sites-map.png"))
 ```
 
 <!--Yanyuan area and Guijiabao site-->
-The Guijiabao site is located in the southwest of Yanyuan Basin, a pull-apart basin in the middle eastern part of the Hengduan Mountain ranges (Figure \@ref(fig:SW-china-map)), with an elevation of 2400 meters. The first survey at Guijiabao in 2015 and subsequent excavations from 2016 to 2019 revealed abundant archaeological materials and features, such as semi-subterranean and ground houses, post holes, ash pits, ditches, and burials, suggesting a settlement site [@Hao2022; @Guijiabao2017a]. The site was occupied since the Neolithic period (5000-3700 BP), continued to the Bronze Age (3200-2700 BP) and the late North Song to early Ming dynasties (1200-500 BP), based on 19 radiocarbon dates [@Hao2022]. The Neolithic period can be further divided into two subphases, 5000-4500 BP and 4500-3700 BP, according to the artifact assemblages and ceramic styles 
+The Guijiabao site is located in the southwest of Yanyuan Basin, a pull-apart basin in the middle eastern part of the Hengduan Mountain ranges (Figure \@ref(fig:SW-china-map)), with an elevation of 2400 meters. The first survey at Guijiabao in 2015 and subsequent excavations from 2016 to 2019 revealed abundant archaeological materials and features, such as semi-subterranean and ground houses, post holes, ash pits, ditches, and burials, suggesting a settlement site [@Hao2022; @Guijiabao2017a]. The site has been occupied since the Neolithic period (5000-3700 BP), continued to the Bronze Age (3200-2700 BP) and the historical period (1200-500 BP) corresponding to the late North Song to early Ming dynasties, based on radiocarbon dates [@Hao2022; @Huan2022]. The Neolithic period can be further divided into two subphases, 5000-4500 BP and 4500-3700 BP, according to the artifact assemblages and ceramic styles. 
 
 <!--the major finding at GJB-->
-Ceramics is the major finding at Guijiabao. The common vessel forms include jars, urns, bowls, and basins. The representative ceramic styles in the Neolithic period are grayish high-tempered fine ware and reddish brown coarse ware with cord-marked or basket-impressed patterns [@Hao2022; @Guijiabao2017a]. The evidence of chars on their surfaces suggest that they might be used for cooking [@Guijiabao2017a; @Hao2022]. This research also attempts to confirm that these pottery vessels were used as cooking/storage wares. Some ceramic decorations present northern styles, while others with incised geometric patterns and impressed dot patterns resemble those found in western Yunnan, indicative of close relationships or interaction between Guijiabao and neighboring areas, the northern and southern parts of the Hengduan Mountains [@Guijiabao2017a]. The early excavation reveals the presence of cultivated crops at Guijiabao around 4700 BP, including foxtail millet (*Setaria italica*) and broomcorn millet (*Panicum miliaceum*), earlier than previously thought in Yanyuan [@Guijiabao2016]. In later excavations, rice grains (*Oryza sativa*) were also found throughout the Neolithic period, but in a smaller number than millet [@Hao2022; @Huan2022]. 
+Ceramics are the major finding at Guijiabao. The common vessel forms include jars, urns, bowls, and basins. The representative ceramic styles in the Neolithic period are grayish high-tempered fine ware and reddish brown coarse ware with cord-marked or basket-impressed patterns [@Hao2022; @Guijiabao2017a]. Ceramics with charred surfaces suggest that they might be used for cooking. This research also attempts to confirm that these pottery vessels were used as cooking or storage wares. Some ceramic decorations present northern styles, while others with incised geometric patterns and impressed dot patterns resemble those found in western Yunnan, indicative of close relationships or interaction between Guijiabao and neighboring areas, the northern and southern parts of the Hengduan Mountains [@Guijiabao2017a]. The flotation analysis of soil samples from the 2015 excavation demonstrates the predominance of cultivated broomcorn millet (*Panicum miliaceum*) and foxtail millet (*Setaria italica*) at Guijiabao during the Neolithic period [@Guijiabao2016]. Rice grains (*Oryza sativa*) were also identified in later excavations from the Neolithic period based on macro botanical evidence and phytolith analysis [@Hao2022; @Huan2022], though in a smaller number than millet.
 
 <!--info about Gaoshan-->
 To compare the culinary practices in different ecological zones, we examined a sample from the Gaoshan site in southwestern Chengdu Plain, an alluvial plain in Sichuan close to the Tibetan Plateau (Figure \@ref(fig:SW-china-map)). Excavations at the Gaoshan site reveal abundant materials, including ceramics, stone artifacts, animal and plant remains, and archaeological features such as house foundations, walls, burials, ash pits, ditches, and a well [@Gaoshan2017; @He2020; @JiangGaoshan2017; @ZhouGaoshan2015]. According to similar pottery forms and styles, the Gaoshan site can be dated to the early Baodun period, the earliest Neolithic culture (ca. 4700-3700 BP) in the Chengdu Plain [@Gaoshan2017]. The primary subsistence strategy at the Gaoshan site could have been rice cultivation with pig husbandry, supplemented by millet cultivation [@JiangGaoshan2017; @Lee2020; @He2020]. It is suggested that the spread of rice farming into Sichuan occurred at least 4700 years ago through population migration from the Middle and Lower Yangzi valleys [@Zhang2010].
 
-Although mixed agriculture of millet and rice observed in southwest China, it seems there are variations in crop cultivation across the region. The macro-botanical and phytolith analyses of the Guijiabao site show that millet was the major crop, similar to the findings at the Yingpanshan site in Sichuan [@Zhao2011]. However, botanical evidence from most sites in the Chengdu plain reveal a predominance of rice, such as at the Gaoshan and Baodun sites [@JiangGaoshan2017], and the Baiyangcun site in Yunnan [@Jiang2016; @Henglanshan2014]. Moreover, most research focuses on the agricultural practices, what other resources utilized by early farmer in new environments remains unclear. Here we seek to examine direct evidence from pottery residues to provide clues on culinary practices through case study in southwest China using geochemical techniques. 
+While mixed agriculture of millet and rice was practiced in southwestern China, variations in their proportions across the region have been observed. Macro-botanical and phytolith analyses of the Guijiabao site indicate that millet was the primary crop, aligning with findings at the Yingpanshan site in Sichuan [@Zhao2011]. Conversely, botanical evidence from numerous sites in the Chengdu plain suggests a prevalence of rice, as seen at the Gaoshan and Baodun sites [@JiangGaoshan2017], and the Baiyangcun site in Yunnan [@Jiang2016; @Henglanshan2014]. Moreover, while most research focuses on agricultural practices, there is a lack of clarity regarding other resources utilized by early farmers in new environments. This study aims to address this gap by examining direct evidence from pottery residues, using geochemical techniques to provide insights into culinary practices through a case study in southwest China.
 
 # Materials and methods
 
 ## Sampling
-As a preliminary research on food residues preserved in ceramic vessels, we sampled pottery fragments from cultural layers at the residential area of Guijiabao (n = 5) to test the feasibility of organic geochemical approaches (Table \@ref(tab:sherds-table)). As a comparison, we sampled one fragment from Goashan. Those pottery fragments were identified as typical types with well-defined contexts, as indicated by radiocarbon dates ranging from the Neolithic period (ca. 4500 BP) to the historical period (ca. 1000 BP). The pottery samples are mostly base fragments and fine sand-tempered, with a few displaying impressed decorations. Through examining potsherds from early to late period at Guijiabao, we seek to explore the potential of organic geochemical approach across different time period. 
+
+As a preliminary study to assess the feasibility of employing organic geochemical approaches, we collected five pottery fragments from cultural layers in the residential area of Guijiabao (sample code starting with SYG) (Table \@ref(tab:sherds-table)). For comparison, one fragment was sampled from Goashan (sample code starting with CDG). Those pottery fragments represent typical types with well-defined contexts, with their radiocarbon dates ranging from the Neolithic period (ca. 4500 BP) to the historical period (ca. 1000 BP). The pottery samples are mostly base fragments and fine sand-tempered, with a few displaying impressed decorations. By examining potsherds from the early and late periods at Guijiabao, we aim to explore pottery use across time periods and the potential of utilizing an organic geochemical approach. 
 
 ```{r sherds-table, cache= TRUE, cache.extra=tools::md5sum(here::here("analysis/data/raw_data/SW-china-potsherd.xlsx"))}
 Ch_sherds <-
@@ -102,14 +107,15 @@ knitr::kable(Ch_sherds,
 ```
 
 ## Lipid extraction
-The surface of each pottery sample was removed to prevent external contamination from environments and handling. Approximately 3.5 grams of powdered samples were extracted with a mixture of dichloromethane/methanol solution (9:1 v/v) using accelerated solvent extraction (ASE Dionex 350; at 100 °C) [@Mcclure2018]. To obtain a higher yield, free fatty acids were recovered from bound lipids through saponification, conducted by adding 10 mL of 1M KOH in methanol and 1 mL water to the extracts and heated at 70 °C overnight [@Kaluzna2016; @Craig2004]. Saponified extracts were acidified with 6M hydrochloric acid (HCl), and the acid fraction was extracted using hexane ($3\times10$ mL). A 5% aliquot of the extract was treated with 20 uL N,O-bis(trimethylsilyl)trifluoroacetamide (BSTFA) containing 1% v/v trimethylchlorosilane (TMCS), and heated at 70 °C for one hour. After drying under a stream of nitrogen, the derivatized sample was dissolved in toluene for gas chromatography mass spectrometry (GC-MS). 
 
-The remaining 95% aliquot was fractioned using solid phase extraction (Aminopropyl, NH2, column with 0.5 g sorbent) with 8 mL dichloromethane:Isopropyl alcohol (3:1), 8 mL 4% acetic acid in ethyl ether, and 6 mL methanol. The second fraction was methylated to produce fatty acid methyl esters (FAMEs) with 1 mL dry hexane and 2 mL 10% (v/v) acetyl chloride in dry methanol, and heated at 70 °C overnight. The FAME derivatives were extracted with hexane ($3\times10$ mL). About 5% aliquot was analyzed by gas chromatography with flame-ionization detection (GC-FID) for quantification, and the remaining sample was analyzed using gas chromatography combustion isotope ratio mass spectrometry (GC-C-IRMS) [@Craig2007; @Evershed1994]. Analytical blanks were prepared and analyzed using the same procedure as the pottery samples to monitor potential contamination sources from solvents and reagents. Internal standards, FA C~21:0~ and 5-α Cholestane or n-tetratriacontane, were added before and after the lipid extraction. 
+The surface of each pottery sample was removed to prevent external contamination from the environment and handling. Approximately 3.5 grams of powdered samples were extracted with a mixture of dichloromethane/methanol solution (9:1 v/v) using accelerated solvent extraction (ASE Dionex 350; at 100 °C) [@Mcclure2018]. To obtain a higher yield, free fatty acids were recovered from bound lipids through saponification, which was conducted by adding 10 mL of 1M KOH in methanol and 1 mL water to the extracts and heating at 70 °C overnight [@Kaluzna2016; @Craig2004]. Saponified extracts were acidified with 6M hydrochloric acid (HCl), and the acid fraction was extracted using hexane ($3\times10$ mL). A 5% aliquot of the extract was treated with 20 uL N,O-bis(trimethylsilyl)trifluoroacetamide (BSTFA) containing 1% v/v trimethylchlorosilane (TMCS), and heated at 70 °C for one hour. After drying under a stream of nitrogen, the derivatized sample was dissolved in toluene for gas chromatography mass spectrometry (GC-MS). 
+
+The remaining 95% aliquot was fractioned using solid phase extraction (Aminopropyl, NH2, column with 0.5 g sorbent) with 8 mL dichloromethane:Isopropyl alcohol (3:1), 8 mL 4% acetic acid in ethyl ether, and 6 mL methanol. The second fraction was methylated to produce fatty acid methyl esters (FAMEs) with 1 mL dry hexane and 2 mL 10% (v/v) acetyl chloride in dry methanol, and heated at 70 °C overnight. The FAME derivatives were extracted with hexane ($3\times10$ mL). About a 5% aliquot was analyzed by gas chromatography with flame-ionization detection (GC-FID) for quantification, and the remaining sample was analyzed using gas chromatography combustion isotope ratio mass spectrometry (GC-C-IRMS) [@Craig2007; @Evershed1994]. Analytical blanks were prepared and analyzed using the same procedure as the pottery samples to monitor potential contamination sources from solvents and reagents. Internal standards, FA C~21:0~ and 5-α Cholestane or n-tetratriacontane, were added before and after the lipid extraction. 
 
 ## GC methods
-The GC-MS analysis was performed using an Agilent 7683 B series gas chromatograph attached to an Agilent 5975 inert mass selective detector (Agilent technologies, USA). Samples were injected in splitless mode at 320 °C. Compounds were separated with a VF-17ms column (60 m length, 0.25 mm i.d., 0.25 μm film thickness; J&W Scientific, USA). The carrier gas was helium flowing at a rate of 1.3 ml/min. The oven temperature was set at 90 °C for 1 minute, then increased at a rate of 5 °C/min to 320 °C and held for 23 minutes. In addition to scan mode, a selected ion monitoring (SIM) mode was used to further detect miliacin (olean-18-en-3β-ol methyl ether; *m/z* 189, 204, 231, 425, 440) [@Heron2016]. The oven temperature was set at 50 °C for 1 min, then raised at a rate of 10°C/min to 310 °C and held for 15 min. A authentic standard of miliacin was also ran to monitor the retention time.
+The GC-MS analysis was performed using an Agilent 7683 B series gas chromatograph attached to an Agilent 5975 inert mass selective detector (Agilent technologies, USA). Samples were injected in splitless mode at 320 °C. Compounds were separated with a VF-17ms column (60 m length, 0.25 mm i.d., 0.25 μm film thickness; J&W Scientific, USA). The carrier gas was helium flowing at a rate of 1.3 ml/min. The oven temperature was set at 90 °C for 1 minute, then increased at a rate of 5 °C/min to 320 °C and held for 23 minutes. In addition to scan mode, a selected ion monitoring (SIM) mode was used to further detect miliacin (olean-18-en-3β-ol methyl ether; *m/z* 189, 204, 231, 425, 440) [@Heron2016]. The oven temperature was set at 50 °C for 1 min, then raised at a rate of 10°C/min to 310 °C and held for 15 min. An authentic standard of miliacin was also run to monitor the retention time.
 
-The GC-FID analysis of FAMEs was carried out using Agilent 6890N gas chromatograph equipped with a PTV inlet in splitless mode (Agilent technologies, USA). The carrier gas was helium flowing at a rate of 1.6 ml/min. The GC system was an Agilent 6890N equipped with a programmed temperature vaporization (PTV) inlet in splitless mode. The GC oven was set at 90°C for 1.3 minute, then raised at a rate of 5°C/min to 320°C and held for 22 minutes. The GC-C-IRMS analyses of FAMEs of palmitic (C~16:0~) and stearic (C~18:0~) were conducted using a Thermo Delta V Plus mass spectrometer linked to a GC Trace 1310 through an Isolink Interface (Thermo Fisher Scientific, USA) in splitless mode. Separation was carried out using the same model of column for GC-MS. Helium was used as a gas carrier with a constant flow rate of 1.24 ml/minute. The oven temperature was set at 90 °C for 1.5 minutes, then raised at a rate of 5 °C/min to 320 °C and held for 18 minutes. 
+The GC-FID analysis of FAMEs was carried out using an Agilent 6890N gas chromatograph equipped with a PTV inlet in splitless mode (Agilent technologies, USA). The carrier gas was helium flowing at a rate of 1.6 ml/min. The GC system was an Agilent 6890N equipped with a programmed temperature vaporization (PTV) inlet in splitless mode. The GC oven was set at 90°C for 1.3 minute, then raised at a rate of 5°C/min to 320°C and held for 22 minutes. The GC-C-IRMS analyses of FAMEs of palmitic (C~16:0~) and stearic (C~18:0~) were conducted using a Thermo Delta V Plus mass spectrometer linked to a GC Trace 1310 through an Isolink Interface (Thermo Fisher Scientific, USA) in splitless mode. Separation was carried out using the same model of column for GC-MS. Helium was used as a gas carrier with a constant flow rate of 1.24 ml/minute. The oven temperature was set at 90 °C for 1.5 minutes, then raised at a rate of 5 °C/min to 320 °C and held for 18 minutes. 
 
 The data generated by these analyses and R code used for visualizations are openly available at https://github.com/LiYingWang/GJBpottery to enable research reproducibility and transparency [@Marwick2017; @MarwickandWang2022]. 
 
@@ -137,13 +143,12 @@ meth_all <-
   meths %>%
   mutate(sample = paste0(parse_number(sample),
                          str_extract(sample, pattern = "_00[0-9]"))) %>%
-  mutate(name = case_when(
-    sample %in% c("210729_001") ~ "CDG-062",
-    sample %in% c("210729_002") ~ "SYG-3",
-    sample %in% c("210729_003") ~ "SYG-TN13-E22-2#1",
-    sample %in% c("210729_004") ~ "SYG-TN13-E22-1",
-    sample %in% c("210729_005") ~ "SYG-TN13-E22-2#2",
-    sample %in% c("210729_006") ~ "SYG-TN13-E23-3")) %>%
+  mutate(name = case_when(sample %in% c("210729_001") ~ "CDG-062",
+                          sample %in% c("210729_002") ~ "SYG-3",
+                          sample %in% c("210729_003") ~ "SYG-TN13-E22-2#1",
+                          sample %in% c("210729_004") ~ "SYG-TN13-E22-1",
+                          sample %in% c("210729_005") ~ "SYG-TN13-E22-2#2",
+                          sample %in% c("210729_006") ~ "SYG-TN13-E23-3")) %>%
   mutate(name = factor(name, levels = c("SYG-TN13-E22-1",
                                         "SYG-TN13-E22-2#1",
                                         "SYG-TN13-E22-2#2",
@@ -152,110 +157,7 @@ meth_all <-
                                         "CDG-062")))
 ```
 
-```{r highlight-compounds, cache=TRUE}
-# highlight target compounds
-highlight_common <-
-  meth_all %>%
-  mutate(retention = round(Path, 1)) %>%
-  group_by(sample, retention) %>%
-  arrange(desc(File)) %>%
-  distinct(retention, .keep_all = TRUE) %>%
-  mutate(FA = case_when(
-    retention == 21.6 ~ "C[14:0]",
-    retention == 23.6 ~ "C[15:0]",
-    retention == 25.5 ~ "C[16:0]",
-    retention == 27.3 ~ "C[17:0]",
-    retention == 28.4 ~ "C[18:1]",
-    retention == 29.1 ~ "C[18:0]",
-    retention == 32.3 ~ "C[20:0]",
-    retention == 35.4 ~ "C[22:0]")) %>%
-  filter(name %in% c("SYG-3", "SYG-TN13-E22-2#1", "SYG-TN13-E22-1", "SYG-TN13-E23-3", "CDG-062")) %>%
-  filter(File > 100000) 
-
-highlight_IS <-
-  meth_all %>%
-  mutate(retention = round(Path, 1)) %>%
-  group_by(sample, retention) %>%
-  arrange(desc(File)) %>%
-  distinct(retention, .keep_all = TRUE) %>%
-  mutate(FA = case_when(
-    retention == 33.9 ~ "IS",
-    retention == 41.3 ~ "IS")) %>%
-  filter(name %in% c("SYG-3", "SYG-TN13-E22-2#1", "SYG-TN13-E22-1", "SYG-TN13-E23-3", "CDG-062"))
-
-# highlight the compounds in the potsherd with high concentration
-highlight_SYG2_2 <-
-  meth_all %>%
-  mutate(retention = round(Path, 1)) %>%
-  group_by(sample, retention) %>%
-  arrange(desc(File)) %>%
-  distinct(retention, .keep_all = TRUE) %>%
-  mutate(FA = case_when(
-    retention == 21.6 ~ "C[14:0]",
-    retention == 25.5 ~ "C[16:0]",
-    retention == 27.3 ~ "C[17:0]",
-    retention == 28.4 ~ "C[18:1]",
-    retention == 29.1 ~ "C[18:0]",
-    retention == 31.0 ~ "C[19:0]",
-    retention == 32.4 ~ "C[20:0]",
-    retention == 35.4 ~ "C[22:0]",
-    retention == 36.8 ~ "C[23:0]",
-    retention == 38.2 ~ "C[24:0]",
-    retention == 40.9 ~ "C[26:0]",
-    retention == 33.9 ~ "IS",
-    retention == 41.3 ~ "IS",
-    retention == 45.6 ~ "C[30:0]",
-    retention == 47.8 ~ "C[32:0]")) %>%
-  filter(name == "SYG-TN13-E22-2#2")
-```
-
-```{r chromatogram-four, cache= TRUE}
-# plot the first four
-chroma_four <-
-  meth_all %>%
-  filter(name %in% c("SYG-3", "SYG-TN13-E22-2#1", "SYG-TN13-E22-1", 
-                     "SYG-TN13-E23-3", "CDG-062")) %>%
-  mutate(File = ifelse(File > 1000000, 1000000, File)) %>%
-  ggplot(aes(Path, File)) +
-  geom_line(size = 0.3) +
-  ggrepel::geom_text_repel(data = highlight_common, #ggrepel::geom_text_repel
-            aes(label = FA, angle = 0),
-            size = 3,
-            nudge_y = 115000,
-            show.legend = FALSE,
-            parse = TRUE) +
-  geom_text(data = highlight_IS,
-            aes(label = FA),
-            size = 3,
-            nudge_y = 100000,
-            show.legend = FALSE) +
-  geom_segment(aes(x= 41.1, xend= 41.5, y= 1000000, yend= 1000000), size =0.3) +
-  geom_segment(aes(x= 41.1, xend= 41.5, y= 1030000, yend= 1030000), size =0.3) +
-  annotate("text", x = 41.3, y = 1100000, label = "IS", size =3) +
-  facet_wrap(~name, ncol = 1) +
-  scale_y_continuous(labels = scales::comma_format(),
-                     limits = c(0, 1160000),
-                     breaks = seq(0, 1100000, 200000)) +
-  scale_x_continuous(limits = c(20, 45),
-                     breaks = seq(20, 45, 5),
-                     expand = c(0, 0.5)) + # don't log, many peaks and distort real counts
-  labs(x = "retention time", y = "relative intensity") +
-  theme_minimal() +
-  theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
-        panel.background = element_blank(), axis.line = element_line(colour = "black"))
-
-ggsave(plot = chroma_four,
-       here::here("analysis","figures", "chromatograms_four.png"),
-       bg = "white",
-       width = 6,
-       height = 8,
-       dpi = 300,
-       units = "in")
-```
-
-The total lipid concentrations in our potsherds ranges from 7 to 48.6 μg/g, above interpretable concentrations (5 μg/g) [@Evershed2008experimental] (Table \@ref(tab:FA-composition-table)). This suggests that those ceramics should be associated with food processing. The main compounds were saturated fatty acids with an even number of carbons, particularly C~16:0~ (palmitic acid) and C~18:0~ (stearic acid), commonly derived from animal fat and plant oil (Figure \@ref(fig:chromatograms-plots-four)). Unsaturated fatty acid C~18:1~ was also found in all samples, but we are unable to distinguish the C~18:1~ types based on current method. The domination of C~16:0~ and C~18:0~ suggests that the lipids in our samples were greatly degraded. However, one pottery sample (SYG-TN13-E22-2#2) has relatively high lipid yield (`r FA_max_sum` μg/g), with the presence of long-chain fatty acids (C~24:0~ to C~32:0~) (Figure \@ref(fig:chromatograms-specific)). The most interesting compound in this sample is miliain, which is the biomarker of broomcorn millet [@Heron2016; @Bossard2013; @Ganzarolli2018]. The finding of miliacin also corresponds with the presence of very long-chain fatty acids, such as C~30:0~ and C~32:0~, indicative of plant waxes [@Post1996; @Copley2005]. 
-
-```{r FA-composition-table, cache= TRUE, cache.extra=tools::md5sum(here::here("analysis/data/raw_data/210824_FAMES_pot_LW_publication.xlsx"))}
+```{r FA-composition-tidy, cache= TRUE, cache.extra=tools::md5sum(here::here("analysis/data/raw_data/210824_FAMES_pot_LW_publication.xlsx"))}
 quant_FA <-
   readxl::read_excel(here::here("analysis", "data", "raw_data", "210824_FAMES_pot_LW_pub.xlsx"), 
                      skip = 2, col_names = TRUE) 
@@ -273,11 +175,16 @@ quant_FA_number <-
          weight = round(weight/`%reco`/`g extracted`/1000, 2)) %>% 
   select(-number, -`%reco`, -`g extracted`) %>% 
   pivot_wider(names_from = sample, 
-              values_from = weight) 
+              values_from = weight) %>% 
+  filter(!FA %in%c("C34:0", "C21:0")) 
 
-FA_max_sum <-
-  sum(quant_FA_number$"SYG-TN13-E22-2#2")
+FA_sum_min <- sum(quant_FA_number$"SYG-TN13-E22-2#1", na.rm = T)
+FA_sum_max <- sum(quant_FA_number$"SYG-TN13-E22-2#2")
+```
 
+The total lipid concentrations of potsherds at Guijiabao and Gaoshan range from `r FA_sum_min` to `r FA_sum_max` μg/g (Table \@ref(tab:FA-composition-table)). Lipid yields from all potsherds are above interpretable concentrations (5 μg/g) [@Evershed2008experimental], suggesting those ceramics should be associated with food processing. The main compounds were saturated fatty acids with an even number of carbons, particularly C~16:0~ (palmitic acid) and C~18:0~ (stearic acid), commonly derived from animal fats and plant oils (Figure \@ref(fig:chromatograms-plots-four)). Unsaturated fatty acid, C~18:1~, was detected in all samples and dominant in three, but we are unable to distinguish the C~18:1~ types based on current methods. The most interesting finding is that milliacin, the compound specific to broomcorn millet [@Heron2016; @Bossard2013; @Ganzarolli2018], was identified in one Neolithic sample (SYG-TN13-E22-2#2) from Guijiabao (Figure \@ref(fig:chromatograms-specific-std)). This sample has a wider range of fatty acids from C~12:0~ to C~30:0~ (`r FA_sum_max` μg/g), where long-chain fatty acids could originate from plant sources [@Post1996; @Copley2005]. Overall, the dominance of C~16:0~ and C~18:0~ in most samples suggests that the lipids extracted from our samples were greatly degraded.
+
+```{r FA-composition-table, cache= TRUE}
 quant_FA_tidy <-
   quant_FA %>%
   rename("ng total" = "total FAs ug/g") %>%
@@ -303,46 +210,215 @@ knitr::kable(quant_FA_tidy,
              caption = "Quantitative data of fatty acid (FA) composition (μg/g) for each pottery sample based on GC-FID analysis")
 ```
 
-```{r chromatograms-plots-four, echo=FALSE, fig.cap= "GC-MS chromatograms of fatty acids extracted from four potsherds from the Guijiabao and Gaoshan sites. 'Cn:x' refers to fatty acid with n carbon atoms and x double bonds. 'IS' indicates internal standard used for quantification, including FA C~21:0~ and 5-α Cholestane"}
-knitr::include_graphics(here::here("analysis/figures/chromatograms_four.png"))
+```{r highlight-compounds, cache=TRUE}
+# round all peaks in order
+all_peaks <-
+  meth_all %>%
+  mutate(retention = round(Path, 1)) %>%
+  group_by(sample, retention) %>%
+  arrange(desc(File)) %>%
+  distinct(retention, .keep_all = TRUE)
+
+# highlight target compounds
+highlight_common <-
+  all_peaks %>% 
+  mutate(FA = case_when(retention == 21.6 ~ "C[14:0]",
+                        retention == 23.6 ~ "C[15:0]",
+                        retention == 25.5 ~ "C[16:0]",
+                        retention == 27.3 ~ "C[17:0]",
+                        retention == 28.4 ~ "C[18:1]",
+                        retention == 29.1 ~ "C[18:0]",
+                        retention == 32.3 ~ "C[20:0]",
+                        retention == 35.4 ~ "C[22:0]")) %>%
+  filter(name %in% c("SYG-3", "SYG-TN13-E22-2#1", "SYG-TN13-E22-1", "SYG-TN13-E23-3", "CDG-062")) %>%
+  filter(File > 100000) 
+
+highlight_IS <-
+  all_peaks %>% 
+  mutate(FA = case_when(retention == 33.9 ~ "IS",
+                        retention == 41.3 ~ "IS")) %>%
+  filter(name %in% c("SYG-3", "SYG-TN13-E22-2#1", "SYG-TN13-E22-1", "SYG-TN13-E23-3", "CDG-062"))
 ```
 
-```{r chromatogram-specific, cache= TRUE}
-# plot the specific one
-chroma_specific <-
+```{r chromatogram-four, cache= TRUE}
+# to insert ticks in plot
+insert_minor <- function(major_labs, n_minor) {labs <-
+  c( sapply( major_labs, function(x) c(x, rep("", 4) ) ) )
+labs[1:(length(labs)-n_minor)]}
+
+# plot the first group
+chroma_four <-
   meth_all %>%
-  filter(name %in% c("SYG-TN13-E22-2#2")) %>% 
+  filter(name %in% c("SYG-3","SYG-TN13-E22-2#1","SYG-TN13-E22-1","SYG-TN13-E23-3","CDG-062")) %>%
+  mutate(File = ifelse(File > 1000000, 1000000, File)) %>%
   ggplot(aes(Path, File)) +
   geom_line(size = 0.3) +
-  ggrepel::geom_text_repel(data = highlight_SYG2_2, #ggrepel::geom_text_repel
-            aes(label = FA),
-            size = 3.5,
-            nudge_y = 250000,
+  ggrepel::geom_text_repel(data = highlight_common, #ggrepel::geom_text_repel
+            aes(label = FA, angle = 0),
+            size = 3,
+            nudge_y = 115000,
             show.legend = FALSE,
             parse = TRUE) +
-  scale_y_continuous(labels = scales::comma_format(),
-                     limits = c(0, 7500000),
-                     breaks = seq(0, 7500000, 1000000)) +
-  scale_x_continuous(limits = c(20, 50),
-                     breaks = seq(20, 50, 5),
-                     expand = c(0, 0.5)) + # don't log, many peaks and distort real counts
-  labs(title = "SYG-TN13-E22-2#2", x = "retention time", y = "relative Intensity") +
-  theme_minimal() +
-  theme(plot.title = element_text(hjust = 0.5),
-        panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
-        panel.background = element_blank(), axis.line = element_line(colour = "black"))
+  geom_text(data = highlight_IS,
+            aes(label = FA),
+            size = 3,
+            nudge_y = 100000,
+            show.legend = FALSE) +
+  geom_segment(aes(x= 41.1, xend= 41.5, y= 1000000, yend= 1000000), size =0.3) +
+  geom_segment(aes(x= 41.1, xend= 41.5, y= 1030000, yend= 1030000), size =0.3) +
+  annotate("text", x = 41.3, y = 1100000, label = "IS", size =3) +
+  facet_wrap(~name, ncol = 1) +
+  scale_y_continuous(limits = c(0, 1160000),
+                     breaks = seq(0, 1100000, 200000),
+                     expand = c(0, 0)) +
+  scale_x_continuous(limits = c(18, 47),
+                     breaks = seq(15, 50, 1),
+                     labels = insert_minor(seq(15, 50, 5), 4),
+                     expand = c(0, 0)) +
+  labs(x = "Retention time (mins)", y = expression("Relative abundance " %->% "")) +
+  theme_classic() +
+  theme(axis.line.y = element_blank(), strip.background = element_blank(), # remove title box
+        axis.ticks.y=element_blank(), axis.text.y = element_blank())
 
-ggsave(plot = chroma_specific,
-       here::here("analysis","figures", "chromatograms_specific.png"),
+ggsave(plot = chroma_four,
+       here::here("analysis","figures", "chromatograms_four.png"),
        bg = "white",
-       width = 8,
-       height = 5,
+       width = 6,
+       height = 8,
        dpi = 300,
        units = "in")
 ```
 
-```{r chromatograms-specific, echo=FALSE, fig.cap= "The MS chromatogram of the potsherd from the Guijiabao site shows the presence of long-chain fatty acids. 'Cn:x' refers to fatty acid with n carbon atoms and x double bonds. 'IS' indicates internal standards used for quantification, including FA C~21:0~ and 5-α Cholestane"}
-knitr::include_graphics(here::here("analysis/figures/chromatograms_specific.png"))
+```{r chromatograms-plots-four, echo=FALSE, fig.cap= "Partial total ion cuurent (TIC) chromatograms of pottery samples from Guijiabao and Gaoshan. 'Cn:x' refers to fatty acid with n carbon atoms and x double bonds. 'IS' indicates internal standard used for quantification, including FA C~21:0~ and 5-α Cholestane"}
+
+knitr::include_graphics(here::here("analysis/figures/chromatograms_four.png"))
+```
+
+```{r chromatogram-specific, cache= TRUE}
+## miliacin
+miliacin <- read_csv(here::here("analysis/data/raw_data/LY_miliacin_std_chrom.CSV"))
+ixd_3 <- which(str_detect(miliacin$Path, "D"))
+meths_3 <- split(miliacin, cumsum(1:nrow(miliacin) %in% ixd))
+meth_data_3 <- meths_3[c(FALSE, TRUE)]
+meth_name_3 <- meths_3[c(TRUE, FALSE)]
+names(meth_data_3) <- map(meth_data_3, ~.x$Path[1])
+names(meth_name_3) <-map(meth_name_3, ~.x$Sample[1])
+meths_3 <- map_df(meth_data_3, ~.x[-1, ] %>%
+                    mutate_all(as.numeric), .id = 'sample')
+
+highlight_m <-
+  meths_3  %>%
+  mutate(retention = round(Path, 1)) %>%
+  group_by(sample, retention) %>%
+  arrange(desc(File)) %>%
+  distinct(retention, .keep_all = TRUE) %>%
+  mutate(std = case_when(retention == 29.4 ~ "M", retention == 30.5 ~ "IS"))
+
+std_miliacin <-
+  meths_3%>%
+  ggplot(aes(Path, File)) +
+  geom_line(size = 0.3) +
+  ggrepel::geom_text_repel(data = highlight_m, #ggrepel::geom_text_repel
+                           aes(label = std, angle = 0), size = 3.5, nudge_y = 100000,
+                           show.legend = FALSE, parse = TRUE) +
+  scale_y_continuous(limits = c(0, 4600000),
+                     breaks = seq(0, 4600000, 1000000),
+                     expand = c(0,0)) +
+  scale_x_continuous(limits = c(13.5, 32.5),
+                     labels = insert_minor(seq(10, 35, 5), 4),
+                     breaks = seq(10, 35, 1),
+                     expand = c(0, 0)) +
+  labs(x = "Retention time (mins)", y = expression("Relative abundance " %->% "")) +
+  theme_classic() +
+  theme(plot.title = element_text(hjust = 0.5), axis.line.y = element_blank(),
+        axis.ticks.y=element_blank(), axis.text.y = element_blank())
+
+# load data produced by program 2
+meth_SYG22 <- read_csv(here::here("analysis/data/raw_data/LY_pot_SYG_E22_22_chrom.CSV"))
+
+# tidy data
+ixd_2 <- which(str_detect(meth_SYG22$Path, "D"))
+meths_2 <- split(meth_SYG22, cumsum(1:nrow(meth_SYG22) %in% ixd))
+meth_data_2 <- meths_2[c(FALSE, TRUE)]
+meth_name_2 <- meths_2[c(TRUE, FALSE)]
+names(meth_data_2) <- map(meth_data_2, ~.x$Path[1])
+names(meth_name_2) <-map(meth_name_2, ~.x$Sample[1])
+meths_2 <- map_df(meth_data_2, ~.x[-1, ] %>%
+                  mutate_all(as.numeric), .id = 'sample')
+
+# peaks in SYG-E22-2#2
+peaks_SYGE22 <-
+  meths_2 %>%
+  mutate(retention = round(Path, 1)) %>%
+  group_by(sample, retention) %>%
+  arrange(desc(File)) %>%
+  distinct(retention, .keep_all = TRUE)
+
+highlight_SYG_FA <-
+  peaks_SYGE22 %>%
+  mutate(FA = case_when(retention == 17.7 ~ "C[15:0]",
+                        retention == 18.7 ~ "C[16:0]",
+                        retention == 19.7 ~ "C[17:0]",
+                        retention == 20.4 ~ "C[18:1]",
+                        retention == 20.6 ~ "C[18:0]",
+                        retention == 21.5 ~ "C[19:0]",
+                        retention == 22.4 ~ "C[20:0]",
+                        retention == 23.3 ~ "IS",
+                        retention == 24.0 ~ "C[22:0]",
+                        retention == 24.8 ~ "C[23:0]",
+                        retention == 26.3 ~ "C[25:0]",
+                        retention == 27.0 ~ "C[26:0]",
+                        retention == 28.3 ~ "C[28:0]",
+                        retention == 30.5~ "IS"))
+
+highlight_std_small <-
+  peaks_SYGE22 %>%
+  mutate(FA = case_when(retention == 14.2 ~ "C[12:0]",
+                        retention == 15.4 ~ "C[13:0]",
+                        retention == 16.6 ~ "C[14:0]",
+                        retention == 25.6 ~ "C[24:0]",
+                        retention == 29.4 ~ "M"))
+
+## plot the one with high yield (GC program 2)
+chroma_specific_2 <-
+  meths_2 %>%
+  ggplot(aes(Path, File)) +
+  geom_line(size = 0.3) +
+  ggrepel::geom_text_repel(data = highlight_SYG_FA , #ggrepel::geom_text_repel
+                           aes(label = FA, angle = 0), size = 3.5, nudge_y = 100000,
+                           show.legend = FALSE, parse = TRUE) +
+  ggrepel::geom_text_repel(data = highlight_std_small, #ggrepel::geom_text_repel
+                           aes(label = FA),
+                           size = 3.5,
+                           segment.alpha = .25,
+                           nudge_y = 320000, #min.segment.length = 300000,
+                           show.legend = FALSE,
+                           parse = TRUE) + #
+  scale_y_continuous(labels = scales::comma_format(),
+                     limits = c(0, 4600000),
+                     breaks = seq(0, 4600000, 1000000),
+                     expand = c(0, 0)) +
+  scale_x_continuous(limits = c(13.5, 32.5),
+                     labels = insert_minor(seq(10, 35, 5), 4),
+                     breaks = seq(10, 35, 1),
+                     expand = c(0, 0)) +
+  labs(x = "Retention time (mins)", y = expression("Relative abundance " %->% "")) +
+  theme_classic() +
+  theme(plot.title = element_text(hjust = 0.5), axis.line.y = element_blank(),
+        axis.ticks.y=element_blank(), axis.text.y = element_blank())
+
+library(cowplot)
+SYG_with_miliacin <-
+  plot_grid(chroma_specific_2, std_miliacin ,
+            labels = c('A', 'B'), ncol =1, align = 'v', label_size = 12)
+
+ggsave(plot = SYG_with_miliacin,
+       here::here("analysis","figures", "chromatograms_specific_std.png"),
+       bg = "white", width = 6, height = 8, dpi = 300, units = "in")
+```
+
+```{r chromatograms-specific-std, echo=FALSE, fig.cap= "A: Partial total ion current (TIC) chromatogram of a Guijiabao sample, SYG-TN13-E22-2#2, showing the presence of long-chain fatty acids and miliacin. Cn:x refers to fatty acid with n carbon atoms and x double bonds; IS indicates internal standards (FA C~21:0~ and n-tetratriacontane); M refers to miliacin. B: Partial TIC chromatogram of miliacin (olean-18-en-3β-ol ME) with n-tetratriacontane as internal standard"}
+knitr::include_graphics(here::here("analysis/figures/chromatograms_specific_std.png"))
 ```
 
 ```{r isotopic-analysis, cache= TRUE}
@@ -356,165 +432,125 @@ delta_meth_cor <-
   isotope_data %>%
   select(1, 7, 9) %>%
   slice(2:8) %>%
-  dplyr::mutate(...1 = ifelse(is.na(...1), paste0("C13"), ...1))
+  dplyr::mutate(...1 = ifelse(is.na(...1), paste0("C13"), ...1)) %>% 
+  janitor::row_to_names(1) %>% 
+  dplyr::mutate(across(starts_with("13C"), as.numeric))
 
-names(delta_meth_cor) <- delta_meth_cor[1,]
-
-delta_meth_cor <-
+delta_meth_data <-
   delta_meth_cor %>%
-  slice(2:7) %>%
-  dplyr::mutate(across(starts_with("13C"), as.numeric)) %>%
   dplyr::mutate(delta = `13C C18:0`-`13C C16:0`) %>%
-  mutate(sample = case_when(
-    C13 %in% c("Pot 1") ~ "CDG-062",
-    C13 %in% c("Pot 2") ~ "SYG-3",
-    C13 %in% c("Pot 3") ~ "SYG-TN13-E22-2#1",
-    C13 %in% c("Pot 4") ~ "SYG-TN13-E22-1",
-    C13 %in% c("Pot 5") ~ "SYG-TN13-E22-2#2",
-    C13 %in% c("Pot 6") ~ "SYG-TN13-E23-3")) %>%
-  mutate(sample = factor(sample, levels = c("SYG-TN13-E22-1",
-                                            "SYG-TN13-E22-2#1",
-                                            "SYG-TN13-E22-2#2",
-                                            "SYG-TN13-E23-3",
-                                            "SYG-3",
-                                            "CDG-062"))) %>% 
-  mutate(period = ifelse(sample %in% c("SYG-TN13-E22-1", "SYG-3" ),
-                         "Historical", "Neolithic"))
+  mutate(name = case_when(C13 %in% c("Pot 1") ~ "CDG-062",
+                          C13 %in% c("Pot 2") ~ "SYG-3",
+                          C13 %in% c("Pot 3") ~ "SYG-TN13-E22-2#1",
+                          C13 %in% c("Pot 4") ~ "SYG-TN13-E22-1",
+                          C13 %in% c("Pot 5") ~ "SYG-TN13-E22-2#2",
+                          C13 %in% c("Pot 6") ~ "SYG-TN13-E23-3")) %>%
+  mutate(name = factor(name, levels = c("SYG-TN13-E22-1",
+                                        "SYG-TN13-E22-2#1",
+                                        "SYG-TN13-E22-2#2",
+                                        "SYG-TN13-E23-3",
+                                        "SYG-3",
+                                        "CDG-062"))) %>%
+  mutate(period = ifelse(name %in% c("SYG-TN13-E22-1", "SYG-3" ), "Historical", "Neolithic"))
 
-min_carbon_isotope <- round(min(delta_meth_cor$`13C C18:0`), 2)
-max_carbon_isotope <- round(max(delta_meth_cor$`13C C16:0`), 2)
+rg_C16_isotope <- round(c(min(delta_meth_data$`13C C16:0`), max(delta_meth_data$`13C C16:0`)), 2)
+rg_C18_isotope <- round(c(min(delta_meth_data$`13C C18:0`), max(delta_meth_data$`13C C18:0`)), 2)
+    
+delta_range <- round(c(min(delta_meth_data$delta), max(delta_meth_data$delta)), 2)
 
-delta_min <- round(min(delta_meth_cor$delta), 2)
-delta_max <- round(max(delta_meth_cor$delta), 2)
+SYG3_isotope <- round(c(delta_meth_data$`13C C16:0`[2], delta_meth_data$`13C C18:0`[2]), 2)
+E22_1_isotope <- round(c(delta_meth_data$`13C C16:0`[4], delta_meth_data$`13C C18:0`[4]), 2)
+E22_22_isotope <- round(c(delta_meth_data$`13C C16:0`[5], delta_meth_data$`13C C18:0`[5],
+delta_meth_data$delta[5]), 2)
+E22_21_isotope <- round(c(delta_meth_data$`13C C16:0`[3], delta_meth_data$`13C C18:0`[3], delta_meth_data$delta[3]), 2)
+E23_isotope <- round(c(delta_meth_data$`13C C16:0`[6], delta_meth_data$`13C C18:0`[6], delta_meth_data$delta[6]), 2)
 
-E23_C16 <- round(delta_meth_cor$`13C C16:0`[6], 2)
-E23_C18 <- round(delta_meth_cor$`13C C18:0`[6], 2)
-
-SYG3_C16 <- round(delta_meth_cor$`13C C16:0`[2], 2)
-SYG3_C18 <- round(delta_meth_cor$`13C C18:0`[2], 2)
-
-E22_1_C16 <- round(delta_meth_cor$`13C C16:0`[4], 2)
-E22_1_C18 <- round(delta_meth_cor$`13C C18:0`[4], 2)
-
-E22_22_C16 <- round(delta_meth_cor$`13C C16:0`[5], 2)
-E22_22_C18 <- round(delta_meth_cor$`13C C18:0`[5], 2)
+library(png)
+tem3 <- readPNG(here::here("analysis","figures", "isotope_range.png"), native = FALSE, info = FALSE)
 
 # plot the carbon isotopes 
 isotope_C16_C18 <-
-  ggplot(delta_meth_cor, #delta_meth_cor/delta_blank_cor
-       aes(`13C C16:0`,`13C C18:0`)) +
-  geom_point(size = 2, alpha = 0.9, aes(shape = sample, color = period)) +
+  delta_meth_data %>% #delta_meth_cor/delta_blank_cor
+  ggplot(aes(`13C C16:0`,`13C C18:0`)) +
+  geom_point(size = 2, alpha = 0.9, aes(shape = name, color = period)) +
   #ggrepel::geom_text_repel(aes(label = C13)) +
-  theme_minimal() +
   labs(x = expression(paste(delta*{}^13* C[16:0], "\u2030")),
        y = expression(paste(delta*{}^13* C[18:0], "\u2030"))) +
-  scale_x_continuous(limits = c(-33, -20),
-                     breaks = seq(-33, -20, 2)) +
-  scale_y_continuous(limits = c(-33, -20),
-                     breaks = seq(-33, -20, 2)) +
-  #coord_fixed(ratio = 1) +
+  scale_x_continuous(limits = c(-33, -20), breaks = seq(-33, -20, 2)) +
+  scale_y_continuous(limits = c(-33, -20), breaks = seq(-33, -20, 2)) +#coord_fixed(ratio = 1)
   geom_abline(intercept = -0.7, linetype = "dashed") + #Suryanarayan et al.2021
   geom_abline(intercept = -3.1, linetype = "dashed") +
   annotate("text", x = -21.5, y = -22, angle = 45, vjust = 1.5,
            label = bquote(Delta*{}^13*"C = -0.7 \u2030")) +
   annotate("text", x = -21.5, y = -24.5, angle = 45, vjust = 1.5,
-           label = bquote(Delta*{}^13*"C = -3.1 \u2030"))
+           label = bquote(Delta*{}^13*"C = -3.1 \u2030")) +
+  annotation_raster(tem3, ymin = -38, ymax= -17.9, xmin = -36, xmax = -18.3) +
+  theme_minimal()
 
 big_delta_C16 <-
-  ggplot(delta_meth_cor, # delta_meth_cor or delta_blank_cor
-       aes(`13C C16:0`, delta)) +
-  geom_point(size = 2, alpha = 0.9, aes(shape = sample, color = period)) +
-  theme_minimal() +
+  delta_meth_data %>%
+  ggplot(aes(`13C C16:0`, delta)) +
+  geom_point(size = 2, alpha = 0.9, aes(shape = name, color = period)) +
   labs(x = expression(paste(delta*{}^13* C[16:0], "\u2030")),
        y = expression(paste(delta*{}^13* C[18:0], "\u2030"))) +
-  scale_x_continuous(limits = c(-33, -20),
-                     breaks = seq(-33, -20, 2)) +
-  ylim(-2.5, 1.5) +
+  scale_x_continuous(limits = c(-33, -20), breaks = seq(-33, -20, 2)) +
+  ylim(-3, 1.5) +
   geom_hline(yintercept = -0.7, linetype = "dashed") +
   annotate("text", x = -31.5, y = -0.9,
            label = bquote(Delta*{}^13*"C = -0.7 \u2030")) +
-  annotate("text", x = -32, y = 1.3,
-           label = "C[3]-diet", parse=TRUE) +
+  annotate("text", x = c(-32, -21), y = c(1.3, 1.3),
+           label = c("C[3]~diet", "C[4]~diet"), parse= TRUE) +
   annotate("segment", x = -29, y = 1.3, xend = -24, yend = 1.3,
            arrow = arrow(type = "closed", length = unit(0.02, "npc"))) +
-  annotate("text", x = -21, y = 1.3,
-           label = "C[4]-diet", parse=TRUE) +
-  annotate("text", x = -22, y = -1.1,
-           label = "Ruminant") +
-  annotate("text", x = -21.5, y = -0.3,
-           label = "Non-ruminant")
+  annotate("text", x = c(-22, -21.5), y = c(-1.1, -0.3),
+           label = c("Ruminant", "Non-ruminant")) +
+  theme_minimal() 
 
 library(cowplot)
 combined_isotopic_plots <-
-  plot_grid(isotope_C16_C18,
-          big_delta_C16,
-          labels = c('A', 'B'),
-          ncol =1,
-          align = 'v',
-          label_size = 12)
+  plot_grid(isotope_C16_C18, big_delta_C16,
+          labels = c('A', 'B'), ncol =1, align = 'v', label_size = 12)
 
 ggsave(here::here("analysis","figures","isotopic_plots.png"),
-       bg = "white",
-       width = 6,
-       height = 8,
-       dpi = 300,
-       units = "in")
+       bg = "white", width = 6, height = 8, dpi = 300, units = "in")
 ```
 
-To identify the sources of degraded animal fats, we conducted isotope analysis to obtain stable carbon isotope compositions, δ^13^C values of C~16:0~ and C~18:0~, using GC-C-IRMS. The δ^13^C values of C~16:0~ and C~18:0~ have proven useful to distinguish between ruminant adipose, non-ruminant adipose, and ruminant dairy fats based on the different ways dietary carbon sources are utilized by distinct fat types [@Dunne2012; @Copley2003; @Evershed2008]. Considering the bias might be introduced from differential δ^13^C values across geographical regions, we also used the Δ^13^C (δ^13^C~18:0~ - δ^13^C~16:0~) values to determine the sources of degraded fats [@Evershed2008; @Salque2013]. The carbon isotope values for C~16:0~ and C~18:0~ from our samples have a distribution between `r min_carbon_isotope` ‰ and `r max_carbon_isotope` ‰, and their Δ^13^C values range from `r delta_min` ‰ to `r delta_max` ‰. The δ^13^C values were plotted based on the global reference database for the identification of their origins [@Suryanarayan2021; @Dunne2012; @Evershed2008]. Although the referenced isotopic values should be ideally adjusted in terms of local environments, the known reference ranges especially for East Asia could still provide useful information about food categories with cautious comparison.
+To identify the sources of degraded lipids, we conducted compound-specific carbon isotope analysis of C~16:0~ and C~18:0~ using GC-C-IRMS. This technique has proven useful to distinguish fat origin between ruminant, non-ruminant, ruminant dairy products, C~3~ plants, C~4~ plants, and marine resources based on their stable carbon isotope values (hereafter δ13C ) [@Dunne2012; @Evershed2008]. For example, the δ13C values from marine sources or C~4~ plants are more enriched than those from ruminant adipose fat and C~3~ plants due to different metabolic or photosynthetic pathways [@Copley2003; @Meier2002; @Cramp2014]. The values of δ^13^C~16:0~ and δ^13^C~18:0~ were plotted based on global modern references for the assessment of their origin. To minimize potential bias introduced from differential δ^13^C values across geographical regions, the values of δ^13^C~16:0~ and Δ^13^C (δ^13^C~18:0~ - δ^13^C~16:0~) were also plotted for identification of animal fats [@Copley2003; @Salque2013]. Although it is hard to identify the exact food category in this case due to the limited accessibility to local animal bones or fats as reference samples, references from neighboring areas with cautious comparison still allow meaningful interpretation. 
 
-The results show that the majority of the Neolithic potsherd samples from Guijiabao and Gaoshan contain saturated fatty acids derived from ruminant adipose fats, with one Guijiabao potsherd sample, SYG-TN13-E23-3, indicating a non-ruminant adipose fat origin according to the Δ^13^C value 0.06 ‰ (Figure \@ref(fig:isotopic-plots)). This potsherd (SYG-TN13-E23-3) has the mean δ^13^C values `r E23_C16`‰ and `r E23_C18`‰ for the C~16:0~ and C~18:0~ fatty acids respectively, consistent with the isotopic value ranges of C~3~ plants, terrestrial or freshwater fish (ca. −26.5‰ to -33‰ for both compounds) reported for Neolithic potsherds in southern China [@Shoda2018], and freshwater aquatic products (-27.3‰ to 31.6‰ for the C~16:0~ and -26.4‰ to -29.9 for the C~18:0~) or wild boar (ca. -27‰ to -29.5‰ for both compounds) reported for the Jōmon pottery in western Japan [@Lucquin2016]. However, we are unable to distinguish between the C~3~ plants, terrestrial and freshwater fish by this isotopic approach alone. A further detection of biomarkers for fish such as isoprenoid fatty acids, or for starchy plants and millet will be needed for an better understanding [@Shoda2018; @Lucquin2016; @Heron2016]. 
+The isotope data shows that δ^13^C~16:0~ values range from `r rg_C16_isotope[1]` ‰ to `r rg_C16_isotope[2]` ‰, δ^13^C~18:0~ values range from `r rg_C18_isotope[1]` ‰ to `r rg_C18_isotope[2]`, and Δ^13^C values are between `r delta_range[2]` ‰ and `r delta_range[1]` ‰. A half of the samples (n= 3) at Guijiabao and Gaushan fall within the global reference range for ruminant adipose fat, where one sample from Guijiabao (SYG-TN13-E22-2#2) has a more enriched δ^13^C~16:0~ (`r E22_22_isotope[1]`) than others. The enriched δ^13^C suggests that the diet of ruminants contains both C~4~ and C~3~ plants (Figure \@ref(fig:isotopic-plots): B), while the depleted δ^13^C is related to a more C~3~ plant diet. While marine resources could potentially contribute to enriched δ^13^C values, the inland location of Guijiabao, situated approximately 1000 km away from the current South China Sea coast, restricts this possibility.
 
-For the pottery fragments (SYG-TN13-E22-1 and SYG-3) dating to the historical period, we found that the mean δ^13^C values of the extracts were plotted on the reference line between ruminant adipose and non-ruminant fats. Specifically, SYG-TN13-E22-1 and SYG-3 have the mean δ^13^C values `r E22_1_C16` and `r SYG3_C16` for the C~16:0~ fatty acids, and the mean δ^13^C values `r E22_1_C18` and `r SYG3_C18` for the C~18:0~ fatty acids. It is unsure to know what the origin of these values are, but it is possible that there is a mixing of both non-ruminant sources and ruminant fat [@Copley2003; @Dudd1998milk; @Suryanarayan2021]. It should be noted that the δ13C values could be influenced by multiple different products, such as ruminant products and plant products in the same cooking event, or over different cooking events with different products.
+One sample (SYG-TN13-E23-3) with Δ^13^C of `r E23_isotope[3]` falls within the range for non-ruminant fats (Figure \@ref(fig:isotopic-plots): B). Its relatively depleted δ^13^C~ values (δ^13^C~16:0~ of `r E23_isotope[1]` ‰ and δ^13^C~18:0~ of `r `E23_isotope[2]` ‰) reflect input of C~3~ plants, terrestrial animals, or freshwater resources [@Shoda2018; @Lucquin2016]. The two samples (SYG-TN13-E22-1 and SYG-3) dating to the historical period clustered within a narrow range of δ^13^C~16:0~ (`r SYG3_isotope[1]` ‰ to `r E22_1_isotope[1]`) and δ^13^C~18:0~ (`r SYG3_isotope[2]` ‰ to `r E22_1_isotope[2]`) near the reference line, showing a mixing source of ruminant and non-ruminant fat [@Copley2003]. A mixture of lipids from different sources is possible because δ13C values could be influenced by multiple distinct products, such as ruminant fats and plants, in the same cooking event or separate cooking events over time [@Evershed2002].
 
-There is only one Neolithic potsherd (SYG-TN13-E22-2#2) with a relatively enriched δ^13^C value (`r E22_22_C16` for the C~16:0~ and `r E22_22_C18` for the C~18:0~) compared with other samples. It is widely known that the δ^13^C values of fatty acids of marine source or C~4~ plants are more enriched than those of ruminant fats [@Lucquin2016]. Given that Guijiabao is situated inland with finding of millet grains, the enriched δ^13^C values might indicate the processing of C~4~ plants instead of marine resources, or the mixture of C~4~ plants and ruminant adipose products due to a slightly depleted δ^13^C value for the C~18:0~ fatty acid. However, in general, most samples have depleted δ^13^C values, which consistent with the δ^13^C values of C~3~ plants or ruminant fats, suggesting the processing of C~3~ plants or C~3~ plants were cooked with ruminant adipose meat. We also could not rule out the possibility that these depleted δ13C values came from mainly ruminant animals fed on C~3~ plants.
+```{r isotopic-plots, echo=FALSE, fig.cap= "A: The distribution of stable carbon isotopes for C~16:0~ and C~18:0~. The ellipses represent modern animal references fed on a C~3~diet (Copley et al. 2003). B: The Δ^13^C (δ^13^C~18:0~-~16:0~) values are plotted against δ^13^C~16:0~ values. The dash lines represent cut-offs for ruminant, non-ruminant, and ruminant dairy fats based on Suryanarayan et al. 2021"}
 
-```{r isotopic-plots, echo=FALSE, fig.cap= "A: The distribution of stable carbon isotopes for C~16:0~ and C~18:0~. B: The Δ^13^C (δ^13^C~18:0~-~16:0~) values are plotted against δ^13^C~16:0~ values. The dotted lines represent cut-offs for ruminant, non-ruminant, and ruminant dairy fats according to global references"}
 knitr::include_graphics(here::here("analysis/figures/isotopic_plots.png"))
 ```
 
 # Discussion
-<!--A brief summary of interesting results-->
-This paper is a preliminary study to investigate the pottery use at Guijiabao and Gaushan in Yanyuan area to explore whether those pots were used for cooking and what food categories could be processed in the pots. This will provide a direct evidence of the culinary practices in the Yanyuan region. Although the lipid yields in most of our samples are generally low, interpretative amounts of yields from all of our samples support the assumption that these ceramics were used as cooking or food storage vessels. The low lipid yield could be attributed to the bottom of the vessels, where there were fewer residues than other parts of the vessel, for example, the rim [@Evershed2008experimental; @Kwak2020; @Charters1993]. However, we also found that one sample from the vessel bottom dated to the Neolithic period contains a richer composition of long-chain fatty acids compared with those in other samples. We recognize that there are limitations and challenges for interpretation due to our small sample sizes and a lack of local modern references for animal fats and plant oils. In addition, a detailed analysis of faunal remains from the Guijiabao site is still in progress, which may constrain a comprehensive comparison between different types of evidence. Nevertheless, the lipid profiles and their isotopic ratios could still provide informative clues for a better understanding of culinary practices.
-
-Saturated fatty acids are the major lipid molecules identified in our samples that normally come from animal fats or plant oils, indicative of cooking events. In addition to saturated fatty acids, unsaturated fatty acids such as C~18:1~ was also identified in all samples, and three (SYG-TN13-E22-1, SYG-TN13-E22-2#2, and SYG-TN13-E23-4) out of the six potsherds show a more abundant C~18:1~ than C~18:0~ and C~16:0. Although the specific type of these unsaturated fatty acids can not be further identified in this study without the preparation of specific derivatives [@Berstan2004], their presences might still hint a possibility of plant oils. It is suggested that a higher ratio of C~18:1~ and C~16:0~ to C~18:0~ is associated with a greater likelihood of the origin of plant oils [@Mayyas2018; @Copley2005]. In our samples, the potsherd SYG-TN13_E23-3 has a higher ratio of C~18:1~ and C~16:0~ to C~18:0~, which also corresponds to the category of non-ruminant fats based on the isotopic values. However, we also acknowledge that C18:1 might have originate from animal fats, or there is a potential for modern contamination since monounsaturated fatty acids normally present limited preservation in archaeological contexts [@Whelton2021]. 
-
-<!--discussion about possible plant origins-->
-According to the δ^13^C values of fatty acids, the food residues in Neolithic potsherds could derive from non-ruminant fats, ruminant fats, and mixtures of ruminant fats and C~3~ plants or C~4~ plants. Previous studies suggested that millets (C~4~ plants), including foxtail and broomcorn millets, were the dominant cereals, according to macro-botanical and phytolith studies at Guijiabao [@Guijiabao2016; @Hao2022; @Huan2022]. The processing of millet might also be suggested by one Guijiabao potsherd dating to Neolithic period based on its isotopic ratios. However, a further confirmation would require to identify of any lipid residues associated with C~4~ plants, such as the biomarker for broomcorn millet, miliacin [@Heron2016]. The non-ruminant fats we identified from a Guijiabao potsherd that might have been from C~3~ plants or freshwater aquatic products, based on similar isotopic values reported by other studies in East Asia [@Shoda2018]. According to the results from flotation analysis at the Guijiabao site, it is possible that the source of C~3~ plants is rice or native wild weeds, such as *Pennisetum* and *Chenopodiaceae*. However, the seeds of wild weeds only account for a small part of the floral assemblage derived from flotation [@Guijiabao2016]. Given that a more depleted isotopic values for 5 out of 6 samples, ~C~3~ plants might consumed more than ~C~4 plants either by local people or by animals that were food source. 
-
-We can not rule out other sources for non-ruminant fats, such as freshwater aqautic products, a possibility which can be supported by the finding of fish bones and net sinkers at Guijiabao [@Guijiabao2017b]. This will also need identification of lipid biomarkers related to aquatic oils, such as long-chain $\omega$-(o-alkylphenyl) alkanoic acids and isoprenoid fatty acids [@Evershed2008marine; @Hansel2004; @Cramp2014; @Lucquin2016]. Although horse could be another non-ruminant fat source, whether it was part of local food choices in southwestern China around 4500 years ago during the Neolithic period is doubtful. First, the Pleistocene and Neolithic sites having wild horse bones are primarily concentrated in northern China, with only sporadic sites in the south [@Yuan2006]. Second, domesticated horses first found in southwestern China date to the Dian culture (4th century BC to 1st century AD) in eastern Yunnan [@Lei2009; @Chiou2004], which is 3000 years later than the Neolithic period. Thus, if horse meats is one of the source for non-ruminant fats, then it could only be present in historical ceramics. 
+<!--A brief summary of the lipid yield and function of pottery-->
+Lipids extracted from potsherds at Guijiabao and Gaoshan all exceed interpretative amounts, with their profiles revealing the processing of both animal and plant products This confirms the role of the pottery as vessels for cooking or food storage at both sites. The generally low lipid concentrations (<20 μg/g) in five out of the six samples may be attributed to the bottom parts of vessels, which might absorb fewer residues compared to other parts, such as the rim, during cooking events [@Evershed2008experimental; @Kwak2020; @Charters1993]. Additional factors contributing to the low lipid yields could be post-depositional processes [@Correa2014], or diverse methods of food preparation, including grilling or air-drying [@Zhang2022]. We recognize challenges for interpreting our results due to the small sample size and the absence of a direct local reference database from faunal bones or modern animals. Furthermore, the detailed contexts of faunal remains at Guijiabao are still in progress, thus they are not fully accessible. These limitations constrain a thorough comparison of various types of evidence at the site. Despite these restrictions, the overall pattern of lipid profiles with isotopic values offers valuable insights into culinary practices.
 
 <!--discussion about possible ruminant fat origin-->
-The ruminant fats identified in the Neolithic potsherds (ca. 4500 BP) from the Guijiabao and Gaoshan sites could have been derived from deer or sheep that were fed on a C~3~ diet, based on their isotopic values that are consistent with global references [@Evershed2002; @Mileto2017]. It is also possible that local wild bovids, such as yaks or water buffalo, were food sources during this period, as these animals have been found in sites in southwestern China [@Zhang2016; @Chen2020]. It is hard to identify the exact ruminant category in this case due to the limited accessibility to local animal bones or fats as reference samples. However, the finding of fatty acid source from ruminant fats, couple with stone artifacts found at the site such as stone balls and arrowheads, suggesting hunting could be an important subsistence activity at the site [@Hao2022; @Guijiabao2020a]. This also corresponds with resources that could be accessed in a highland environment. 
+Neolithic potsherds from Guijiabao and Gaushan (ca. 4500 BP) reveal food contents, including ruminant adipose fat (n= 3) and non-ruminant fat (n= 1). The ruminant adipose (Δ^13^C from `r E22_21_isotope[3]` to `r E22_22_isotope [3]` ) could have originated from goat/sheep, cattle, and deer based on a modern database [@Evershed2002], alongside archaeological contexts in northwestern China [@Sun2023]. At Guijiabao, the ruminants' diet includes C~3~ plants (SYG-TN13-E22-2#1), and a mixture of C~3~ and C~4~ plants (SYG-TN13-E22-2#2). A C~3~ diet is supported by the predominance of C~3~ weeds at Guijiabao, such as *Pennisetum* and *Chenopodiaceae* [@Guijiabao2016]. Some species in *Chenopodiaceae* can undergo C~4~ photosynthesis in arid environments [@Rudov2020; @Chasan2022], which may explain the mixture of plant types in SYG-TN13-E22-2#2. The direct input from C~4~ plants could be another reason for the mixed signal, as we have identified millet in the same sample. The domestication status of these ruminants detected in the samples remains unclear. However, considering the finding of hunting tools at Guijiabao, such as stone balls and arrowheads [@Hao2022; @Guijiabao2020a], with the abundance of wild ruminants in the natural settings of the Hengduan mountain ranges, such as deer, mutton, and yaks [@Zhang2022; @Zhang2016; @Chen2020; @He2020], it is plausible that subsistence at Guijiabao involving hunting to a certain degree.
 
-We observed mixtures of ruminant fats and C~3~ plants/freshwater aquatic source, based on analyses of two Guijiabao potsherds that date to the historical period (ca. 1000 BP). In addition to rice, the source of C~3~ plants could also have included wheat, since it was introduced into the region during the historical period [@JiangGaoshan2017]. A larger sample size is needed to determine whether there was a change in diet over time. The overall depleted δ^13^C values for potsherd samples associated with ruminant fats suggest that C~3~ plants might have been an important food source for local animals. Despite direct C~4~ plant signals not being found, analysis of one Guijiabao potsherd shows the source of C~4~ plant-fed ruminants during the Neolithic period. This indicates that either C~3~ or C~4~ plants could have been the food source for ruminants, but whether those animals were domesticated is unknown. The zooarchaeological analysis of faunal bones from Guijiabao is still in progress, the results of which could provide more details about local animal species for comparison.
+<!--Plant as possible non-ruminant fat origin-->
+The non-ruminant fat (SYG-TN13-E23-3) could originate from C~3~ plants and freshwater resources, based on similar isotopic ranges reported for Neolithic pottery in eastern China [@Shoda2018; @Lyu2024], and a global database [@Steele2010]. Although fish bones and net sinkers were found at Guijiabao [@Guijiabao2017b], lipid molecular evidence for fish, such as ω-(o-alkylphenyl)alkanoic acids and isoprenoid fatty acids [@Cramp2014], was absence in our samples. This suggests that fish might not have been commonly consumed, or alternative cooking methods for fish were employed. Possible source C~3~ plants could be rice or wild weeds based on botanical evidence [@Guijiabao2016; @Hao2022; @Huan2022]. Due to a small portion of seeds of wild weeds in the floral assemblage [@Guijiabao2016], coupled with rice phytolichs identified from the residential area [@Huan2022], rice appears to be the more likely major source of C~3~ plants. In addition, the non-ruminant sample has a higher ratio of C~18:1~ and C~16:0~ to C~18:0~, associated with a greater likelihood of plant oils [@Mayyas2018; @Copley2005]. However, we acknowledge that C18:1 might also originate from animal fats, or there is a potential for modern contamination, as monounsaturated fatty acids typically have limited preservation in archaeological contexts [@Whelton2021]. A further detection of biomarkers for starchy plants with a specific derivatization method for lipid compounds will be necessary to assess the presence of rice oil [@Shoda2018]. 
 
-Mixed isotopic signals were also identified from two 
+<!--Wild non-ruminant as possible non-ruminant fat origin-->
+The possibility of terrestrial animal input for the non-ruminant fat, such as wild boar, cannot be ruled out. The isotopic values of the non-ruminant sample align with those of reference fats from modern wild boars in western Japan [@Lucquin2016] and in the southeast Tibetan Plateau [@Zhang2022]. Although horses could be another non-ruminant fat source, it is less likely to have been part of the local diet in southwestern China during the Neolithic period. This is because wild horse bones are primarily concentrated at the Pleistocene and Neolithic sites in northern China, with only sporadic occurrences in the south [@Yuan2006]. Moreover, substantial evidence of domesticated horses in southwestern China dates back to the Dian culture (4th century BC to 1st century AD) in eastern Yunnan [@Lei2009; @Chiou2004], a period approximately 3000 years later than the Neolithic period. Ongoing research on faunal remains at Guijiabao will provide more details for further discussion. 
 
-Our preliminary results shows that culinary practices in the Neolithic period at Guijiabao include the processing of ruminant adipose products that might be from local wild animals, such as deer. A subsistence that relies on hunting to a certain degree could be possible, given the abundance of wild animals in the natural settings of the Hengduan mountain ranges, as indicated by the faunal remains from the Yingpanshan site [@He2020]. 
+<!--ruminants and crops-->
+Our preliminary data reveals the predominance of ruminants fed on a C~3~ and C~3~/C~4~ diet in pottery vessels during the Neolithic period, suggesting a potentially more significant role of ruminants in local culinary practices than previously thought. Most studies have primarily focused on mixed farming of millet and rice as the main economy in southwest China after the introduction of agricultural in the Neolithic period [@Deng2019]. At Guijaibao, domesticated crops, especially broomcorn millet, constitute the majority of plants based on macro- and micro- botanical analyses [@Guijiabao2016; @Huan2022], and nitrogen and carbon isotope analysis of human bones suggests a more C~4~ diet [@Lin2022]. Additionally, stone knives found at the site might be potentially be used for farming practices [@Zhou2019; @Hao2022; @Lin2022]. In our study, a Neolithic potsherd containing the lipid compound of broomcorn millet [@Heron2016], provides direct evidence of millet processing at Guijiabao. Although a depleted δ^13^C~16:0~ in the non-ruminant sample suggest the possibility of C~3~plants related to rice, further analysis is needed for confirmation. It is important to note that lipid signatures of plants tend to be weak due to microbial degradation or being masked by animal fats [@Colonese2017; @Evershed2008experimental], possibly explaining the low lipid yield of plants in one sample. Nevertheless, the frequent processing of ruminant meats in pottery, with unearthed hunting tools, suggests that animal hunting could be an essential subsistence strategy alongside crop consumption. This may also reflect a subsistence strategy adapted to highlands with cold environments where meat consumption is common [@Zhang2022].
 
-It is also likely that C~3~ plants (eg. rice) was processed based on the isotopic ratios showing non-ruminant fats from one Neolithic potsherds at Guijiabao. In addition to C~3 plants, another possibility for the source of non-ruminant fats could be freshwater aquatic products, which would require confirmation of the presence or absence of aquatic products. It is interesting to detect that one potsherd has a slightly higher values of carbon isotope ratios, indicating a contribution from C4 plants. The detection of C~3~ plants or C~4~ plants might suggest that farming practices were adopted during the time when those crops were first introduced to the Yanyuan area in the Neolithic period. The finding of C~4~ plant signal also corresponds with a previous study that suggests that a C~4~-based diet at the Guijiabao site using isotopic analysis of human bones [@Lin2022]. However, the scale of farming practices and crop consumption is unclear. Despite stone knives and tools that were also found at the sites that might have been related to farming practices, more studies are needed to confirm their usage for harvesting crops [@Zhou2019; @Hao2022; @Lin2022]. 
-
-An approach analyzing organic residues may only provide a narrow perspective on local diets, but it could improve our current understanding of food practices through presence of food residues that were cooked in ceramic vessels. A large-scale organic residue analysis of ceramics across different pottery forms in a wider region would offer insight into temporal and regional variations in the local diet during the Neolithic period in southwestern China.
-
-An further investigation on the aquatic source should be conducted through selected ion monitoring (SIM) methods in the future to distinguish whether the δ13C
-values are the result of processing C3 plants or freshwater aquatic products in the pottery vessel.
-
-sampling bias, poor preservation
-These studies and the ability/limitations of ORA should be mentioned. 
-
-The domination of millet at Guijiabao corresponds to a C~4~-based diet based on isotopic analysis of four human bones [@Lin2022].
-
-<!--- removed
-such as C~4~ plants (e.g., millets) and C~3~ plants (e.g., rice), or animals (e.g., pigs) became an essential part of the local diet in Yanyuan during the Neolithic period.
-while the food residues in historical potsherds present mixtures of ruminant and C~3~ plants.
--->
+The two historical potsherds (ca. 1000 BP) from Guijiabao demonstrates mixtures of ruminant adipose and non-ruminant fats, implying a potential increase in the exploitation of C3 plants, pigs, or freshwater resources compared to the Neolithic period. In addition to rice, the source of C~3~ plants could also have included wheat, since it was introduced into the region during the historical period [@JiangGaoshan2017]. For the Gaoshan sample, a slightly enriched δ^13^C may suggest minor contributions of pigs [@Evershed2002], in correspondence with the predominance of domestic pigs at the site [@He2020]. However, determining changes in culinary practices over time and regional differences would require a larger sample size. While a geochemical approach analyzing organic residues may provide a limited perspective on local diets, it contributes to improving our current understanding of direct food practices through organic residues in ceramic vessels. As a preliminary study, our data reveals food contents cooked in pottery from both animal and plant sources, offering valuable insights into culinary practices during the time when agriculture spread into the Yuan Basin in southwest China.
 
 # Conclusion
-Our case study on organic residues in pottery fragments from the sites at Guijiabao and Gaoshan in southwestern China reveals the presence of lipids that can be analyzed to determine food sources. The foods cooked in the ceramics included ruminant fats and terrestrial plants during the Neolithic period, when millet and rice spread into southwestern China. The source of terrestrial plants could have been C~3~ plants, implying the cooking of rice or other wild weeds in the pots. However, the evidence of direct cooking of either C~3~ or C~4~ plants shows that the amount of C~3~/C~4~ plants cooked is not in proportion to the large quantity of plant remains found at the Guijiabao site, especially C~4~ plants such as millet. Instead, ruminant fats from local animals, such as wild deer, could have been a common food source during the Neolithic period. This suggests that hunting might have been an important part of local subsistence strategy, supplemented by rice/millet farming when they were introduced. Our results from the Guijiabao site could represent a subsistence strategy for adapting to the natural environment of the Hengduan Mountains. We recognize the limitations of our interpretation of the local diet due to the small sample size. Nevertheless, our study could offer an approach using organic residue analysis to determine food choices and explore the extent of the adoption of farming when rice/millet agriculture first spread into the Yanyuan area during the Neolithic period. A more systematic sampling of potsherds across different phases and pottery types may give a clear picture of diet and subsistence in southwestern China during the Neolithic period of transition.
+This paper presents a preliminary result investigating pottery use at Guijiabao in the Yanyuan area, middle Hengduan mountain range, through organic residue analyses to explore culinary practices. Despite the small sample size, our results reveal a relatively diverse range of food categories cooked in pottery during the Neolithic period, including ruminant adipose fats, plants such as broomcorn millet, and non-ruminant sources. In the historical period, mixtures of ruminant adipose fats and non-ruminant fats were identified. Non-ruminant fats could have originated from C3 plants, pigs, or freshwater resources. 
+
+While a mixed crop of millet and rice is generally accepted as the main subsistence in southwest China, our results indicate that ruminant adipose fats were more commonly cooked in pottery. The prevalence of ruminant fats suggests the significance of meat consumption, a aspect often overlooked after the introduction of crops. The discovery of hunting tools at Guijiabao further indicates that hunting might have played a crucial role in the local subsistence strategy, complementing rice/millet farming. TThis provides valuable insights into subsistence strategies in a highland setting in the Hengduan Mountains ranges. Although our preliminary data has limitations for a comprehensive interpretation, the results demonstrate the feasibility of lipid identifications with compound-specific stable isotope analysis to determine food content processed in ceramic vessels at Guijiabao. A more systematic sampling of potsherds across different phases and pottery types will contribute to a clearer understanding of diet and subsistence in southwestern China in the future.
 
 # Acknowledgements
-We thank the Chengdu Municipal Institute of Cultural Relics and Archaeology for their permission to access and analyze the pottery samples. We thank Julian Sachs in the Department of Oceanography at the University of Washington for his support in letting us use their laboratory for sample preparation and for conducting lipid extraction and analysis. We thank Matthew Wolhowe for his suggestions and assistance with the GC-based machines. We also want to express our gratitude to the anonymous reviewers for their comments that helped us improve this paper. This research is sponsored by the National Science and Technology Council (MOST 109-2410-H-001-009-MY2).
+We thank the Chengdu Municipal Institute of Cultural Relics and Archaeology for their permission to access and analyze the pottery samples. We thank Julian Sachs in the Department of Oceanography at the University of Washington for his support in letting us use their laboratory for sample preparation and for conducting lipid extraction and analysis. We thank Matthew Wolhowe for his suggestions and assistance with the GC-based machines. We also want to express our gratitude to the anonymous reviewers for their comments that helped us improve this paper. The research was supported by the National Science and Technology Council (MOST 109-2410-H-001-009-MY2). 
 
 <!-- The following line inserts a page break  -->
 
