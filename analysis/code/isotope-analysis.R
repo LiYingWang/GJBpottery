@@ -117,6 +117,8 @@ isotope_C16_C18 <-
            label = bquote(Delta*{}^13*"C = -0.7 \u2030")) +
   annotate("text", x = -21.5, y = -24.5, angle = 45, vjust = 1.5,
            label = bquote(Delta*{}^13*"C = -3.1 \u2030")) +
+  annotate("text", x = c(-26, -27), y = c(-23.5, -32),
+           label = c("Non-Ruminant fat", "Ruminant fat")) +
   annotation_raster(tem3, ymin = -38, ymax= -17.9 ,
                     xmin = -36, xmax = -18.3)
 
