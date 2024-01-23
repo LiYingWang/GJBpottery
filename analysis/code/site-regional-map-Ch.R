@@ -5,7 +5,7 @@ library(rnaturalearth)
 library(rnaturalearthdata)
 library(here)
 library(ggspatial)
-# devtools::install_github('3wen/legendMap')
+#devtools::install_github('3wen/legendMap')
 library(legendMap)
 library(tmaptools)
 library(shadowtext)
@@ -28,10 +28,10 @@ site_location <-
 
 China_SE_Asia <-
   ggplot(data = world) +
-  geom_sf(fill= "antiquewhite") +
+  geom_sf(fill = "antiquewhite") + #antiquewhite
   geom_rect(xmin = 99.5, xmax = 105.5, ymin = 25.5, ymax = 31.5,
             fill = NA, colour = "red", size = 0.5) +
-  geom_shadowtext(data= world_points,
+  geom_shadowtext(data= world_points, #geom_shadowtext
                   aes(x = X, y = Y,
                       label = brk_name),
                   color='black',
@@ -46,15 +46,50 @@ China_SE_Asia <-
   theme(axis.title.x = element_blank(),
         axis.title.y = element_blank())
 
-# Topographic map
+# leaflet
+library(leaflet)
+
+# Background 2: World Imagery
+satellite <- leaflet() %>%
+  addTiles() %>%
+  setView( lng = 101, lat = 33, zoom = 5) %>%
+  addProviderTiles("Esri.WorldImagery")
+
+library(png)
+satellite <- readPNG(here::here("analysis","figures", "satellite_sw_china.png"),
+                     native = FALSE, info = FALSE)
+
+region_satellite_map <-
+  China_map %>%
+  ggmap() +
+  geom_rect(xmin = 99, xmax = 105.5, ymin = 25, ymax = 31.5,
+            fill = NA, colour = "red", size = 0.5) +
+  coord_sf(xlim = c(88, 116.5), ylim = c(13.5, 40), expand = FALSE) +
+  theme(axis.title.x = element_blank(),
+        axis.title.y = element_blank())
+
+# Topographic map, get map from the Stadia Maps
 library(ggmap)
+register_stadiamaps("707a2ccb-7cfa-4aca-b2e0-5c517c4b9d66") # API
+# from https://stackoverflow.com/questions/77432892/problem-visualizing-maps-with-staten-maps
 # we don't want to download every time, so let's save the map locally
-# from https://stackoverflow.com/a/52710855/1036500
-#GJB_map <- ggmap(get_stamenmap(rbind(as.numeric(c(99, 25,
-                                                  #106, 32))), zoom = 10))
-# saveRDS(GJB_map, here("analysis", "data", "derived_data", "SW_china_map.rds"))
+China_map <- get_stadiamap(rbind(as.numeric(c(80, 10, #ggmap
+                                              125, 45))), zoom = 5, maptype = "stamen_terrain") #stamen_terrain_background
+#saveRDS(China_map, here("analysis", "data", "derived_data", "China_map.rds"))
+#GJB_map <- get_stadiamap(rbind(as.numeric(c(99, 25, #ggmap
+                                            #106, 32))), zoom = 10, maptype = "stamen_terrain_background")
+#saveRDS(GJB_map, here("analysis", "data", "derived_data", "SW_china_map.rds"))
+China_map <- readRDS(here::here("analysis", "data", "derived_data", "china_map.rds"))
 SW_china_map <- readRDS(here::here("analysis", "data", "derived_data", "SW_china_map.rds"))
-pg <- ggplot_build(SW_china_map)
+
+region_map <-
+  China_map %>%
+  ggmap() +
+  geom_rect(xmin = 99, xmax = 105.5, ymin = 25, ymax = 31.5,
+            fill = NA, colour = "red", size = 0.5) +
+  coord_sf(xlim = c(88, 116.5), ylim = c(13.5, 40), expand = FALSE) +
+  theme(axis.title.x = element_blank(),
+        axis.title.y = element_blank())
 
 China_map_with_site <-
   SW_china_map +
@@ -63,7 +98,7 @@ China_map_with_site <-
                  y = lat),
              size = 1,
              color = "red") +
-  geom_shadowtext(data = site_location,
+  geom_shadowtext(data = site_location,  #geom_shadowtext
                   aes(x = lon,
                       y = lat,
                       label = location),
@@ -73,13 +108,13 @@ China_map_with_site <-
                   position = position_nudge(y = - 0.2),
                   check.overlap = TRUE) +
   annotate(geom = "text", x = 104, y = 30.7, label = "Chengdu\nPlain",
-           fontface = "italic", color = "grey1", size = 2.3) +
+           fontface = "italic", color = "grey1", size = 2.5) +
   annotate(geom = "text", x = 104.8, y = 30, label = "Sichuan\nBasin",
-           fontface = "italic", color = "grey1", size = 2.3) +
-  annotate(geom = "text", x = 102.6, y = 27.5, label = "Yanyuan\nBasin",
-           fontface = "italic", color = "grey1", size = 2.3) +
+           fontface = "italic", color = "grey1", size = 2.5) +
+  annotate(geom = "text", x = 102.7, y = 27.5, label = "Yanyuan\nBasin",
+           fontface = "italic", color = "grey1", size = 2.5) +
   annotate(geom = "text", x = 101.5, y = 29.3, label = "Hengduan\nMountain",
-           fontface = "italic", color = "grey1", size = 2.3) +
+           fontface = "italic", color = "grey1", size = 2.5) +
   annotate("segment", x = 102.2, xend = 101.8, y = 27.5, yend = 27.5,
            color = "grey5", arrow = arrow(length = unit(.15,"cm"))) +
   coord_sf(xlim = c(99.5, 105.5),
@@ -109,7 +144,7 @@ ggplot() +
   scale_x_continuous(limits = c(0, 2.5), expand = c(0, 0)) +
   scale_y_continuous(limits = c(0, 1), expand = c(0, 0)) +
   coord_equal() +
-  annotation_custom(ggplotGrob(China_SE_Asia),
+  annotation_custom(ggplotGrob(region_map), #China_SE_Asia, #region_map
                     xmin = 0,
                     xmax = 1.5,
                     ymin = 0,
@@ -122,7 +157,8 @@ ggplot() +
   theme_void() +
   theme(plot.background = element_rect(color = "white", fill = "white"))
 
-ggsave(here::here("analysis","figures", "Sichuan-sites-map.png"),
+
+ggsave(here::here("analysis","figures", "Sichuan-sites-map2.png"),
        width = 6,
        height = 3,
        dpi = 300,
