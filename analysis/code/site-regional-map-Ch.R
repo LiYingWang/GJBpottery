@@ -46,28 +46,6 @@ China_SE_Asia <-
   theme(axis.title.x = element_blank(),
         axis.title.y = element_blank())
 
-# leaflet
-library(leaflet)
-
-# Background 2: World Imagery
-satellite <- leaflet() %>%
-  addTiles() %>%
-  setView( lng = 101, lat = 33, zoom = 5) %>%
-  addProviderTiles("Esri.WorldImagery")
-
-library(png)
-satellite <- readPNG(here::here("analysis","figures", "satellite_sw_china.png"),
-                     native = FALSE, info = FALSE)
-
-region_satellite_map <-
-  China_map %>%
-  ggmap() +
-  geom_rect(xmin = 99, xmax = 105.5, ymin = 25, ymax = 31.5,
-            fill = NA, colour = "red", size = 0.5) +
-  coord_sf(xlim = c(88, 116.5), ylim = c(13.5, 40), expand = FALSE) +
-  theme(axis.title.x = element_blank(),
-        axis.title.y = element_blank())
-
 # Topographic map, get map from the Stadia Maps
 library(ggmap)
 register_stadiamaps("707a2ccb-7cfa-4aca-b2e0-5c517c4b9d66") # API
@@ -164,3 +142,30 @@ ggsave(here::here("analysis","figures", "Sichuan-sites-map2.png"),
        dpi = 300,
        units = "in")
 
+# leaflet
+library(leaflet)
+
+# Background 2: World Imagery
+satellite <- leaflet() %>%
+  addTiles() %>%
+  setView(lng = 99.5, lat = 30.5, zoom = 5) %>%
+  addProviderTiles("Esri.WorldImagery")
+
+library(magick)
+satellite <- image_read(here::here("analysis","figures", "satellite_sw_china.png"))
+satellite_crop <- image_crop(satellite, geometry = "1000x748+84-20") #1084,768
+
+satellite_map <-
+  ggdraw() +
+  draw_image(satellite_crop)
+
+plt1 <-
+  plot_grid(satellite_map,
+            China_map_with_site,
+            ncol = 2)
+
+ggsave(here::here("analysis","figures", "Sichuan-sites-map3.png"),
+       width = 6,
+       height = 3,
+       dpi = 300,
+       units = "in")
