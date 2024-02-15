@@ -128,7 +128,7 @@ big_delta_C16 <-
   geom_point(size = 2, alpha = 0.9, aes(shape = name, color = period)) +
   theme_minimal() +
   labs(x = bquote(delta*{}^13*"C 16:0 \u2030"),
-       y = bquote(Delta*{}^13*"C 18:0 \u2030")) +
+       y = bquote(Delta*{}^13*"C")) +
   scale_x_continuous(limits = c(-33, -20),
                      breaks = seq(-33, -20, 2)) +
   ylim(-2.5, 1.5) +

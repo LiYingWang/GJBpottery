@@ -91,7 +91,7 @@ China_map_with_site <-
            fontface = "italic", color = "grey1", size = 2.5) +
   annotate(geom = "text", x = 102.7, y = 27.5, label = "Yanyuan\nBasin",
            fontface = "italic", color = "grey1", size = 2.5) +
-  annotate(geom = "text", x = 101.5, y = 29.3, label = "Hengduan\nMountain",
+  annotate(geom = "text", x = 101.5, y = 29.3, label = "Hengduan\nMountains",
            fontface = "italic", color = "grey1", size = 2.5) +
   annotate("segment", x = 102.2, xend = 101.8, y = 27.5, yend = 27.5,
            color = "grey5", arrow = arrow(length = unit(.15,"cm"))) +
@@ -159,6 +159,7 @@ satellite_map <-
   ggdraw() +
   draw_image(satellite_crop)
 
+library(cowplot)
 plt1 <-
   plot_grid(satellite_map,
             China_map_with_site,
