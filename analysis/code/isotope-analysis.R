@@ -131,7 +131,7 @@ big_delta_C16 <-
        y = bquote(Delta*{}^13*"C")) +
   scale_x_continuous(limits = c(-33, -20),
                      breaks = seq(-33, -20, 2)) +
-  ylim(-2.5, 1.5) +
+  ylim(-2.7, 1.5) +
   geom_hline(yintercept = -0.7, linetype = "dashed") +
   annotate("text", x = -31.5, y = -0.9,
            label = bquote(Delta*{}^13*"C = -0.7 \u2030")) +
