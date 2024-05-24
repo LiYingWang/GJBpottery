@@ -106,7 +106,7 @@ meth_all %>%
   scale_y_continuous(limits = c(0, 1160000),
                      breaks = seq(0, 1100000, 200000),
                      expand = c(0, 0)) +
-  scale_x_continuous(limits = c(10, 47),
+  scale_x_continuous(limits = c(17, 48),
                      breaks = seq(10, 50, 1),
                      labels = insert_minor(seq(10, 50, 5), 4),
                      expand = c(0, 0)) +
@@ -115,7 +115,7 @@ meth_all %>%
   theme(axis.line.y = element_blank(), strip.background = element_blank(), # remove title box
         axis.ticks.y=element_blank(), axis.text.y = element_blank())
 
-ggsave(here::here("analysis","figures", "chromatograms_four.png"),
+ggsave(here::here("analysis","figures", "chromatograms_five.png"),
        bg = "white", width = 7, height = 8, dpi = 300, units = "in")
 
 # plot the one with high yield (GC program 1)

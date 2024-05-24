@@ -246,7 +246,7 @@ insert_minor <- function(major_labs, n_minor) {labs <-
 labs[1:(length(labs)-n_minor)]}
 
 # plot the first group
-chroma_four <-
+chroma_five <-
   meth_all %>%
   filter(name %in% c("SYG-3","SYG-TN13-E22-2#1","SYG-TN13-E22-1","SYG-TN13-E23-3","CDG-062")) %>%
   mutate(File = ifelse(File > 1000000, 1000000, File)) %>%
@@ -270,7 +270,7 @@ chroma_four <-
   scale_y_continuous(limits = c(0, 1160000),
                      breaks = seq(0, 1100000, 200000),
                      expand = c(0, 0)) +
-  scale_x_continuous(limits = c(18, 47),
+  scale_x_continuous(limits = c(17, 48),
                      breaks = seq(15, 50, 1),
                      labels = insert_minor(seq(15, 50, 5), 4),
                      expand = c(0, 0)) +
@@ -279,8 +279,8 @@ chroma_four <-
   theme(axis.line.y = element_blank(), strip.background = element_blank(), # remove title box
         axis.ticks.y=element_blank(), axis.text.y = element_blank())
 
-ggsave(plot = chroma_four,
-       here::here("analysis","figures", "chromatograms_four.png"),
+ggsave(plot = chroma_five,
+       here::here("analysis","figures", "chromatograms_five.png"),
        bg = "white",
        width = 6,
        height = 8,
@@ -438,19 +438,19 @@ delta_meth_cor <-
 delta_meth_data <-
   delta_meth_cor %>%
   dplyr::mutate(delta = `13C C18:0`-`13C C16:0`) %>%
-  mutate(name = case_when(C13 %in% c("Pot 1") ~ "CDG-062",
+  mutate(label = case_when(C13 %in% c("Pot 1") ~ "CDG-062",
                           C13 %in% c("Pot 2") ~ "SYG-3",
                           C13 %in% c("Pot 3") ~ "SYG-TN13-E22-2#1",
                           C13 %in% c("Pot 4") ~ "SYG-TN13-E22-1",
                           C13 %in% c("Pot 5") ~ "SYG-TN13-E22-2#2",
                           C13 %in% c("Pot 6") ~ "SYG-TN13-E23-3")) %>%
-  mutate(name = factor(name, levels = c("SYG-TN13-E22-1",
+  mutate(label = factor(label, levels = c("SYG-TN13-E22-1",
                                         "SYG-TN13-E22-2#1",
                                         "SYG-TN13-E22-2#2",
                                         "SYG-TN13-E23-3",
                                         "SYG-3",
                                         "CDG-062"))) %>%
-  mutate(period = ifelse(name %in% c("SYG-TN13-E22-1", "SYG-3" ), "Historical", "Neolithic"))
+  mutate(period = ifelse(label %in% c("SYG-TN13-E22-1", "SYG-3" ), "Historical", "Neolithic"))
 
 rg_C16_isotope <- round(c(min(delta_meth_data$`13C C16:0`), max(delta_meth_data$`13C C16:0`)), 2)
 rg_C18_isotope <- round(c(min(delta_meth_data$`13C C18:0`), max(delta_meth_data$`13C C18:0`)), 2)
@@ -471,7 +471,7 @@ tem3 <- readPNG(here::here("analysis","figures", "isotope_range.png"), native = 
 isotope_C16_C18 <-
   delta_meth_data %>% #delta_meth_cor/delta_blank_cor
   ggplot(aes(`13C C16:0`,`13C C18:0`)) +
-  geom_point(size = 2, alpha = 0.9, aes(shape = name, color = period)) +
+  geom_point(size = 2, alpha = 0.9, aes(shape = label, color = period)) +
   #ggrepel::geom_text_repel(aes(label = C13)) +
   labs(x = expression(paste(delta*{}^13* C[16:0], "\u2030")),
        y = expression(paste(delta*{}^13* C[18:0], "\u2030"))) +
@@ -491,9 +491,9 @@ isotope_C16_C18 <-
 big_delta_C16 <-
   delta_meth_data %>%
   ggplot(aes(`13C C16:0`, delta)) +
-  geom_point(size = 2, alpha = 0.9, aes(shape = name, color = period)) +
-  labs(x = expression(paste(delta*{}^13* C[16:0], "\u2030")),
-       y = expression(paste(delta*{}^13* C[18:0], "\u2030"))) +
+  geom_point(size = 2, alpha = 0.9, aes(shape = label, color = period)) +
+  labs(x = bquote(delta*{}^13*"C 16:0 \u2030"),
+       y = bquote(Delta*{}^13*"C")) +
   scale_x_continuous(limits = c(-33, -20), breaks = seq(-33, -20, 2)) +
   ylim(-3, 1.5) +
   geom_hline(yintercept = -0.7, linetype = "dashed") +
