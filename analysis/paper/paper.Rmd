@@ -85,7 +85,7 @@ By identifying lipid compositions and conducting compound-specific carbon isotop
 
 ```{r SW-china-map, fig.cap = "The archaeological sites, Guijiabao and Gaoshan, and other locations in southwest China that are mentioned in this study. Map data is from Leaflet and naturalearthdata.com"}
 library(here)
-knitr::include_graphics(here("analysis", "figures", "Sichuan-sites-map3.png"))
+knitr::include_graphics(here("analysis", "figures", "Sichuan-sites-map.png"))
 ```
 
 <!--Yanyuan area and Guijiabao site-->
@@ -192,7 +192,7 @@ FA_sum_max <- FA_sum %>% slice(which.max(weight)) %>% pull(weight)
 FA_mean <- round(mean(FA_sum$weight), 2)
 ```
 
-The total lipid concentrations of potsherds at Guijiabao and Gaoshan range from `r FA_sum_min` to `r FA_sum_max` μg/g, with an average of `r FA_mean` μg/g (Table \@ref(tab:FA-composition-table)). Lipid yields from all potsherds are above interpretable concentrations (5 μg/g) [@Evershed2008experimental], suggesting those ceramics should be associated with food processing. The main compounds were saturated fatty acids with an even number of carbons, particularly C~16:0~ (palmitic acid) and C~18:0~ (stearic acid), commonly derived from animal fats and plant oils (Figure \@ref(fig:chromatograms-plots-four)). Unsaturated fatty acid, C~18:1~, was detected in all samples and dominant in three, but we are unable to distinguish the C~18:1~ types based on current methods. The most interesting finding is that milliacin, the compound specific to broomcorn millet [@Heron2016; @Bossard2013; @Ganzarolli2018], was identified in one Neolithic sample (SYG-TN13-E22-2#2) from Guijiabao (Figure \@ref(fig:chromatograms-specific-std)). This sample has a wider range of fatty acids from C~12:0~ to C~30:0~ (`r FA_sum_max` μg/g), where long-chain fatty acids could originate from plant sources [@Post1996; @Copley2005]. Overall, the dominance of C~16:0~ and C~18:0~ in most samples suggests that the lipids extracted from our samples were significantly degraded.
+The total lipid concentrations of potsherds at Guijiabao and Gaoshan range from `r FA_sum_min` to `r FA_sum_max` μg/g, with an average of `r FA_mean` μg/g (Table \@ref(tab:FA-composition-table)). Lipid yields from all potsherds are above interpretable concentrations (5 μg/g) [@Evershed2008experimental], suggesting those ceramics should be associated with food processing. The main compounds were saturated fatty acids with an even number of carbons, particularly C~16:0~ (palmitic acid) and C~18:0~ (stearic acid), commonly derived from animal fats and plant oils (Figure \@ref(fig:chromatograms-plots-five)). Unsaturated fatty acid, C~18:1~, was detected in all samples and dominant in three, but we are unable to distinguish the C~18:1~ types based on current methods. The most interesting finding is that milliacin, the compound specific to broomcorn millet [@Heron2016; @Bossard2013; @Ganzarolli2018], was identified in one Neolithic sample (SYG-TN13-E22-2#2) from Guijiabao (Figure \@ref(fig:chromatograms-specific-std)). This sample has a wider range of fatty acids from C~12:0~ to C~30:0~ (`r FA_sum_max` μg/g), where long-chain fatty acids could originate from plant sources [@Post1996; @Copley2005]. Overall, the dominance of C~16:0~ and C~18:0~ in most samples suggests that the lipids extracted from our samples were significantly degraded.
 
 ```{r FA-composition-table, cache= TRUE}
 quant_FA_table <-
@@ -239,7 +239,7 @@ highlight_IS <-
   filter(name %in% c("SYG-3", "SYG-TN13-E22-2#1", "SYG-TN13-E22-1", "SYG-TN13-E23-3", "CDG-062"))
 ```
 
-```{r chromatogram-four, cache= TRUE}
+```{r chromatogram-five, cache= TRUE}
 # to insert ticks in plot
 insert_minor <- function(major_labs, n_minor) {labs <-
   c( sapply( major_labs, function(x) c(x, rep("", 4) ) ) )
@@ -288,9 +288,9 @@ ggsave(plot = chroma_five,
        units = "in")
 ```
 
-```{r chromatograms-plots-four, echo=FALSE, fig.cap= "Partial total ion current (TIC) chromatograms of pottery samples from Guijiabao and Gaoshan. 'Cn:x' refers to fatty acid with n carbon atoms and x double bonds. 'IS' indicates internal standard used for quantification, including FA C~21:0~ and 5-α Cholestane"}
+```{r chromatograms-plots-five, echo=FALSE, fig.cap= "Partial total ion current (TIC) chromatograms of pottery samples from Guijiabao and Gaoshan. 'Cn:x' refers to fatty acid with n carbon atoms and x double bonds. 'IS' indicates internal standard used for quantification, including FA C~21:0~ and 5-α Cholestane"}
 
-knitr::include_graphics(here::here("analysis/figures/chromatograms_four.png"))
+knitr::include_graphics(here::here("analysis/figures/chromatograms_five.png"))
 ```
 
 ```{r chromatogram-specific, cache= TRUE}
@@ -426,7 +426,7 @@ isotope_data <-
   readxl::read_excel(here::here("analysis","data", "raw_data","12_21_potshard_13C_pub.xlsx"),
                      sheet = "Summary", col_names =  FALSE)
 
-# filter the Meth corrected data
+# filter the MeOH corrected data
 delta_meth_cor <-
   isotope_data %>%
   select(1, 7, 9) %>%
