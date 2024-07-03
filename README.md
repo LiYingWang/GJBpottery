@@ -10,8 +10,6 @@ This repository contains the data and code for our paper:
 > Wang, L. Y., Lin, K. C., & Zhou, Z., (2024). *Preliminary insights into the use of pottery and culinary practices at Guijiabao site in southwest China*. Journal of Archaeological Science: Reports, 57.
 > <https://doi.org/10.1016/j.jasrep.2024.104598>
 
-Wang, L. Y., Lin, K. C., & Zhou, Z. (2024). Preliminary insights into the use of pottery and culinary practices at Guijiabao site in southwest China. Journal of Archaeological Science: Reports, 57., https://doi.org/10.1016/j.jasrep.2024.104598, pre-print, data & code: https://osf.io/preprints/socarxiv/6pev8
-
 Our pre-print is online here:
 
 > Wang, L. Y., Lin, K. C., & Zhou, Z. (2024). Preliminary insights into the use of pottery and culinary practices at Guijiabao site in southwest China. Journal of Archaeological Science: Reports, 57., Accessed 30 June 2024. Online at
@@ -21,7 +19,7 @@ Our pre-print is online here:
 
 Please cite this compendium as:
 
-> Wang, L.-Y., Lin, K.-C., and Zhou, Z. (2023). *Compendium of R code and data for Investigating Neolithic pottery use from Guijiabao in the Yanyuan Basin in southwest China using organic residue analysis. Accessed 16 Apr 2023. Online at
+> Wang, L.-Y., Lin, K.-C., and Zhou, Z. (2024). *Compendium of R code and data for Investigating Neolithic pottery use from Guijiabao in the Yanyuan Basin in southwest China using organic residue analysis. Accessed 30 June 2024. Online at
 > <https://doi.org/10.17605/OSF.IO/46BPF>
 
 ## Contents
