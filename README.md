@@ -7,14 +7,15 @@
 
 This repository contains the data and code for our paper:
 
-> Authors, (YYYY). *Title of your paper goes here*. Name of journal/book
-> <https://doi.org/xxx/xxx>
+> Wang, L. Y., Lin, K. C., & Zhou, Z., (2024). *Preliminary insights into the use of pottery and culinary practices at Guijiabao site in southwest China*. Journal of Archaeological Science: Reports, 57.
+> <https://doi.org/10.1016/j.jasrep.2024.104598>
+
+Wang, L. Y., Lin, K. C., & Zhou, Z. (2024). Preliminary insights into the use of pottery and culinary practices at Guijiabao site in southwest China. Journal of Archaeological Science: Reports, 57., https://doi.org/10.1016/j.jasrep.2024.104598, pre-print, data & code: https://osf.io/preprints/socarxiv/6pev8
 
 Our pre-print is online here:
 
-> Authors, (YYYY). *Title of your paper goes here*. Name of
-> journal/book, Accessed 09 Feb 2022. Online at
-> <https://doi.org/xxx/xxx>
+> Wang, L. Y., Lin, K. C., & Zhou, Z. (2024). Preliminary insights into the use of pottery and culinary practices at Guijiabao site in southwest China. Journal of Archaeological Science: Reports, 57., Accessed 30 June 2024. Online at
+> <https://osf.io/preprints/socarxiv/6pev8>
 
 ### How to cite
 
